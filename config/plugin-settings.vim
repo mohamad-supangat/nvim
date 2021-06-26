@@ -290,7 +290,7 @@ function! InsertColon()
 endfunction
 
 function! OnChangeVueSyntax(syntax)
-  echom 'Syntax is '.a:syntax
+  " echom 'Syntax is '.a:syntax
   if a:syntax == 'html'
     setlocal commentstring=<!--%s-->
     setlocal comments=s:<!--,m:\ \ \ \ ,e:-->
