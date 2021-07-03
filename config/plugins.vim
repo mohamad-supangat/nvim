@@ -11,9 +11,10 @@ call plug#begin('~/.local/share/nvim/plugged')
 
   " lightline
 
-  Plug 'itchyny/lightline.vim'
-  Plug 'mengelbrecht/lightline-bufferline'
+  " Plug 'itchyny/lightline.vim'
+  " Plug 'mengelbrecht/lightline-bufferline'
   " Plug 'itchyny/vim-cursorword'
+  Plug 'akinsho/nvim-bufferline.lua'
 
   Plug 'sainnhe/gruvbox-material'
   " Plug 'lifepillar/vim-gruvbox8'
@@ -49,9 +50,14 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'tweekmonster/startuptime.vim'
 
   Plug 'leafOfTree/vim-vue-plugin' " best vue integration
+
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+
   Plug 'alvan/vim-closetag' " auto close html tag
   " Plug 'neoclide/coc-vetur' " vue language server from coc
   "
-  Plug 'kdheepak/lazygit.nvim', { 'branch': 'nvim-v0.4.3' }
+  Plug 'kdheepak/lazygit.nvim'
+  Plug 'pablopunk/statusline.vim'
+
 call plug#end()
  
