@@ -1,10 +1,8 @@
 " indent line {{{
-let g:indentLine_char = '▏'
-" let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 let g:indent_blankline_char = '▏'
 
 let g:indent_guides_auto_colors = 1
-let g:indentLine_fileTypeExclude = [
+let g:indent_blankline_filetype_exclude = [
     \'defx',
     \'markdown',
     \'denite',
@@ -14,6 +12,8 @@ let g:indentLine_fileTypeExclude = [
     \'vista'
       \]
 " }}}
+let g:indent_blankline_use_treesitter = v:true
+let g:indent_blankline_show_end_of_line = v:true
 
 " fzf settings {{{
 let g:fzf_preview_window = []
@@ -145,4 +145,3 @@ endfunction
 autocmd BufWritePost *.vue :CocCommand prettier.formatFile
 " }}}
 
-" lua require('nvim-biscuits').setup({})
