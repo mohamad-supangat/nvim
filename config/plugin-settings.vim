@@ -1,3 +1,6 @@
+function! CocCurrentFunction()
+    return get(b:, 'coc_current_function', '')
+endfunction
 
 " LightLine
 
@@ -6,7 +9,7 @@ let g:lightline = {
 \   'active': {
 \    'left' : [[ 'mode', 'paste' ],
 \              [ 'gitbranch' ],
-\              [ 'filename' ]],
+\              [ 'cocstatus', 'currentfunction', 'filename' ]],
 \    'right': [[ 'trailing' ],
 \              [ 'lineinfo' ],
 \              [ 'percent' ],
@@ -35,6 +38,8 @@ let g:lightline = {
 \     'lineinfo'     : 'LightlineLineInfo',
 \     'percent'      : 'LightlinePercent',
 \     'mode'         : 'LightlineMode',
+\     'cocstatus': 'coc#status',
+\     'currentfunction': 'CocCurrentFunction'
 \   },
 \   'component_expand': {
 \     'buffers'   : 'lightline#bufferline#buffers',

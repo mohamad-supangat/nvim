@@ -51,5 +51,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'leafOfTree/vim-vue-plugin' " best vue integration
   Plug 'alvan/vim-closetag' " auto close html tag
   " Plug 'neoclide/coc-vetur' " vue language server from coc
+  "
+  Plug 'kdheepak/lazygit.nvim', { 'branch': 'nvim-v0.4.3' }
 call plug#end()
  
