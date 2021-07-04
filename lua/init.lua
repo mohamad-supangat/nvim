@@ -25,6 +25,9 @@ require('nvim-biscuits').setup({
       prefix_string = " ✨ ",
       max_length = 80
     },
+    php = {
+      disabled = true
+    },
     python = {
       disabled = true
     }

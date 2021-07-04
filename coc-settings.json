@@ -4,11 +4,11 @@
   // explorer config
   "explorer.icon.expanded": "▾",
   "explorer.icon.collapsed": "▸",
-  "explorer.width": 80,
+  /* "explorer.width": 80, */
   "explorer.icon.enableNerdfont": true,
   "explorer.quitOnOpen": true,
-  /* "explorer.floating.width": -20, */
-  /* "explorer.floating.height": -10, */
+  "explorer.floating.width": -20,
+  "explorer.floating.height": -10,
   "explorer.openAction.strategy": "sourceWindow",
   "explorer.file.showHiddenFiles": true,
   //diagnostic
