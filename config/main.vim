@@ -8,17 +8,23 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-let g:gruvbox_material_background = 'hard'
-let g:gruvbox_material_enable_italic = 1
-let g:gruvbox_material_enable_bold = 1
-let g:gruvbox_material_cursor = 'green'
-let g:gruvbox_material_current_word = 'underline'
-let g:gruvbox_material_statusline_style = 'mix'
-let g:gruvbox_material_better_performance = 1
-let g:gruvbox_material_palette = 'mix'
+" let g:gruvbox_material_background = 'hard'
+" let g:gruvbox_material_enable_italic = 1
+" let g:gruvbox_material_enable_bold = 1
+" let g:gruvbox_material_cursor = 'green'
+" let g:gruvbox_material_current_word = 'underline'
+" let g:gruvbox_material_statusline_style = 'mix'
+" let g:gruvbox_material_better_performance = 1
+" let g:gruvbox_material_palette = 'mix'
 
 set background=dark
-colorscheme  gruvbox-material
+
+let g:tokyonight_italic_functions = 1
+let g:tokyonight_italic_variables = 1
+
+" colorscheme  gruvbox-material
+colorscheme tokyonight
+
 
 if !has('nvim')
   let &t_ZH="\e[3m"

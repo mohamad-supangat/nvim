@@ -121,25 +121,25 @@ let g:vim_vue_plugin_config = {
       \'foldexpr': 0,
       \}
 
-autocmd FileType vue inoremap <buffer><expr> : InsertColon()
+" autocmd FileType vue inoremap <buffer><expr> : InsertColon()
 
-function! InsertColon()
-  let tag = GetVueTag()
-  return tag == 'template' ? ':' : ': '
-endfunction
+" function! InsertColon()
+"   let tag = GetVueTag()
+"   return tag == 'template' ? ':' : ': '
+" endfunction
 
-function! OnChangeVueSyntax(syntax)
-  " echom 'Syntax is '.a:syntax
-  if a:syntax == 'html'
-    setlocal commentstring=<!--%s-->
-    setlocal comments=s:<!--,m:\ \ \ \ ,e:-->
-  elseif a:syntax =~ 'css'
-    setlocal comments=s1:/*,mb:*,ex:*/ commentstring&
-  else
-    setlocal commentstring=//%s
-    setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
-  endif
-endfunction
+" function! OnChangeVueSyntax(syntax)
+"   " echom 'Syntax is '.a:syntax
+"   if a:syntax == 'html'
+"     setlocal commentstring=<!--%s-->
+"     setlocal comments=s:<!--,m:\ \ \ \ ,e:-->
+"   elseif a:syntax =~ 'css'
+"     setlocal comments=s1:/*,mb:*,ex:*/ commentstring&
+"   else
+"     setlocal commentstring=//%s
+"     setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
+"   endif
+" endfunction
 
 " auto format .vue file on save / write
 autocmd BufWritePost *.vue :CocCommand prettier.formatFile
