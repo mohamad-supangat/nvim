@@ -67,6 +67,3 @@ call plug#begin('~/.local/share/nvim/plugged')
   " Plug 'pablopunk/statusline.vim'
 
 call plug#end()
- 
-runtime config/statusline.vim
-

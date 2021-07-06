@@ -70,4 +70,4 @@ set statusline+=%{GitBlameShort()}
 set statusline+=\ 
 set statusline+=\ %l:%c
 set statusline+=\ 
-set statusline+=\ %p%%
+" set statusline+=\ %p%%

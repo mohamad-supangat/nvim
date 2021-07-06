@@ -21,7 +21,8 @@ set background=dark
 
 let g:tokyonight_italic_functions = 1
 let g:tokyonight_italic_variables = 1
-
+let g:tokyonight_style = "night"
+" let g:tokyonight_transparent = 1
 " colorscheme  gruvbox-material
 colorscheme tokyonight
 
