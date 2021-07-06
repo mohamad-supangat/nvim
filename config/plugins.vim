@@ -62,7 +62,11 @@ call plug#begin('~/.local/share/nvim/plugged')
   " Plug 'neoclide/coc-vetur' " vue language server from coc
   "
   Plug 'kdheepak/lazygit.nvim'
-  Plug 'pablopunk/statusline.vim'
+  " Plug 'liuchengxu/eleline.vim'
+
+  " Plug 'pablopunk/statusline.vim'
 
 call plug#end()
  
+runtime config/statusline.vim
+
