@@ -16,12 +16,12 @@ endfunction
 
 function! ColorMode() abort
   let m = toupper(mode())
-  let color_for_mode = get(g:,'statusline_color_'.m,'#8854d0') " get color or use default
+  let color_for_mode = get(g:,'statusline_color_'.m,'#1F2335') " get color or use default
 
   exe 'hi StatusBranch guifg=#dedede guibg=' . color_for_mode
   exe 'hi StatusBranchReverse guifg=' . color_for_mode
   exe 'hi StatusMode guifg=' . color_for_mode
-
+  " exe 'hi StatusLine ctermbg=1'
   return m . ' '
 endfunction
 

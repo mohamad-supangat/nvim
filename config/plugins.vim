@@ -54,7 +54,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   " Plug 'leafOfTree/vim-vue-plugin' " best vue integration
 
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
-  Plug 'code-biscuits/nvim-biscuits'
+  " Plug 'code-biscuits/nvim-biscuits'
 
   Plug 'alvan/vim-closetag' " auto close html tag
   " Plug 'kyazdani42/nvim-tree.lua'
