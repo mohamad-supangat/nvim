@@ -8,22 +8,12 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-" let g:gruvbox_material_background = 'hard'
-" let g:gruvbox_material_enable_italic = 1
-" let g:gruvbox_material_enable_bold = 1
-" let g:gruvbox_material_cursor = 'green'
-" let g:gruvbox_material_current_word = 'underline'
-" let g:gruvbox_material_statusline_style = 'mix'
-" let g:gruvbox_material_better_performance = 1
-" let g:gruvbox_material_palette = 'mix'
-
 set background=dark
 
 let g:tokyonight_italic_functions = 1
 let g:tokyonight_italic_variables = 1
 let g:tokyonight_style = "night"
 " let g:tokyonight_transparent = 1
-" colorscheme  gruvbox-material
 colorscheme tokyonight
 
 
@@ -70,7 +60,7 @@ set regexpengine=1        " use old regexp engine
 set hidden
 
 " Statusline Config
-set statusline+=%F
+set statusline=''
 set cmdheight=1
 
 " Tab Settings
@@ -121,7 +111,7 @@ set updatetime=300
 set shortmess+=c
 
 " Always show the signcolumn, otherwise it would shift the text each time
-set signcolumn=yes
+set signcolumn=number
 
 " Turns on detection for fyletypes, indentation files and plugin files
 filetype plugin indent on
@@ -149,7 +139,7 @@ endif
 
 " Relative line numbers
 set number
-set relativenumber
+" set relativenumber
 
 " augroup numbertoggle
 "   autocmd!
