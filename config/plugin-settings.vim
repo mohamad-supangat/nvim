@@ -145,3 +145,18 @@ let g:vim_vue_plugin_config = {
 autocmd BufWritePost *.vue :CocCommand prettier.formatFile
 " }}}
 
+
+
+
+function! s:enter_explorer()
+  if &filetype == 'coc-explorer'
+    " statusline
+    setl statusline=""
+  endif
+endfunction
+
+augroup CocExplorerCustom
+  autocmd!
+  autocmd BufEnter * call <SID>enter_explorer()
+  " autocmd FileType coc-explorer call <SID>init_explorer()
+augroup END
