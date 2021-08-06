@@ -10,11 +10,16 @@ endif
 
 set background=dark
 
-let g:tokyonight_italic_functions = 1
-let g:tokyonight_italic_variables = 1
-let g:tokyonight_style = "night"
+" let g:tokyonight_italic_functions = 1
+" let g:tokyonight_italic_variables = 1
+" let g:tokyonight_style = "night"
 " let g:tokyonight_transparent = 1
-colorscheme tokyonight
+" colorscheme tokyonight
+
+
+let g:gruvbox_material_enable_italic = 1
+let g:gruvbox_material_background = 'hard'
+colorscheme gruvbox-material
 
 
 if !has('nvim')
@@ -111,7 +116,7 @@ set updatetime=300
 set shortmess+=c
 
 " Always show the signcolumn, otherwise it would shift the text each time
-set signcolumn=number
+set signcolumn=yes
 
 " Turns on detection for fyletypes, indentation files and plugin files
 filetype plugin indent on
@@ -139,7 +144,7 @@ endif
 
 " Relative line numbers
 set number
-" set relativenumber
+set relativenumber
 
 " augroup numbertoggle
 "   autocmd!

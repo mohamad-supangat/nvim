@@ -16,9 +16,9 @@ call plug#begin('~/.local/share/nvim/plugged')
   " Plug 'itchyny/vim-cursorword'
   Plug 'akinsho/nvim-bufferline.lua'
 
-  " Plug 'sainnhe/gruvbox-material'
+  Plug 'sainnhe/gruvbox-material'
   " Plug 'lifepillar/vim-gruvbox8'
-  Plug 'folke/tokyonight.nvim'
+  " Plug 'folke/tokyonight.nvim'
 
   " Plug 'pineapplegiant/spaceduck'
   " Plug 'rakr/vim-one'
@@ -50,8 +50,6 @@ call plug#begin('~/.local/share/nvim/plugged')
   let g:polyglot_disabled = ['vue']
   " Plug 'sheerun/vim-polyglot' " solid syntax hightlight for  vim 
   Plug 'tweekmonster/startuptime.vim'
-
-  " Plug 'leafOfTree/vim-vue-plugin' " best vue integration
 
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
   " Plug 'code-biscuits/nvim-biscuits'
