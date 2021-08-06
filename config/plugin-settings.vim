@@ -69,16 +69,6 @@ set shortmess+=c
 " }}}
 
 
-" completion nvim {{{
-" lua require'nvim_lsp'.pyls.setup{on_attach=require'completion'.on_attach}
-" let g:completion_enable_snippet = 'vim-vsnip'
-" }}}
-
-" let g:vim_vue_plugin_load_full_syntax = 1 " enable vue for full syntax
-let g:LanguageClient_serverCommands = {
-    \ 'vue': ['vls']
-    \ }
-
 let g:rainbow_active = 1 " active rainbow in every vim
 
 " coc configuration {{{
@@ -96,33 +86,6 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " tagalong and close tag config
 let g:tagalong_additional_filetypes = ['vue' , 'blade', "php", "xml"] " tagalong aditional fileype
 let g:closetag_filetypes = 'html,xhtml,phtml,vue,blade,php,xml' " add vue to auto close html tag
-
-
-" some vue plugin config {{{
-" let g:vim_vue_plugin_use_sass = 1
-" " let g:vim_vue_plugin_highlight_vue_keyword = 1
-" let g:vim_vue_plugin_highlight_vue_attr	= 1
-" let g:vim_vue_plugin_has_init_indent = 1
-
-" autocmd FileType vue inoremap <buffer><expr> : InsertColon()
-
-" function! InsertColon()
-"   let tag = GetVueTag()
-"   return tag == 'template' ? ':' : ': '
-" endfunction
-
-" function! OnChangeVueSyntax(syntax)
-"   " echom 'Syntax is '.a:syntax
-"   if a:syntax == 'html'
-"     setlocal commentstring=<!--%s-->
-"     setlocal comments=s:<!--,m:\ \ \ \ ,e:-->
-"   elseif a:syntax =~ 'css'
-"     setlocal comments=s1:/*,mb:*,ex:*/ commentstring&
-"   else
-"     setlocal commentstring=//%s
-"     setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
-"   endif
-" endfunction
 
 " auto format .vue file on save / write
 autocmd BufWritePost *.vue :CocCommand prettier.formatFile

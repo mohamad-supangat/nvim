@@ -4,31 +4,24 @@ endif
 " Add the dein installation directory into runtimepath
 call plug#begin('~/.local/share/nvim/plugged')
 
+  " treesitter and some plugin {{{
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    " Plug 'code-biscuits/nvim-biscuits'
+    Plug 'JoosepAlviste/nvim-ts-context-commentstring'
+    Plug 'romgrk/nvim-treesitter-context'   
+    Plug 'p00f/nvim-ts-rainbow'
+  " }}}
+
   Plug 'kyazdani42/nvim-web-devicons' " neovim web dev icon
- 
   Plug 'christoomey/vim-tmux-navigator' " tmux navigation integration
-    
-
-  " lightline
-
-  " Plug 'itchyny/lightline.vim'
-  " Plug 'mengelbrecht/lightline-bufferline'
-  " Plug 'itchyny/vim-cursorword'
   Plug 'akinsho/nvim-bufferline.lua'
 
   Plug 'sainnhe/gruvbox-material'
-  " Plug 'lifepillar/vim-gruvbox8'
   " Plug 'folke/tokyonight.nvim'
 
-  " Plug 'pineapplegiant/spaceduck'
-  " Plug 'rakr/vim-one'
-
-  " Plug 'tjdevries/colorbuddy.nvim' " color scheme maker
   Plug 'rhysd/accelerated-jk' "navigate faster with jk
   Plug 'lukas-reineke/indent-blankline.nvim', { 'branch': 'master' }
 
-  " Plug 'lukas-reineke/indent-blankline.nvim' " indentLine
- 
   Plug 'tpope/vim-commentary' " auto commennt 
   Plug 'AndrewRadev/tagalong.vim' " tag helper
   Plug 'luochen1990/rainbow' " rinbow bracket
@@ -46,22 +39,11 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'voldikss/vim-floaterm' " floating terminal
   Plug 'rbgrouleff/bclose.vim' " closing buffer wisdthout pane
 
-  " language && syntax hightlight {{{
-  let g:polyglot_disabled = ['vue']
-  " Plug 'sheerun/vim-polyglot' " solid syntax hightlight for  vim 
   Plug 'tweekmonster/startuptime.vim'
 
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
-  " Plug 'code-biscuits/nvim-biscuits'
-
   Plug 'alvan/vim-closetag' " auto close html tag
-  " Plug 'kyazdani42/nvim-tree.lua'
 
-  " Plug 'neoclide/coc-vetur' " vue language server from coc
-  "
   Plug 'kdheepak/lazygit.nvim'
-  " Plug 'liuchengxu/eleline.vim'
 
-  " Plug 'pablopunk/statusline.vim'
 
 call plug#end()
