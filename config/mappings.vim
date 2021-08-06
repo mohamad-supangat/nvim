@@ -23,7 +23,7 @@ nnoremap Y y$
 
 " map esc / exit insert mode && clear higthlight search
 " map <ESC> :noh<cr>
-
+nnoremap <esc><esc> :noh<return>
 
 " accelerated  jk for fastest moving {{{
 nmap j <Plug>(accelerated_jk_gj)
