@@ -13,7 +13,7 @@
   "explorer.file.showHiddenFiles": true,
   //diagnostic
   "diagnostic.errorSign": "●",
-  "diagnostic.warningSign": "●",
+  "diagnostic.warningSign": "⚠",
   "diagnostic.infoSign": "●",
   "diagnostic.displayByAle": false,
   "diagnostic.refreshOnInsertMode": true,
