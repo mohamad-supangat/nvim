@@ -39,7 +39,7 @@ syntax sync minlines=256
 autocmd FileType text,markdown setlocal spell
 
 " Limit line length for text files
-autocmd FileType text,markdown,tex setlocal textwidth=180
+autocmd FileType text,markdown,tex setlocal textwidth=80
 
 " Don't automatically collapse markdown and Latex
 set conceallevel=0
@@ -119,7 +119,7 @@ set shortmess+=c
 set signcolumn=yes
 
 " Turns on detection for fyletypes, indentation files and plugin files
-filetype plugin indent on
+filetype plugin on
 
 " Split window appears right the current one.
 set splitright
