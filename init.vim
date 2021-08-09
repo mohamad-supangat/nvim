@@ -11,5 +11,3 @@ runtime config/mappings.vim
 runtime config/functions.vim
 lua require('init')
 
-runtime config/statusline.vim
-

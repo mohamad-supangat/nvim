@@ -3,7 +3,7 @@ if &compatible
 endif
 " Add the dein installation directory into runtimepath
 call plug#begin('~/.local/share/nvim/plugged')
-
+  Plug 'hoob3rt/lualine.nvim'
   " treesitter and some plugin {{{
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     " Plug 'code-biscuits/nvim-biscuits'
