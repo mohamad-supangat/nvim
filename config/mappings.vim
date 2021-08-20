@@ -144,6 +144,9 @@ nnoremap <C-PageUp>  :bprevious<CR>
 " inoremap <C-J>  <Esc>:bprevious<CR>i
 nnoremap <C-PageDown> :bnext<CR>
 " inoremap <C-K>  <Esc>:bnext<CR>i
+nnoremap <C-S-Tab>  :bprevious<CR>
+" inoremap <C-J>  <Esc>:bprevious<CR>i
+nnoremap <C-Tab> :bnext<CR>
 
 nnoremap <Leader>bn :bnext<CR>
 nnoremap <Leader>bb :bprevious<CR>

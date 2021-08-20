@@ -94,10 +94,10 @@ set showmatch
 " set undofile
 
 " Do not back up temporary files.
-set backupskip=/tmp/*,/private/tmp/*"
+" set backupskip=/tmp/*,/private/tmp/*"
 
 " Store backup files in one place.
-set backupdir^=$HOME/.config/nvim/storage/backups/
+" set backupdir^=$HOME/.config/nvim/storage/backups/
 
 " Store swap files in one place.
 set dir^=$HOME/.config/nvim/storage/swaps/
@@ -153,9 +153,9 @@ set relativenumber
 " augroup end
 
 " disable vim backup
-" set nobackup
-" set nowritebackup
-" set noswapfile
+set nobackup
+set nowritebackup
+set noswapfile
 
 " }}} end of main setting
 set showtabline=2
