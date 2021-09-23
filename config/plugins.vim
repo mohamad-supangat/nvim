@@ -3,6 +3,7 @@ if &compatible
 endif
 " Add the dein installation directory into runtimepath
 call plug#begin('~/.local/share/nvim/plugged')
+  " Plug 'gregsexton/MatchTag'
   Plug 'hoob3rt/lualine.nvim'
   " treesitter and some plugin {{{
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -10,6 +11,11 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'JoosepAlviste/nvim-ts-context-commentstring'
     Plug 'romgrk/nvim-treesitter-context'   
     Plug 'p00f/nvim-ts-rainbow'
+    Plug 'windwp/nvim-autopairs'
+
+    Plug 'andymass/vim-matchup'
+
+    Plug 'windwp/nvim-ts-autotag'
   " }}}
 
   Plug 'kyazdani42/nvim-web-devicons' " neovim web dev icon
@@ -23,7 +29,6 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'lukas-reineke/indent-blankline.nvim', { 'branch': 'master' }
 
   Plug 'tpope/vim-commentary' " auto commennt 
-  Plug 'AndrewRadev/tagalong.vim' " tag helper
   Plug 'luochen1990/rainbow' " rinbow bracket
   Plug 'editorconfig/editorconfig-vim' " editorconfig for vim
 
@@ -40,8 +45,6 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'rbgrouleff/bclose.vim' " closing buffer wisdthout pane
 
   Plug 'tweekmonster/startuptime.vim'
-
-  Plug 'alvan/vim-closetag' " auto close html tag
 
   Plug 'kdheepak/lazygit.nvim'
 

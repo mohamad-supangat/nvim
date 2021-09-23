@@ -5,6 +5,10 @@ require('config.statusline')
 
 require('nvim-treesitter.configs').setup {
   ensure_installed = "maintained",
+  matchup = {
+    enable = true,              -- mandatory, false will disable the whole extension
+    disable = { "c", "ruby" },  -- optional, list of language that will be disabled
+  },
   highlight = {
     enable = true,              -- false will disable the whole extension
     disable = { "c", "rust" },  -- list of language that will be disabled
@@ -24,7 +28,7 @@ require('nvim-treesitter.configs').setup {
   rainbow = {
     enable = true,
     extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-    max_file_lines = 1000, -- Do not enable for files with more than 1000 lines, int
+    -- max_file_lines = 1000, -- Do not enable for files with more than 1000 lines, int
   }
 }
 
@@ -33,26 +37,35 @@ require'treesitter-context'.setup{
     throttle = true, -- Throttles plugin updates (may improve performance)
 }
 
+require'nvim-treesitter.configs'.setup {
+  autotag = {
+    enable = true,
+  }
+}
+
+require('nvim-autopairs').setup({
+  disable_filetype = { "TelescopePrompt" , "vim" },
+})
 
 -- require('nvim-biscuits').setup({
 --   default_config = {
 --     -- max_length = 12,
 --     -- min_distance = 5,
---     prefix_string = " 📎 "
+--     -- prefix_string = ""
 --   },
 --   language_config = {
 --     html = {
---       prefix_string = " 🌐 "
+--       -- prefix_string = " 🌐 "
 --     },
 --     javascript = {
---       prefix_string = " ✨ ",
---       max_length = 80
+--       -- prefix_string = " ✨ ",
+--       -- max_length = 80
 --     },
 --     php = {
---       disabled = true
+--       -- disabled = true
 --     },
 --     python = {
---       disabled = true
+--       -- disabled = true
 --     }
 --   }
 -- })
