@@ -96,6 +96,8 @@ autocmd BufWritePost *.vue :CocCommand prettier.formatFile
 
 " config status line
 set statusline="  %<   %f %m %r %w %= Ln %l, Col %c  %{&fileencoding?&fileencoding:&encoding}  "
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
 function! s:enter_explorer()
   if &filetype == 'coc-explorer'
     " statusline

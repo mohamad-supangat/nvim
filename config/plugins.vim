@@ -33,9 +33,8 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'voldikss/vim-floaterm' " floating terminal
   Plug 'rbgrouleff/bclose.vim' " closing buffer wisdthout pane
 
-  " Plug 'tweekmonster/startuptime.vim'
-
   Plug 'kdheepak/lazygit.nvim'
+  Plug 'AndrewRadev/tagalong.vim'
 
 
 call plug#end()
