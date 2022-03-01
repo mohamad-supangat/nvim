@@ -65,7 +65,7 @@ set regexpengine=1        " use old regexp engine
 set hidden
 
 " Statusline Config
-set statusline=''
+set statusline="  %{coc#status()}%{get(b:,'coc_current_function','')   %f %m %r %w %= Ln %l, Col %c  %{&fileencoding?&fileencoding:&encoding}  "
 set cmdheight=1
 
 " Tab Settings
