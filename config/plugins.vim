@@ -5,18 +5,7 @@ endif
 call plug#begin('~/.local/share/nvim/plugged')
   " Plug 'gregsexton/MatchTag'
   Plug 'hoob3rt/lualine.nvim'
-  " treesitter and some plugin {{{
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-    " Plug 'code-biscuits/nvim-biscuits'
-    Plug 'JoosepAlviste/nvim-ts-context-commentstring'
-    Plug 'romgrk/nvim-treesitter-context'   
-    Plug 'p00f/nvim-ts-rainbow'
-    Plug 'windwp/nvim-autopairs'
-
-    Plug 'andymass/vim-matchup'
-
-    Plug 'windwp/nvim-ts-autotag'
-  " }}}
+  Plug 'sheerun/vim-polyglot'
 
   Plug 'kyazdani42/nvim-web-devicons' " neovim web dev icon
   Plug 'christoomey/vim-tmux-navigator' " tmux navigation integration
@@ -44,7 +33,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'voldikss/vim-floaterm' " floating terminal
   Plug 'rbgrouleff/bclose.vim' " closing buffer wisdthout pane
 
-  Plug 'tweekmonster/startuptime.vim'
+  " Plug 'tweekmonster/startuptime.vim'
 
   Plug 'kdheepak/lazygit.nvim'
 
