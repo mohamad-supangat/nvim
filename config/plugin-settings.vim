@@ -12,8 +12,8 @@ let g:indent_blankline_filetype_exclude = [
     \'vista'
       \]
 " }}}
-let g:indent_blankline_use_treesitter = v:true
-let g:indent_blankline_show_end_of_line = v:true
+" let g:indent_blankline_use_treesitter = v:true
+" let g:indent_blankline_show_end_of_line = v:true
 
 " fzf settings {{{
 let g:fzf_preview_window = []
