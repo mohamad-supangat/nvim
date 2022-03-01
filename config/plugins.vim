@@ -4,7 +4,6 @@ endif
 " Add the dein installation directory into runtimepath
 call plug#begin('~/.local/share/nvim/plugged')
   " Plug 'gregsexton/MatchTag'
-  Plug 'hoob3rt/lualine.nvim'
   Plug 'sheerun/vim-polyglot'
 
   Plug 'kyazdani42/nvim-web-devicons' " neovim web dev icon
