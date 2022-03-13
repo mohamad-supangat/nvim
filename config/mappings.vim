@@ -97,12 +97,12 @@ nmap <C-a> <Esc>ggVG
 " }}
 
 " undo redo {{{
-nnoremap <silent><nowait>  <C-Z> u
-nnoremap <silent><nowait>  <C-Y> <C-R>
-inoremap <silent><nowait>  <C-Z> <C-O>u
-inoremap <silent><nowait>  <C-Y> <C-O><C-R>
-vnoremap <silent><nowait>  <C-Z> <C-O>u
-vnoremap <silent><nowait>  <C-Y> <C-O><C-R>
+" nnoremap <silent><nowait>  <C-Z> u
+" nnoremap <silent><nowait>  <C-Y> <C-R>
+" inoremap <silent><nowait>  <C-Z> <C-O>u
+" inoremap <silent><nowait>  <C-Y> <C-O><C-R>
+" vnoremap <silent><nowait>  <C-Z> <C-O>u
+" vnoremap <silent><nowait>  <C-Y> <C-O><C-R>
 " }}}
 
 " FIXME: (broken) ctrl s to save {{{

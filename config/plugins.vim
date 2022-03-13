@@ -35,6 +35,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
   Plug 'kdheepak/lazygit.nvim'
   Plug 'AndrewRadev/tagalong.vim'
+  Plug 'alvan/vim-closetag'
 
 
 call plug#end()
