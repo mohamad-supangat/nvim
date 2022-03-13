@@ -8,7 +8,20 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
+" set background=dark
+" silent! exe 'set background='.$NVIM_COLORSCHEME_BG
+" silent! exe 'colorscheme '.$NVIM_COLORSCHEME
+
+let g:PaperColor_Theme_Options = {
+  \   'theme': {
+  \     'default.dark': {
+  \       'allow_italic': 1,
+  \       'allow_bold': 1,
+  \     }
+  \   }
+  \ }
 set background=dark
+colorscheme PaperColor
 
 " let g:tokyonight_italic_functions = 1
 " let g:tokyonight_italic_variables = 1
@@ -19,7 +32,7 @@ set background=dark
 
 let g:gruvbox_material_enable_italic = 1
 let g:gruvbox_material_background = 'medium'
-colorscheme gruvbox-material
+
 
 
 if !has('nvim')

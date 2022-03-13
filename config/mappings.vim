@@ -62,6 +62,8 @@ nnoremap <silent> <Leader>git :LazyGit<CR>
 " }}
 
 " vim commenter plugin {{
+nnoremap <silent> <Leader>nin :Commentary<CR>
+vnoremap <silent> <Leader>nin :Commentary<CR>
 nnoremap <C-/> :Commentary<CR>
 vnoremap <C-/> :Commentary<CR>
 nnoremap cic :Commentary<CR>

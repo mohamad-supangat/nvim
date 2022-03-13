@@ -88,7 +88,7 @@ let g:tagalong_additional_filetypes = ['vue' , 'blade', "php", "xml"] " tagalong
 let g:closetag_filetypes = 'html,xhtml,phtml,vue,blade,php,xml' " add vue to auto close html tag
 
 " auto format .vue file on save / write
-autocmd BufWritePost *.vue :CocCommand prettier.formatFile
+" autocmd BufWritePost *.vue :CocCommand prettier.formatFile
 " }}}
 
 

@@ -10,8 +10,9 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'christoomey/vim-tmux-navigator' " tmux navigation integration
   Plug 'akinsho/nvim-bufferline.lua'
 
-  Plug 'sainnhe/gruvbox-material'
+  " Plug 'sainnhe/gruvbox-material'
   " Plug 'folke/tokyonight.nvim'
+  Plug 'NLKNguyen/papercolor-theme'
 
   Plug 'rhysd/accelerated-jk' "navigate faster with jk
   Plug 'lukas-reineke/indent-blankline.nvim', { 'branch': 'master' }
