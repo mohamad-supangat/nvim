@@ -30,8 +30,8 @@ colorscheme PaperColor
 " colorscheme tokyonight
 
 
-let g:gruvbox_material_enable_italic = 1
-let g:gruvbox_material_background = 'medium'
+" let g:gruvbox_material_enable_italic = 1
+" let g:gruvbox_material_background = 'medium'
 
 
 
@@ -157,7 +157,7 @@ endif
 
 " Relative line numbers
 set number
-set relativenumber
+" set relativenumber
 
 " augroup numbertoggle
 "   autocmd!

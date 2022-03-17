@@ -34,7 +34,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'rbgrouleff/bclose.vim' " closing buffer wisdthout pane
 
   Plug 'kdheepak/lazygit.nvim'
-  Plug 'AndrewRadev/tagalong.vim'
+  " Plug 'AndrewRadev/tagalong.vim'
   Plug 'alvan/vim-closetag'
 
 
