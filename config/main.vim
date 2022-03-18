@@ -157,6 +157,7 @@ endif
 
 " Relative line numbers
 set number
+set laststatus=2
 " set relativenumber
 
 " augroup numbertoggle
