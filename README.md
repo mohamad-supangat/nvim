@@ -1,7 +1,8 @@
 # NeoVim As IDE with me
 
 
-the main goal of this project is to make it easier for vscode users to migrate to neovim as a day-to-day IDE
+the main goal of this project is to make it easier for vscode users to migrate to neovim as a day-to-day IDE using best of neovim plugin https://github.com/neoclide/coc.nvim
+
 
 ![image.png](./screenshots/image.png)
 
@@ -13,3 +14,6 @@ the main goal of this project is to make it easier for vscode users to migrate t
 git clone https://gitlab.com/hantamkoding-dotfiles/neovim.git ~/.config/nvim
 ```
 - and run neovim, and viola
+
+## Docs
+- being designed
