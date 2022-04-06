@@ -42,22 +42,6 @@
     "xml",
     "js"
   ],
-  "prettier.eslintIntegration": true,
-  "prettier.stylelintIntegration": true,
-  // eslint
-  "eslint.filetypes": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ],
-  "eslint.autoFix": true,
-  "eslint.autoFixOnSave": true,
-  "coc.preferences.extensionUpdateCheck": "never",
-  // emmet
-  "emmet.includeLanguages": {
-    "blade": "html"
-  },
   // snipshet
   "snippets.loadFromExtensions": true
 }
