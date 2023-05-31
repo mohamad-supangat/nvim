@@ -43,5 +43,36 @@
     "js"
   ],
   // snipshet
-  "snippets.loadFromExtensions": true
+  "snippets.loadFromExtensions": true,
+  "snippets.textmateSnippetsRoots": [
+    "./snippets/vscode/snippets"
+  ],
+  "coc.preferences.snippetStatusText": "Ⓢ ",
+  "suggest.completionItemKindLabels": {
+    "keyword": "",
+    "variable": "",
+    "value": "",
+    "operator": "Ψ",
+    "function": "⨕",
+    "reference": "渚",
+    "constant": "",
+    "method": "",
+    "struct": "פּ",
+    "class": "",
+    "interface": "",
+    "text": "♣",
+    "enum": "",
+    "enumMember": "",
+    "module": "",
+    "color": "",
+    "property": "",
+    "field": "",
+    "unit": "",
+    "event": "鬒",
+    "file": "",
+    "folder": "",
+    "snippet": "",
+    "typeParameter": "",
+    "default": ""
+  },
 }
