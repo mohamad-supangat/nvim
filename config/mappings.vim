@@ -178,6 +178,8 @@ nmap <leader>P :CocFzfList commands<CR>
 " Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>fm  :Format<CR>
+
 
 
 " Remap keys for applying codeAction to the current buffer.
@@ -203,3 +205,8 @@ nnoremap <Leader>qa :quitall!<CR>
 
 " }}}
 
+" -- change current cwd to current file dir
+nnoremap <leader>cd :cd %:p:h<CR>
+
+
+vnoremap / "fy/\<C-R>f<CR>
