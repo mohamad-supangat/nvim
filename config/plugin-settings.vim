@@ -17,7 +17,7 @@ let g:indent_blankline_filetype_exclude = [
 
 " fzf settings {{{
 let g:fzf_preview_window = []
-let $FZF_DEFAULT_COMMAND = 'ag --hidden --depth 10 --ignore .git -f -g ""' " show hidden file in fzf
+let $FZF_DEFAULT_COMMAND = 'ag --hidden -U -g "" --ignore-dir={vendor,node_modules,.git}' " show hidden file in fzf
 
 " Hide status bar while using fzf commands                                                                          
 if has('nvim') || has('gui_running')                                                                                
