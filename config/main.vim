@@ -2,9 +2,7 @@
 " main setting {{{
 
 " color scheme && termgui colors
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+if has('termguicolors')
   set termguicolors
 endif
 
@@ -21,7 +19,7 @@ let g:PaperColor_Theme_Options = {
   \   }
   \ }
 set background=dark
-colorscheme PaperColor
+" colorscheme PaperColor
 
 " let g:tokyonight_italic_functions = 1
 " let g:tokyonight_italic_variables = 1
@@ -30,8 +28,12 @@ colorscheme PaperColor
 " colorscheme tokyonight
 
 
-" let g:gruvbox_material_enable_italic = 1
-" let g:gruvbox_material_background = 'medium'
+let g:gruvbox_material_enable_italic = 1
+let g:gruvbox_material_enable_bold = 1
+let g:gruvbox_material_background = 'hard'
+let g:gruvbox_material_better_performance = 1
+let g:gruvbox_material_transparent_background = 1
+colorscheme gruvbox-material
 
 
 
@@ -77,6 +79,9 @@ set regexpengine=1        " use old regexp engine
 " Allow a new buf to be opened without saving current
 set hidden
 
+
+set history=100
+
 " Statusline Config
 set statusline="  %{coc#status()}%{get(b:,'coc_current_function','')   %f %m %r %w %= Ln %l, Col %c  %{&fileencoding?&fileencoding:&encoding}  "
 set cmdheight=1
@@ -95,7 +100,7 @@ set shiftround
 syntax on
 
 " Print syntax highlighting.
-set printoptions+=syntax:y
+" set printoptions+=syntax:y
 
 " Matching braces/tags
 set showmatch
@@ -113,10 +118,10 @@ set showmatch
 " set backupdir^=$HOME/.config/nvim/storage/backups/
 
 " Store swap files in one place.
-set dir^=$HOME/.config/nvim/storage/swaps/
+" set dir^=$HOME/.config/nvim/storage/swaps/
 
 " Store undo files in one place.
-set undodir^=$HOME/.config/nvim/storage/undos/
+" set undodir^=$HOME/.config/nvim/storage/undos/
 
 " line wrapping
 set wrap
@@ -173,6 +178,3 @@ set noswapfile
 
 " }}} end of main setting
 set showtabline=2
-
-
-

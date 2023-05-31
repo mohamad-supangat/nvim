@@ -5,17 +5,24 @@ endif
 call plug#begin('~/.local/share/nvim/plugged')
   " Plug 'gregsexton/MatchTag'
   Plug 'sheerun/vim-polyglot'
+  Plug 'vim-airline/vim-airline'
+
 
   Plug 'kyazdani42/nvim-web-devicons' " neovim web dev icon
   Plug 'christoomey/vim-tmux-navigator' " tmux navigation integration
   Plug 'akinsho/nvim-bufferline.lua'
 
-  " Plug 'sainnhe/gruvbox-material'
+  Plug 'sainnhe/gruvbox-material'
   " Plug 'folke/tokyonight.nvim'
-  Plug 'NLKNguyen/papercolor-theme'
+  " Plug 'NLKNguyen/papercolor-theme'
 
   Plug 'rhysd/accelerated-jk' "navigate faster with jk
   Plug 'lukas-reineke/indent-blankline.nvim', { 'branch': 'master' }
+  " Plug 'jasonccox/vim-wayland-clipboard'
+  " Plug 'kana/vim-fakeclip'
+
+
+  " Plug 'Yggdroot/indentLine'
 
   Plug 'tpope/vim-commentary' " auto commennt 
   Plug 'luochen1990/rainbow' " rinbow bracket
@@ -28,7 +35,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'honza/vim-snippets' " snippets helpers for coc
   Plug 'antoinemadec/coc-fzf' " coc tui with fzf 
  
-  Plug 'mhinz/vim-startify' " start page for vim 
+ Plug 'mhinz/vim-startify' " start page for vim 
 
   Plug 'voldikss/vim-floaterm' " floating terminal
   Plug 'rbgrouleff/bclose.vim' " closing buffer wisdthout pane

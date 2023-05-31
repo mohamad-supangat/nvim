@@ -57,7 +57,7 @@ vnoremap <Leader>Ar :right<CR>
 
 " Lazygit
 " nnoremap <silent> <Leader>git :call ToggleLazyGit()<CR>
-nnoremap <silent> <Leader>git :LazyGit<CR>
+nnoremap <silent> <Leader>git :LazyGitCurrentFile<CR>
 
 " }}
 
@@ -90,6 +90,7 @@ vmap <silent><nowait>  <C-c> y
 " delete word when alt + backspace {{{
 set backspace=indent,eol,start
 imap <silent><nowait>  <A-BS> <C-W>
+imap <silent><nowait>  <C-BS> <C-W>
 " }}}
 
 " select all {{
@@ -153,11 +154,10 @@ nnoremap <C-Tab> :bnext<CR>
 nnoremap <Leader>bn :bnext<CR>
 nnoremap <Leader>bb :bprevious<CR>
 " nnoremap <Leader>bd :bdelete<CR> 
+
+" close buffer without close pane
 nnoremap <silent> <Leader>bd :Bclose<CR>
-
-" bufferli pick function from nvim  bufferli
-nnoremap <silent> gb :BufferLinePic<CR>
-
+nnoremap <silent> <Leader>bD :Bclose!<CR>
 " }}}
 " replacing tabs with buffer
 
@@ -179,43 +179,6 @@ nmap <leader>P :CocFzfList commands<CR>
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
-endfunction
-
-" Make <CR> auto-select the first completion item and notify coc.nvim to
-" format on enter, <cr> could be remapped by other vim plugin
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-" Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <c-space> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
-
 
 " Remap keys for applying codeAction to the current buffer.
 nmap <leader>ac  <Plug>(coc-codeaction)
@@ -228,4 +191,15 @@ nmap <silent> <C-d> <Plug>(coc-cursors-word)
 xmap <silent> <C-d> <Plug>(coc-cursors-range)
 " }}}
 
+
+
+" quite all window {{{
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>qa :quitall!<CR>
+" }}}
+
+
+" wayland clipboard intregration {{{
+
+" }}}
 
