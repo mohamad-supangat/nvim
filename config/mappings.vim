@@ -209,4 +209,5 @@ nnoremap <Leader>qa :quitall!<CR>
 nnoremap <leader>cd :cd %:p:h<CR>
 
 
-vnoremap / "fy/\<C-R>f<CR>
+" vnoremap / "fy\<C-R>f<CR>
+vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>
