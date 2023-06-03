@@ -44,9 +44,7 @@
   ],
   // snipshet
   "snippets.loadFromExtensions": true,
-  "snippets.textmateSnippetsRoots": [
-    "./snippets/vscode/snippets"
-  ],
+  "snippets.textmateSnippetsRoots": ["~/.config/nvim/snippets/vscode/snippets"],
   "coc.preferences.snippetStatusText": "Ⓢ ",
   "suggest.completionItemKindLabels": {
     "keyword": "",
@@ -74,5 +72,5 @@
     "snippet": "",
     "typeParameter": "",
     "default": ""
-  },
+  }
 }
