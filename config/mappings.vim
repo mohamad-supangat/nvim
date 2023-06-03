@@ -73,7 +73,8 @@ vnoremap / :Commentary<CR>
 
 " Vista {{{
 " Opens tagbar on right side of screen
-nmap <F8> :Vista!!<CR>
+" nmap <F8> :Vista!!<CR>
+nmap <F8> :TagbarToggle<CR>
 " }}} end of vista mapping
 
 " Markdown preview 

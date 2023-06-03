@@ -28,6 +28,10 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'luochen1990/rainbow' " rinbow bracket
   Plug 'editorconfig/editorconfig-vim' " editorconfig for vim
 
+  " Plug 'liuchengxu/vista.vim'
+  Plug 'preservim/tagbar'
+
+
   Plug 'junegunn/fzf', { 'build': './install --all', 'merged': 0 } " gui preview
   Plug 'junegunn/fzf.vim', { 'depends': 'fzf'}
   Plug 'neoclide/coc.nvim', {'branch': 'release'} " language server
