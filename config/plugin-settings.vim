@@ -178,6 +178,18 @@ augroup CocExplorerCustom
 augroup END
 
 
+" vim airline {{{
 let g:airline#extensions#tabline#enabled = 1 " Use the airline tabline (replacement for buftabline)
 let g:airline_theme = 'gruvbox_material'
+let g:airline_powerline_fonts = 1
+" }}}
+
+
+
+" vim doge (document generator) {{{
+let g:doge_filetype_aliases = {
+\  'javascript': ['vue']
+\}
+let g:doge_mapping = '<Leader>nf'
+" }}}
 

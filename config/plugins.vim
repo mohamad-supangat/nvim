@@ -48,5 +48,11 @@ call plug#begin('~/.local/share/nvim/plugged')
   " Plug 'AndrewRadev/tagalong.vim'
   Plug 'alvan/vim-closetag'
 
+  Plug 'folke/todo-comments.nvim' " show todo comment
+
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-pack/nvim-spectre' " search and replace
+  
+  Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 
 call plug#end()
