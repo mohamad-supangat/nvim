@@ -1,5 +1,5 @@
 -- require('config.bufferline')
 
 
-
-require('todo-comments').setup()
+require('config.todo-comments')
+require('config.mini')

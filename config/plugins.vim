@@ -39,8 +39,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'honza/vim-snippets' " snippets helpers for coc
   Plug 'rafamadriz/friendly-snippets' " snippets database for most language
   Plug 'antoinemadec/coc-fzf' " coc tui with fzf 
- 
-  Plug 'mhinz/vim-startify' " start page for vim 
+
 
   Plug 'voldikss/vim-floaterm' " floating terminal
   Plug 'rbgrouleff/bclose.vim' " closing buffer wisdthout pane
@@ -53,7 +52,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-pack/nvim-spectre' " search and replace
-  
+
   Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
+  Plug 'echasnovski/mini.nvim', { 'branch': 'stable' }
 
 call plug#end()
