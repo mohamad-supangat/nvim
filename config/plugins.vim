@@ -37,7 +37,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'neoclide/coc.nvim', {'branch': 'release'} " language server
 
   Plug 'honza/vim-snippets' " snippets helpers for coc
-  Plug "rafamadriz/friendly-snippets" " snippets database for most language
+  Plug 'rafamadriz/friendly-snippets' " snippets database for most language
   Plug 'antoinemadec/coc-fzf' " coc tui with fzf 
  
   Plug 'mhinz/vim-startify' " start page for vim 
