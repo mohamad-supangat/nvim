@@ -24,7 +24,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
   " Plug 'Yggdroot/indentLine'
 
-  Plug 'tpope/vim-commentary' " auto commennt 
+  " Plug 'tpope/vim-commentary' " auto commennt 
   Plug 'luochen1990/rainbow' " rinbow bracket
   Plug 'editorconfig/editorconfig-vim' " editorconfig for vim
 
@@ -38,6 +38,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
   Plug 'honza/vim-snippets' " snippets helpers for coc
   Plug 'rafamadriz/friendly-snippets' " snippets database for most language
+  Plug 'mohamad-supangat/snippets' " My Custom snippet
   Plug 'antoinemadec/coc-fzf' " coc tui with fzf 
 
 
