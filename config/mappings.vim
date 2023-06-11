@@ -171,6 +171,8 @@ vmap <BS> "_d
 
 " toogle explorer
 nnoremap <C-n> :CocCommand explorer<CR>
+nnoremap <Leader>mm :CocCommand explorer --preset bufferr<CR>
+
 
 " toogle fzf coc
 nmap <leader>coc :CocFzfList<CR>
