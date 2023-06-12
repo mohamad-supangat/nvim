@@ -165,5 +165,6 @@ let g:doge_mapping = '<Leader>nf'
 
 " polyglot {{{
 " let g:vue_pre_processors = ['pug', 'scss']
+" let g:polyglot_disabled = ['typescript', 'vue']
 let g:vue_pre_processors = 'detect_on_enter'
 " }}}

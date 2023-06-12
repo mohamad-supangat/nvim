@@ -4,6 +4,8 @@ endif
 " Add the dein installation directory into runtimepath
 call plug#begin('~/.local/share/nvim/plugged')
   " Plug 'gregsexton/MatchTag'
+  
+  let g:polyglot_disabled = ['typescript', 'vue', 'pug', "python", "php"]
   Plug 'sheerun/vim-polyglot'
   Plug 'vim-airline/vim-airline'
 
@@ -57,4 +59,6 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
   Plug 'echasnovski/mini.nvim', { 'branch': 'stable' }
 
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 call plug#end()
