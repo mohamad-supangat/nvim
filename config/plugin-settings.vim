@@ -168,3 +168,9 @@ let g:doge_mapping = '<Leader>nf'
 " let g:polyglot_disabled = ['typescript', 'vue']
 let g:vue_pre_processors = 'detect_on_enter'
 " }}}
+"
+
+
+" context vim {{{ 
+let g:context_enabled = 1
+" }}}

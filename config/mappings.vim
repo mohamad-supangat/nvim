@@ -276,3 +276,6 @@ nnoremap <leader>cd :cd %:p:h<CR>
 vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>
 
 
+" Open Plug Update {{
+nnoremap <Leader>uu :PlugUpdate<CR>
+" }}

@@ -5,14 +5,14 @@ endif
 call plug#begin('~/.local/share/nvim/plugged')
   " Plug 'gregsexton/MatchTag'
   
-  let g:polyglot_disabled = ['typescript', 'vue', 'pug', "python", "php"]
+  let g:polyglot_disabled = ['typescript', 'vue', 'pug', 'python', 'php', 'markdown', 'dart', 'html', 'vim', 'json']
   Plug 'sheerun/vim-polyglot'
   Plug 'vim-airline/vim-airline'
 
 
   Plug 'kyazdani42/nvim-web-devicons' " neovim web dev icon
   Plug 'christoomey/vim-tmux-navigator' " tmux navigation integration
-  Plug 'akinsho/nvim-bufferline.lua'
+  " Plug 'akinsho/nvim-bufferline.lua'
 
   Plug 'sainnhe/gruvbox-material'
   " Plug 'folke/tokyonight.nvim'
@@ -61,4 +61,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'JoosepAlviste/nvim-ts-context-commentstring'
+  " Plug 'keyvchan/virt_context.nvim'
+  "
+  Plug 'wellle/context.vim'
 call plug#end()
