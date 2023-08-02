@@ -17,6 +17,7 @@
   "diagnostic.infoSign": "●",
   "diagnostic.displayByAle": false,
   "diagnostic.refreshOnInsertMode": true,
+  "diagnostic.checkCurrentLine": true,
   //git
   "git.enableGutters": true,
   "git.branchCharacter": "\uf418",
@@ -71,5 +72,16 @@
     "snippet": "",
     "typeParameter": "",
     "default": ""
-  }
+  },
+
+  // emmet
+  "emmet.includeLanguages": {
+    "blade": "html",
+    "vue-html": "html",
+    "javascript": "javascriptreact"
+  },
+  "flutter.runDevToolsAtStartup": true,
+  "flutter.autoOpenDevLog": true,
+  "translator.toLang": "en|id"
 }
+
