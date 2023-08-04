@@ -17,7 +17,7 @@
   "diagnostic.infoSign": "●",
   "diagnostic.displayByAle": false,
   "diagnostic.refreshOnInsertMode": true,
-  "diagnostic.checkCurrentLine": true,
+  "diagnostic.checkCurrentLine": false,
   //git
   "git.enableGutters": true,
   "git.branchCharacter": "\uf418",
@@ -80,8 +80,12 @@
     "vue-html": "html",
     "javascript": "javascriptreact"
   },
+
+  // flutter
   "flutter.runDevToolsAtStartup": true,
   "flutter.autoOpenDevLog": true,
+  "flutter.openDevLogSplitCommand": "30vnew",
+
+  // translator
   "translator.toLang": "en|id"
 }
-

@@ -44,7 +44,8 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'antoinemadec/coc-fzf' " coc tui with fzf 
 
 
-  Plug 'voldikss/vim-floaterm' " floating terminal
+  " Plug 'voldikss/vim-floaterm' " floating terminal
+  Plug 'numToStr/FTerm.nvim'
   Plug 'rbgrouleff/bclose.vim' " closing buffer wisdthout pane
 
   Plug 'kdheepak/lazygit.nvim'
