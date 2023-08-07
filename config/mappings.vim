@@ -169,10 +169,22 @@ vmap <BS> "_d
 
 " coc && fzf keybinds {{
 
-" toogle explorer
+" coc-explorer explorer
 nnoremap <C-n> :CocCommand explorer<CR>
 nnoremap <leader>ef <Cmd>CocCommand explorer --preset floating<CR>
-nnoremap <leader>m :CocCommand explorer --preset buffer<CR>
+nnoremap <leader>mm :CocCommand explorer --preset buffer<CR>
+
+" coc translator
+" popup
+nmap <Leader>t <Plug>(coc-translator-p)
+vmap <Leader>t <Plug>(coc-translator-pv)
+" echo
+nmap <Leader>e <Plug>(coc-translator-e)
+vmap <Leader>e <Plug>(coc-translator-ev)
+" replace
+nmap <Leader>r <Plug>(coc-translator-r)
+vmap <Leader>r <Plug>(coc-translator-rv)
+
 
 
 " toogle fzf coc

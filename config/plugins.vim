@@ -38,7 +38,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'junegunn/fzf.vim', { 'depends': 'fzf'}
   Plug 'neoclide/coc.nvim', {'branch': 'release'} " language server
 
-  Plug 'honza/vim-snippets' " snippets helpers for coc
+  " Plug 'honza/vim-snippets' " snippets helpers for coc
   Plug 'rafamadriz/friendly-snippets' " snippets database for most language
   Plug 'mohamad-supangat/snippets' " My Custom snippet
   Plug 'antoinemadec/coc-fzf' " coc tui with fzf 
