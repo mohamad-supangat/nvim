@@ -27,7 +27,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   " Plug 'Yggdroot/indentLine'
 
   " Plug 'tpope/vim-commentary' " auto commennt 
-  Plug 'luochen1990/rainbow' " rinbow bracket
+  " Plug 'luochen1990/rainbow' " rinbow bracket
   Plug 'editorconfig/editorconfig-vim' " editorconfig for vim
 
   " Plug 'liuchengxu/vista.vim'
@@ -62,7 +62,11 @@ call plug#begin('~/.local/share/nvim/plugged')
 
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'JoosepAlviste/nvim-ts-context-commentstring'
+  Plug 'HiPhish/nvim-ts-rainbow2'
   " Plug 'keyvchan/virt_context.nvim'
   "
   Plug 'wellle/context.vim'
+
+  
+  Plug 'CRAG666/code_runner.nvim'
 call plug#end()

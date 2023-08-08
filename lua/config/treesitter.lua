@@ -19,5 +19,10 @@ configs.setup({
     -- additional_vim_regex_highlighting = true
   },
   context_commentstring = { enable = true, enable_autocmd = false },
-  indent = { enable = true, disable = { "python", "php" } },
+  -- indent = { enable = true, disable = { "python", "php" } },
+  rainbow = {
+    enable = true,
+    -- list of languages you want to disable the plugin for
+    disable = { 'jsx', 'cpp' },
+  }
 })
