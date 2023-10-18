@@ -12,25 +12,14 @@ call plug#begin('~/.local/share/nvim/plugged')
 
   Plug 'kyazdani42/nvim-web-devicons' " neovim web dev icon
   Plug 'christoomey/vim-tmux-navigator' " tmux navigation integration
-  " Plug 'akinsho/nvim-bufferline.lua'
 
   Plug 'sainnhe/gruvbox-material'
-  " Plug 'folke/tokyonight.nvim'
-  " Plug 'NLKNguyen/papercolor-theme'
 
   Plug 'rhysd/accelerated-jk' "navigate faster with jk
   Plug 'lukas-reineke/indent-blankline.nvim', { 'branch': 'master' }
-  " Plug 'jasonccox/vim-wayland-clipboard'
-  " Plug 'kana/vim-fakeclip'
 
-
-  " Plug 'Yggdroot/indentLine'
-
-  " Plug 'tpope/vim-commentary' " auto commennt 
-  " Plug 'luochen1990/rainbow' " rinbow bracket
   Plug 'editorconfig/editorconfig-vim' " editorconfig for vim
 
-  " Plug 'liuchengxu/vista.vim'
   Plug 'preservim/tagbar'
 
 
@@ -44,12 +33,10 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'antoinemadec/coc-fzf' " coc tui with fzf 
 
 
-  " Plug 'voldikss/vim-floaterm' " floating terminal
   Plug 'numToStr/FTerm.nvim'
   Plug 'rbgrouleff/bclose.vim' " closing buffer wisdthout pane
 
   Plug 'kdheepak/lazygit.nvim'
-  " Plug 'AndrewRadev/tagalong.vim'
   Plug 'alvan/vim-closetag'
 
   Plug 'folke/todo-comments.nvim' " show todo comment
@@ -63,8 +50,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'JoosepAlviste/nvim-ts-context-commentstring'
   Plug 'HiPhish/nvim-ts-rainbow2'
-  " Plug 'keyvchan/virt_context.nvim'
-  "
+  
   Plug 'wellle/context.vim'
 
   
