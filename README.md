@@ -6,11 +6,12 @@ the main goal of this project is to make it easier for vscode users to migrate t
 
 ## Install
 
-- need to install git, nodejs, neovim > 0.5
+- need to install git, nodejs, neovim, [pynvim](https://github.com/neovim/pynvim) > 0.5
+- (optional) `c` compiler and `make` for compile better highlighting and language parser in neovim [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - just clone this repo
 
 ```bash
-git clone https://gitlab.com/hantamkoding-dotfiles/neovim.git ~/.config/nvim
+git clone https://github.com/mohamad-supangat/nvim.git ~/.config/nvim
 ```
 
 - and run neovim, and viola
@@ -33,3 +34,4 @@ Some of the shortcuts I use frequently are listed here. In the following shortcu
 | `<space>P`                        | Normal | Open list of coc commands                                                           |
 | `F8`                              | Normal | Toogle sidebar tags explorer                                                        |
 | `<space>rr`                       | Normal | Run current file by [code_runner.nvim](https://github.com/CRAG666/code_runner.nvim) |
+| `<space>git`                       | Normal | Run lazygit(install lazygit first) [code_runner.nvim](https://github.com/CRAG666/code_runner.nvim) |
