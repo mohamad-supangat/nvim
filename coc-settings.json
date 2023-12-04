@@ -87,5 +87,8 @@
   "flutter.openDevLogSplitCommand": "30vnew",
 
   // translator
-  "translator.toLang": "en|id"
+  "translator.toLang": "en|id",
+  "tailwindCSS.includeLanguages": {
+    "blade": "html",
+  }
 }
