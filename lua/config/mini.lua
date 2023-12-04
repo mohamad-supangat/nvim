@@ -36,19 +36,17 @@ require("mini.comment").setup({
     -- Define 'comment' textobject (like `dgc` - delete whole comment block)
     textobject = "gc",
   },
-  -- Hook functions to be executed at certain stage of commenting
-  hooks = {
-    -- Before successful commenting. Does nothing by default.
-    pre = function()
-      require("ts_context_commentstring.internal").update_commentstring()
-    end,
-    -- After successful commenting. Does nothing by default.
-    post = function()
+  options = {
+    custom_commentstring = function()
+      return require('ts_context_commentstring').calculate_commentstring() or vim.bo.commentstring
     end,
   },
 })
 
 
+require("mini.splitjoin").setup()
+require("mini.tabline").setup()
+require("mini.statusline").setup()
 require("mini.surround").setup()
 require("mini.bufremove").setup({ set_vim_settings = true })
 

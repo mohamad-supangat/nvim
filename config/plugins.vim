@@ -7,7 +7,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   
   let g:polyglot_disabled = ['typescript', 'vue', 'pug', 'python', 'php', 'markdown', 'dart', 'html', 'vim', 'json']
   Plug 'sheerun/vim-polyglot'
-  Plug 'vim-airline/vim-airline'
+  " Plug 'vim-airline/vim-airline'
 
 
   Plug 'kyazdani42/nvim-web-devicons' " neovim web dev icon
@@ -29,6 +29,11 @@ call plug#begin('~/.local/share/nvim/plugged')
 
   " Plug 'honza/vim-snippets' " snippets helpers for coc
   Plug 'rafamadriz/friendly-snippets' " snippets database for most language
+  Plug 'onecentlin/laravel5-snippets-vscode',
+  Plug 'onecentlin/laravel-blade-snippets-vscode',
+  Plug 'ahinkle/vscode-laravel-model-snippets',
+  Plug 'use-the-fork/laravel-vscode-snippets',
+  Plug 'anburocky3/bootstrap5-snippets'
   Plug 'mohamad-supangat/snippets' " My Custom snippet
   Plug 'antoinemadec/coc-fzf' " coc tui with fzf 
 
@@ -53,6 +58,5 @@ call plug#begin('~/.local/share/nvim/plugged')
   
   Plug 'wellle/context.vim'
 
-  
   Plug 'CRAG666/code_runner.nvim'
 call plug#end()

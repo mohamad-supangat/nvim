@@ -18,7 +18,7 @@ configs.setup({
     end
     -- additional_vim_regex_highlighting = true
   },
-  context_commentstring = { enable = true, enable_autocmd = false },
+  -- context_commentstring = { enable = true, enable_autocmd = false },
   -- indent = { enable = true, disable = { "python", "php" } },
   rainbow = {
     enable = true,
@@ -26,3 +26,8 @@ configs.setup({
     disable = { 'jsx', 'cpp' },
   }
 })
+
+
+require('ts_context_commentstring').setup {
+  enable_autocmd = false,
+}
