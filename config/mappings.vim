@@ -263,6 +263,7 @@ endif
 
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> <leader>xx :CocList diagnostics<CR>
 
 " GoTo code navigation
 nmap <silent> gd <Plug>(coc-definition)
