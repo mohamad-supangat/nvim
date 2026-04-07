@@ -1,0 +1,15 @@
+{
+  "bs:form-group": {
+    "body": [
+      "<div className=\"form-group\">",
+      "    <label htmlFor=\"${1:}\" className='form-label'>{__('${2:}')}</label>",
+      "    <input type=\"text\" name='${1:}' className=\"form-control\" />",
+      "</div>"
+    ],
+    "prefix": "bs:form-group"
+  },
+  "echo __": {
+    "body": "{__('${1:}')}",
+    "prefix": "echo __"
+  }
+}

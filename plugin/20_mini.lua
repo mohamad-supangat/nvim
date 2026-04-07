@@ -172,7 +172,7 @@ end)
 
 
 now_if_args(function()
-  require('mini.misc').setup()
+  require('minmini.misci.misc').setup()
   MiniMisc.setup_auto_root()
   MiniMisc.setup_restore_cursor()
   MiniMisc.setup_termbg_sync()
@@ -424,14 +424,26 @@ end)
 --
 -- See also:
 -- - `:h MiniIndentscope.gen_animation` - available animation rules
-later(function() require('mini.indentscope').setup() end)
+later(function()
+  require('mini.indentscope').setup({
+    symbol = "▏",
+    options = {
+      try_as_border = true,
+    },
+    -- draw = {
+    --   delay = 0,
+    --   animation = require("mini.indentscope").gen_animation.none(),
+    -- },
+
+  })
+end)
 
 -- Jump to next/previous single character. It implements "smarter `fFtT` keys"
 -- (see `:h f`) that work across multiple lines, start "jumping mode", and
 -- highlight all target matches. Example usage:
 -- - `fxff` - move *f*orward onto next character "x", then next, and next again
 -- - `dt)` - *d*elete *t*ill next closing parenthesis (`)`)
-later(function() require('mini.jump').setup() end)
+-- later(function() require('mini.jump').setup() end)
 
 -- Jump within visible lines to pre-defined spots via iterative label filtering.
 -- Spots are computed by a configurable spotter function. Example usage:
@@ -443,7 +455,7 @@ later(function() require('mini.jump').setup() end)
 --
 -- See also:
 -- - `:h MiniJump2d.gen_spotter` - list of available spotters
-later(function() require('mini.jump2d').setup() end)
+-- later(function() require('mini.jump2d').setup() end)
 
 -- Special key mappings. Provides helpers to map:
 -- - Multi-step actions. Apply action 1 if condition is met; else apply
@@ -508,7 +520,7 @@ end)
 --
 -- Example usage in Visual mode:
 -- - `<M-h>`/`<M-j>`/`<M-k>`/`<M-l>` - move selection left/down/up/right
-later(function() require('mini.move').setup() end)
+-- later(function() require('mini.move').setup() end)
 
 -- Text edit operators. All operators have mappings for:
 -- - Regular operator (waits for motion/textobject to use)
@@ -730,4 +742,4 @@ later(function() require('mini.trailspace').setup() end)
 -- See also:
 -- - `:h MiniVisits-overview` - overview of how module works
 -- - `:h MiniVisits-examples` - examples of common setups
-later(function() require('mini.visits').setup() end)
+-- later(function() require('mini.visits').setup() end)

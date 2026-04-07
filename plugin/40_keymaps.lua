@@ -67,12 +67,12 @@ end, { desc = "Copy File Path to clipboard" })
 vim.keymap.set("n", "<leader>-", "<C-w>s", { noremap = true, silent = true, desc = "Split window horizontal" })
 vim.keymap.set("n", "<leader>|", "<C-w>v<C-w>l", { noremap = true, silent = true, desc = "Split window vertical" })
 vim.keymap.set("v", "/", '"fy/\\V<C-R>f<CR>', { noremap = true, silent = true, desc = "Search current tag" })
-vim.keymap.set(
-  "n",
-  "<leader>cd",
-  ":cd %:p:h<CR>",
-  { noremap = true, silent = true, desc = "Change dir to current opened file" }
-)
+-- vim.keymap.set(
+--   "n",
+--   "<leader>cd",
+--   ":cd %:p:h<CR>",
+--   { noremap = true, silent = true, desc = "Change dir to current opened file" }
+-- )
 vim.keymap.set("n", "<leader>sm", function()
   vim.cmd("!sublime_merge " .. require("utils").currentFileRootPath() .. "&")
 end, { desc = "Buka Sublime Merge" })
@@ -153,6 +153,14 @@ nmap_leader('fs', pick_workspace_symbols_live, 'Symbols workspace (live)')
 nmap_leader('fS', '<Cmd>Pick lsp scope="document_symbol"<CR>', 'Symbols document')
 nmap_leader('fv', '<Cmd>Pick visit_paths cwd=""<CR>', 'Visit paths (all)')
 nmap_leader('fV', '<Cmd>Pick visit_paths<CR>', 'Visit paths (cwd)')
+nmap_leader('nk', function()
+  MiniPick.builtin.files({}, {
+    source = {
+      name = 'Obsidian Notes',
+      cwd = vim.fn.expand('~/Documents/Obsidian/'),
+    },
+  })
+end)
 nmap("<C-p>", function()
     require('mini.pick').builtin.cli({
       command = {
