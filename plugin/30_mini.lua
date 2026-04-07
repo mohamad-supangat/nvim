@@ -222,11 +222,33 @@ end)
 -- - `:h MiniFiles-examples` - examples of common setups
 now_if_args(function()
   -- Enable directory/file preview
-  require('mini.files').setup({ windows = { preview = true } })
+  require('mini.files').setup({ use_as_default_explorer = true,
+        content = {
+          filter = function(fs_entry)
+            return true
+          end,
+          -- prefix = function() end, -- disable icon in mini.files,
+        },
+        width_focus = 30,
+        width_nofocus = 20,
+        width_preview = 25,
+        mappings = {
+          go_in = "L",
+          go_in_plus = "l",
+          go_out = "H",
+          go_out_plus = "h",
+        }, })
 
-  -- Add common bookmarks for every explorer. Example usage inside explorer:
-  -- - `'c` to navigate into your config directory
-  -- - `g?` to see available bookmarks
+    local minifiles_toggle = function()
+        if not MiniFiles.close() then
+          MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
+          MiniFiles.reveal_cwd()
+        end
+      end
+
+      vim.api.nvim_create_user_command('MiniFilesToggle', minifiles_toggle, {desc = 'Toggle Mini Files'})
+
+
   local add_marks = function()
     MiniFiles.set_bookmark('c', vim.fn.stdpath('config'), { desc = 'Config' })
     local minideps_plugins = vim.fn.stdpath('data') .. '/site/pack/deps/opt'
@@ -670,7 +692,27 @@ end)
 -- - `:h MiniPick.builtin` and `:h MiniExtra.pickers` - available pickers;
 --   Execute one either with Lua function, `:Pick <picker-name>` command, or
 --   one of `<Leader>f` mappings defined in 'plugin/20_keymaps.lua'
-later(function() require('mini.pick').setup() end)
+later(function() require('mini.pick').setup({
+      window = {
+        config = function()
+          height = math.floor(0.618 * vim.o.lines)
+          width = math.floor(0.618 * vim.o.columns)
+          return {
+            border = "single",
+            anchor = "NW",
+            height = height,
+            width = width,
+            row = math.floor(0.5 * (vim.o.lines - height)),
+            col = math.floor(0.5 * (vim.o.columns - width)),
+          }
+        end,
+      },
+      mappings = {
+        delete_word = "<A-BS>",
+        move_down = "<C-j>",
+        move_up = "<C-k>",
+      },
+    }) end)
 
 -- Manage and expand snippets (templates for a frequently used text).
 -- Typical workflow is to type snippet's (configurable) prefix and expand it
