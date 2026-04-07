@@ -172,7 +172,7 @@ end)
 
 
 now_if_args(function()
-  require('minmini.misci.misc').setup()
+  require('mini.misc').setup()
   MiniMisc.setup_auto_root()
   MiniMisc.setup_restore_cursor()
   MiniMisc.setup_termbg_sync()
