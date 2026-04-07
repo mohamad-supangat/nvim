@@ -276,5 +276,28 @@ nmap('<A-b>', '<cmd>CodeCompanionChat Toggle<CR>', 'Toogle CodeCompanion Chat')
 xmap('<A-b>', '<cmd>CodeCompanionChat Toggle<CR>', 'Send Selected Text to  CodeCompanion Chat')
 xmap('<A-i>', '<cmd>CodeCompanion<CR>', 'CodeCompanion Inline Propmt')
 
+-- find and replace
+
+-- Toggle Spectre (grug-far) - Normal mode
+vim.keymap.set("n", "<leader>S", function()
+  require("grug-far").open({ transient = true })
+end, { desc = "Toggle Spectre", noremap = true, silent = true })
+
+-- Search current word - Normal & Visual mode
+vim.keymap.set({ "n", "v" }, "<leader>sw", function()
+  require("grug-far").open({ prefills = { search = vim.fn.expand("<cword>") } })
+end, { desc = "Search current word", noremap = true, silent = true })
+
+-- Search on current file - Normal mode
+vim.keymap.set("n", "<leader>sp", function()
+  require("grug-far").open({ prefills = { paths = vim.fn.expand("%") } })
+end, { desc = "Search on current file", noremap = true, silent = true })
+
+-- Search current folder - Normal mode
+vim.keymap.set("n", "<leader>sf", function()
+  local currentFilePath = vim.api.nvim_buf_get_name(0)
+  local currentFileDirectory = currentFilePath:match("(.*/)") or ""
+  require("grug-far").open({ prefills = { paths = currentFileDirectory } })
+end, { desc = "Toggle Spectre Current Folder", noremap = true, silent = true })
 
 -- stylua: ignore end

@@ -29,6 +29,10 @@ now_if_args(function()
     'php',
     'css',
     'json',
+    'vue',
+    'pug',
+    'typescript',
+    'javascript',
   }
   local isnt_installed = function(lang)
     return #vim.api.nvim_get_runtime_file('parser/' .. lang .. '.*', false) == 0
@@ -449,5 +453,20 @@ later(function()
     condition = function()
       return false
     end,
+  })
+end)
+
+
+later(function()
+  add("MagicDuck/grug-far.nvim")
+  vim.g.maplocalleader = ","
+
+  require("grug-far").setup({
+    transient = true,
+    prefills = {
+      search = "",
+      flags = "--multiline",
+    },
+    -- engine = 'ripgrep' is default, but 'astgrep' can be specified
   })
 end)
