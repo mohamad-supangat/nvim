@@ -2,28 +2,6 @@
 -- │ MINI configuration │
 -- └────────────────────┘
 --
--- This file contains configuration of the MINI parts of the config.
--- It contains only configs for the 'mini.nvim' plugin (installed in 'init.lua').
---
--- 'mini.nvim' is a library of modules. Each is enabled independently via
--- `require('mini.xxx').setup()` convention. It creates all intended side effects:
--- mappings, autocommands, highlight groups, etc. It also creates a global
--- `MiniXxx` table that can be later used to access module's features.
---
--- Every module's `setup()` function accepts an optional `config` table to
--- adjust its behavior. See the structure of this table at `:h MiniXxx.config`.
---
--- See `:h mini.nvim-general-principles` for more general principles.
---
--- Here each module's `setup()` has a brief explanation of what the module is for,
--- its usage examples (uses Leader mappings from 'plugin/20_keymaps.lua'), and
--- possible directions for more info.
--- For more info about a module see its help page (`:h mini.xxx` for 'mini.xxx').
-
--- To minimize the time until first screen draw, modules are enabled in two steps:
--- - Step one enables everything that is needed for first draw with `now()`.
---   Sometimes needed only if Neovim is started as `nvim -- path/to/file`.
--- - Everything else is delayed until the first draw with `later()`.
 local now, later = MiniDeps.now, MiniDeps.later
 local now_if_args = Config.now_if_args
 
@@ -114,139 +92,73 @@ now(function() require('mini.sessions').setup() end)
 -- - `:h MiniStarter-lifecycle` - how to work with Starter buffer
 now(function() require('mini.starter').setup() end)
 
--- Statusline. Sets `:h 'statusline'` to show more info in a line below window.
--- Example usage:
--- - Left most section indicates current mode (text + highlighting).
--- - Second from left section shows "developer info": Git, diff, diagnostics, LSP.
--- - Center section shows the name of displayed buffer.
--- - Second to right section shows more buffer info.
--- - Right most section shows current cursor coordinates and search results.
---
--- See also:
--- - `:h MiniStatusline-example-content` - example of default content. Use it to
---   configure a custom statusline by setting `config.content.active` function.
 now(function() require('mini.statusline').setup() end)
 
 -- Tabline. Sets `:h 'tabline'` to show all listed buffers in a line at the top.
 -- Buffers are ordered as they were created. Navigate with `[b` and `]b`.
 now(function() require('mini.tabline').setup() end)
 
--- Step one or two ============================================================
--- Load now if Neovim is started like `nvim -- path/to/file`, otherwise - later.
--- This ensures a correct behavior for files opened during startup.
 
--- Completion and signature help. Implements async "two stage" autocompletion:
--- - Based on attached LSP servers that support completion.
--- - Fallback (based on built-in keyword completion) if there is no LSP candidates.
---
--- Example usage in Insert mode with attached LSP:
--- - Start typing text that should be recognized by LSP (like variable name).
--- - After 100ms a popup menu with candidates appears.
--- - Press `<Tab>` / `<S-Tab>` to navigate down/up the list. These are set up
---   in 'mini.keymap'. You can also use `<C-n>` / `<C-p>`.
--- - During navigation there is an info window to the right showing extra info
---   that the LSP server can provide about the candidate. It appears after the
---   candidate stays selected for 100ms. Use `<C-f>` / `<C-b>` to scroll it.
--- - Navigating to an entry also changes buffer text. If you are happy with it,
---   keep typing after it. To discard completion completely, press `<C-e>`.
--- - After pressing special trigger(s), usually `(`, a window appears that shows
---   the signature of the current function/method. It gets updated as you type
---   showing the currently active parameter.
---
--- Example usage in Insert mode without an attached LSP or in places not
--- supported by the LSP (like comments):
--- - Start typing a word that is present in current or opened buffers.
--- - After 100ms popup menu with candidates appears.
--- - Navigate with `<Tab>` / `<S-Tab>` or `<C-n>` / `<C-p>`. This also updates
---   buffer text. If happy with choice, keep typing. Stop with `<C-e>`.
---
--- It also works with snippet candidates provided by LSP server. Best experience
--- when paired with 'mini.snippets' (which is set up in this file).
+if false then
+  now_if_args(function()
+    -- Customize post-processing of LSP responses for a better user experience.
+    -- Don't show 'Text' suggestions (usually noisy) and show snippets last.
+    local process_items_opts = { kind_priority = { Text = -1, Snippet = 99 } }
+    local process_items = function(items, base)
+      return MiniCompletion.default_process_items(items, base, process_items_opts)
+    end
+    require('mini.completion').setup({
+      lsp_completion = {
+        -- Without this config autocompletion is set up through `:h 'completefunc'`.
+        -- Although not needed, setting up through `:h 'omnifunc'` is cleaner
+        -- (sets up only when needed) and makes it possible to use `<C-u>`.
+        source_func = 'omnifunc',
+        auto_setup = false,
+        process_items = process_items,
+      },
+    })
+
+    -- Set 'omnifunc' for LSP completion only when needed.
+    local on_attach = function(ev)
+      vim.bo[ev.buf].omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
+    end
+    Config.new_autocmd('LspAttach', nil, on_attach, "Set 'omnifunc'")
+
+    -- Advertise to servers that Neovim now supports certain set of completion and
+    -- signature features through 'mini.completion'.
+    vim.lsp.config('*', { capabilities = MiniCompletion.get_lsp_capabilities() })
+  end)
+end
+
 now_if_args(function()
-  -- Customize post-processing of LSP responses for a better user experience.
-  -- Don't show 'Text' suggestions (usually noisy) and show snippets last.
-  local process_items_opts = { kind_priority = { Text = -1, Snippet = 99 } }
-  local process_items = function(items, base)
-    return MiniCompletion.default_process_items(items, base, process_items_opts)
-  end
-  require('mini.completion').setup({
-    lsp_completion = {
-      -- Without this config autocompletion is set up through `:h 'completefunc'`.
-      -- Although not needed, setting up through `:h 'omnifunc'` is cleaner
-      -- (sets up only when needed) and makes it possible to use `<C-u>`.
-      source_func = 'omnifunc',
-      auto_setup = false,
-      process_items = process_items,
+  -- Enable directory/file preview
+  require('mini.files').setup({
+    use_as_default_explorer = true,
+    content = {
+      filter = function(fs_entry)
+        return true
+      end,
+      -- prefix = function() end, -- disable icon in mini.files,
+    },
+    width_focus = 30,
+    width_nofocus = 20,
+    width_preview = 25,
+    mappings = {
+      go_in = "L",
+      go_in_plus = "l",
+      go_out = "H",
+      go_out_plus = "h",
     },
   })
 
-  -- Set 'omnifunc' for LSP completion only when needed.
-  local on_attach = function(ev)
-    vim.bo[ev.buf].omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
+  local minifiles_toggle = function()
+    if not MiniFiles.close() then
+      MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
+      MiniFiles.reveal_cwd()
+    end
   end
-  Config.new_autocmd('LspAttach', nil, on_attach, "Set 'omnifunc'")
 
-  -- Advertise to servers that Neovim now supports certain set of completion and
-  -- signature features through 'mini.completion'.
-  vim.lsp.config('*', { capabilities = MiniCompletion.get_lsp_capabilities() })
-end)
-
--- Navigate and manipulate file system
---
--- Navigation is done using column view (Miller columns) to display nested
--- directories, they are displayed in floating windows in top left corner.
---
--- Manipulate files and directories by editing text as regular buffers.
---
--- Example usage:
--- - `<Leader>ed` - open current working directory
--- - `<Leader>ef` - open directory of current file (needs to be present on disk)
---
--- Basic navigation:
--- - `l` - go in entry at cursor: navigate into directory or open file
--- - `h` - go out of focused directory
--- - Navigate window as any regular buffer
--- - Press `g?` inside explorer to see more mappings
---
--- Basic manipulation:
--- - After any following action, press `=` in Normal mode to synchronize, read
---   carefully about actions, press `y` or `<CR>` to confirm
--- - New entry: press `o` and type its name; end with `/` to create directory
--- - Rename: press `C` and type new name
--- - Delete: type `dd`
--- - Move/copy: type `dd`/`yy`, navigate to target directory, press `p`
---
--- See also:
--- - `:h MiniFiles-navigation` - more details about how to navigate
--- - `:h MiniFiles-manipulation` - more details about how to manipulate
--- - `:h MiniFiles-examples` - examples of common setups
-now_if_args(function()
-  -- Enable directory/file preview
-  require('mini.files').setup({ use_as_default_explorer = true,
-        content = {
-          filter = function(fs_entry)
-            return true
-          end,
-          -- prefix = function() end, -- disable icon in mini.files,
-        },
-        width_focus = 30,
-        width_nofocus = 20,
-        width_preview = 25,
-        mappings = {
-          go_in = "L",
-          go_in_plus = "l",
-          go_out = "H",
-          go_out_plus = "h",
-        }, })
-
-    local minifiles_toggle = function()
-        if not MiniFiles.close() then
-          MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
-          MiniFiles.reveal_cwd()
-        end
-      end
-
-      vim.api.nvim_create_user_command('MiniFilesToggle', minifiles_toggle, {desc = 'Toggle Mini Files'})
+  vim.api.nvim_create_user_command('MiniFilesToggle', minifiles_toggle, { desc = 'Toggle Mini Files' })
 
 
   local add_marks = function()
@@ -258,28 +170,11 @@ now_if_args(function()
   Config.new_autocmd('User', 'MiniFilesExplorerOpen', add_marks, 'Add bookmarks')
 end)
 
--- Miscellaneous small but useful functions. Example usage:
--- - `<Leader>oz` - toggle between "zoomed" and regular view of current buffer
--- - `<Leader>or` - resize window to its "editable width"
--- - `:lua put_text(vim.lsp.get_clients())` - put output of a function below
---   cursor in current buffer. Useful for a detailed exploration.
--- - `:lua put(MiniMisc.stat_summary(MiniMisc.bench_time(f, 100)))` - run
---   function `f` 100 times and report statistical summary of execution times
+
 now_if_args(function()
-  -- Makes `:h MiniMisc.put()` and `:h MiniMisc.put_text()` public
   require('mini.misc').setup()
-
-  -- Change current working directory based on the current file path. It
-  -- searches up the file tree until the first root marker ('.git' or 'Makefile')
-  -- and sets their parent directory as a current directory.
-  -- This is helpful when simultaneously dealing with files from several projects.
   MiniMisc.setup_auto_root()
-
-  -- Restore latest cursor position on file open
   MiniMisc.setup_restore_cursor()
-
-  -- Synchronize terminal emulator background with Neovim's background to remove
-  -- possibly different color padding around Neovim instance
   MiniMisc.setup_termbg_sync()
 end)
 
@@ -415,27 +310,23 @@ later(function()
     -- Explicitly opt-in for set of common keys to trigger clue window
     triggers = {
       { mode = { 'n', 'x' }, keys = '<Leader>' }, -- Leader triggers
-      { mode =   'n',        keys = '\\' },       -- mini.basics
+      { mode = 'n',          keys = '\\' },       -- mini.basics
       { mode = { 'n', 'x' }, keys = '[' },        -- mini.bracketed
       { mode = { 'n', 'x' }, keys = ']' },
-      { mode =   'i',        keys = '<C-x>' },    -- Built-in completion
+      { mode = 'i',          keys = '<C-x>' },    -- Built-in completion
       { mode = { 'n', 'x' }, keys = 'g' },        -- `g` key
       { mode = { 'n', 'x' }, keys = "'" },        -- Marks
       { mode = { 'n', 'x' }, keys = '`' },
       { mode = { 'n', 'x' }, keys = '"' },        -- Registers
       { mode = { 'i', 'c' }, keys = '<C-r>' },
-      { mode =   'n',        keys = '<C-w>' },    -- Window commands
+      { mode = 'n',          keys = '<C-w>' },    -- Window commands
       { mode = { 'n', 'x' }, keys = 's' },        -- `s` key (mini.surround, etc.)
       { mode = { 'n', 'x' }, keys = 'z' },        -- `z` key
     },
   })
 end)
 
--- Command line tweaks. Improves command line editing with:
--- - Autocompletion. Basically an automated `:h cmdline-completion`.
--- - Autocorrection of words as-you-type. Like `:W`->`:w`, `:lau`->`:lua`, etc.
--- - Autopeek command range (like line number at the start) as-you-type.
-later(function() require('mini.cmdline').setup() end)
+-- later(function() require('mini.cmdline').setup() end)
 
 -- Tweak and save any color scheme. Contains utility functions to work with
 -- color spaces and color schemes. Example usage:
@@ -604,9 +495,9 @@ later(function()
   -- Map built-in navigation characters to force map refresh
   for _, key in ipairs({ 'n', 'N', '*', '#' }) do
     local rhs = key
-      -- Also open enough folds when jumping to the next match
-      .. 'zv'
-      .. '<Cmd>lua MiniMap.refresh({}, { lines = false, scrollbar = false })<CR>'
+        -- Also open enough folds when jumping to the next match
+        .. 'zv'
+        .. '<Cmd>lua MiniMap.refresh({}, { lines = false, scrollbar = false })<CR>'
     vim.keymap.set('n', key, rhs)
   end
 end)
@@ -692,27 +583,29 @@ end)
 -- - `:h MiniPick.builtin` and `:h MiniExtra.pickers` - available pickers;
 --   Execute one either with Lua function, `:Pick <picker-name>` command, or
 --   one of `<Leader>f` mappings defined in 'plugin/20_keymaps.lua'
-later(function() require('mini.pick').setup({
-      window = {
-        config = function()
-          height = math.floor(0.618 * vim.o.lines)
-          width = math.floor(0.618 * vim.o.columns)
-          return {
-            border = "single",
-            anchor = "NW",
-            height = height,
-            width = width,
-            row = math.floor(0.5 * (vim.o.lines - height)),
-            col = math.floor(0.5 * (vim.o.columns - width)),
-          }
-        end,
-      },
-      mappings = {
-        delete_word = "<A-BS>",
-        move_down = "<C-j>",
-        move_up = "<C-k>",
-      },
-    }) end)
+later(function()
+  require('mini.pick').setup({
+    window = {
+      config = function()
+        height = math.floor(0.618 * vim.o.lines)
+        width = math.floor(0.618 * vim.o.columns)
+        return {
+          border = "single",
+          anchor = "NW",
+          height = height,
+          width = width,
+          row = math.floor(0.5 * (vim.o.lines - height)),
+          col = math.floor(0.5 * (vim.o.columns - width)),
+        }
+      end,
+    },
+    mappings = {
+      delete_word = "<A-BS>",
+      move_down = "<C-j>",
+      move_up = "<C-k>",
+    },
+  })
+end)
 
 -- Manage and expand snippets (templates for a frequently used text).
 -- Typical workflow is to type snippet's (configurable) prefix and expand it
@@ -838,8 +731,3 @@ later(function() require('mini.trailspace').setup() end)
 -- - `:h MiniVisits-overview` - overview of how module works
 -- - `:h MiniVisits-examples` - examples of common setups
 later(function() require('mini.visits').setup() end)
-
--- Not mentioned here, but can be useful:
--- - 'mini.doc' - needed only for plugin developers.
--- - 'mini.fuzzy' - not really needed on a daily basis.
--- - 'mini.test' - needed only for plugin developers.
