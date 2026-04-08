@@ -111,7 +111,7 @@ later(function()
         end
       }),
       nuls.builtins.formatting.prettier.with({
-        extra_filetypes = { "toml", "css", "json5" },
+        extra_filetypes = { "toml", "css", "json5", "vue" },
         condition = function(utils)
           return utils.root_has_file({ ".prettierrc" })
         end,
@@ -150,7 +150,7 @@ later(function()
   add('L3MON4D3/LuaSnip')
 
   require("luasnip.loaders.from_vscode").lazy_load()
-  -- require("luasnip.loaders.from_vscode").lazy_load({ paths = { custom_snippets_dir } })
+  require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fn.stdpath("config") .. '/after/snippets' } })
 end)
 
 now_if_args(function()
@@ -308,30 +308,6 @@ later(function()
         -- "codecompanion",
       },
       providers = {
-        avante = {
-          module = "blink-cmp-avante",
-          name = "Avante",
-          opts = {
-            -- options for blink-cmp-avante
-          },
-        },
-        emoji = {
-          name = "emoji",
-          module = "blink.compat.source",
-          transform_items = function(ctx, items)
-            local kind = require("blink.cmp.types").CompletionItemKind.Text
-            for i = 1, #items do
-              items[i].kind = kind
-            end
-            return items
-          end,
-        },
-        lazydev = {
-          name = "LazyDev",
-          module = "lazydev.integrations.blink",
-          -- make lazydev completions top priority (see `:h blink.cmp`)
-          score_offset = 100,
-        },
         supermaven = {
           name = "supermaven",
           module = "blink.compat.source",
