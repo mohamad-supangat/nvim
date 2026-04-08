@@ -3,7 +3,7 @@
 -- └─────────────────────────┘
 --
 
-local add, later = MiniDeps.add, MiniDeps.later
+local add, later, now = MiniDeps.add, MiniDeps.later, MiniDeps.now
 local now_if_args = Config.now_if_args
 
 now_if_args(function()
@@ -184,80 +184,6 @@ now_if_args(function()
   -- vim.keymap.set('t', '<Leader>gi', ":lua lazygit()<CR>")
 end)
 
-later(function()
-  add("olimorris/codecompanion.nvim")
-  add("ravitemer/codecompanion-history.nvim")
-
-  require(
-    'codecompanion'
-  ).setup({
-    extensions = {
-      history = {
-        enabled = true, -- defaults to true
-        opts = {
-          dir_to_save = vim.fn.stdpath("data") .. "/codecompanion_chats.json",
-        }
-      }
-    },
-    interactions = {
-      chat = {
-        adapter = {
-          name = 'gemini',
-          model = 'gemini-3-flash-preview',
-        },
-        opts = {
-          completion_provider = (vim.g.completion == "blink") and "blink" or "default",
-        },
-        keymaps = {
-        },
-      },
-      inline = {
-        adapter = {
-          name = 'gemini',
-          model = 'gemini-3-flash-preview',
-        },
-        keymaps = {
-          accept_change = {
-            modes = { n = "ga" },
-            description = "Accept the suggested change",
-          },
-          reject_change = {
-            modes = { n = "gr" },
-            description = "Reject the suggested change",
-          },
-        },
-      },
-    },
-    opts = {
-      language = "Indonesia",
-    },
-    display = {
-      chat = {
-        start_in_insert_mode = false,
-        show_references = true,
-        separator = "─",
-        window = {
-          layout = "float",
-          height = 0.9,
-          width = 0.9,
-          opts = {
-            breakindent = true,
-            cursorcolumn = false,
-            cursorline = false,
-            foldcolumn = "0",
-            linebreak = true,
-            list = true,
-            number = false,
-            -- signcolumn = "yes",
-            spell = false,
-            wrap = true,
-          },
-        },
-      },
-    },
-  })
-end)
-
 -- blink.cmp
 later(function()
   add({
@@ -305,7 +231,7 @@ later(function()
         "lsp",
         "path",
         "buffer",
-        -- "codecompanion",
+        "codecompanion",
       },
       providers = {
         supermaven = {
@@ -433,6 +359,83 @@ later(function()
 end)
 
 
+
+
+later(function()
+  add("olimorris/codecompanion.nvim")
+  add("ravitemer/codecompanion-history.nvim")
+
+  require(
+    'codecompanion'
+  ).setup({
+    extensions = {
+      history = {
+        enabled = true, -- defaults to true
+        opts = {
+          dir_to_save = vim.fn.stdpath("data") .. "/codecompanion_chats.json",
+        }
+      }
+    },
+    interactions = {
+      chat = {
+        adapter = {
+          name = 'gemini',
+          model = 'gemini-3-flash-preview',
+        },
+        opts = {
+          completion_provider = 'blink',
+        },
+        keymaps = {
+        },
+      },
+      inline = {
+        adapter = {
+          name = 'gemini',
+          model = 'gemini-3-flash-preview',
+        },
+        keymaps = {
+          accept_change = {
+            modes = { n = "ga" },
+            description = "Accept the suggested change",
+          },
+          reject_change = {
+            modes = { n = "gr" },
+            description = "Reject the suggested change",
+          },
+        },
+      },
+    },
+    opts = {
+      language = "Indonesia",
+    },
+    display = {
+      chat = {
+        start_in_insert_mode = false,
+        show_references = true,
+        separator = "─",
+        window = {
+          layout = "float",
+          height = 0.9,
+          width = 0.9,
+          opts = {
+            breakindent = true,
+            cursorcolumn = false,
+            cursorline = false,
+            foldcolumn = "0",
+            linebreak = true,
+            list = true,
+            number = false,
+            -- signcolumn = "yes",
+            spell = false,
+            wrap = true,
+          },
+        },
+      },
+    },
+  })
+end)
+
+
 later(function()
   add("MagicDuck/grug-far.nvim")
   vim.g.maplocalleader = ","
@@ -445,4 +448,9 @@ later(function()
     },
     -- engine = 'ripgrep' is default, but 'astgrep' can be specified
   })
+end)
+
+now(function()
+  add("mrjones2014/smart-splits.nvim")
+  require('smart-splits').setup({})
 end)

@@ -179,7 +179,7 @@ later(function()
 end)
 
 -- later(function() require('mini.align').setup() end)
-later(function() require('mini.animate').setup() end)
+-- later(function() require('mini.animate').setup() end)
 later(function() require('mini.bracketed').setup() end)
 later(function() require('mini.bufremove').setup() end)
 
