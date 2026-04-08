@@ -20,6 +20,7 @@ now_if_args(function()
     source = 'nvim-treesitter/nvim-treesitter-textobjects',
     checkout = '93d60a475f0b08a8eceb99255863977d3a25f310',
   })
+  add('windwp/nvim-ts-autotag')
 
   local languages = {
     'lua',
@@ -52,21 +53,25 @@ now_if_args(function()
     vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
   end
   Config.new_autocmd('FileType', filetypes, ts_start, 'Start tree-sitter')
+
+
+  require("nvim-ts-autotag").setup({
+    opts = {
+      enable_close = true,
+      enable_rename = true,
+      enable_close_on_slash = false,
+    },
+    aliases = {
+      ["blade"] = "html",
+      ["html.handlebars"] = "html",
+    },
+  })
 end)
 
 now_if_args(function()
-  add('neovim/nvim-lspconfig')
-  vim.lsp.config("intelephense", {
-    root_markers = { ".rootdir", "composer.json", ".git" },
-    filetypes = { "php", "blade" },
-  })
+  -- add('neovim/nvim-lspconfig')
 
 
-  vim.lsp.config['phpantom'] = {
-    cmd = { 'phpantom_lsp' },
-    filetypes = { 'php', 'blade' },
-    root_markers = { '.rootdir', 'composer.json' },
-  }
   vim.lsp.enable({
     -- "vtsls",
     -- "vue_ls",
@@ -75,6 +80,7 @@ now_if_args(function()
     -- 'kulala_ls',
     'phpantom',
     'intelephense',
+    'emmet_language_server'
   })
 end)
 
