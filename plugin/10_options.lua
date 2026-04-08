@@ -29,7 +29,6 @@ vim.o.undofile    = true                             -- Enable persistent undo
 vim.o.backup      = false                            -- This is recommended by coc
 vim.o.swapfile    = false
 vim.o.writebackup = false                            -- This is recommended by coc
-
 vim.o.shada       = "'100,<50,s10,:1000,/100,@100,h" -- Limit ShaDa file (for startup)
 
 -- Enable all filetype plugins and syntax (if not enabled, for better startup)
@@ -53,7 +52,7 @@ vim.o.splitbelow     = true                -- Horizontal splits will be below
 vim.o.splitkeep      = 'screen'            -- Reduce scroll during window split
 vim.o.splitright     = true                -- Vertical splits will be to the right
 vim.o.winborder      = 'single'            -- Use border in floating windows
-vim.o.wrap           = false               -- Don't visually wrap lines (toggle with \w)
+vim.o.wrap           = true                -- Don't visually wrap lines (toggle with \w)
 
 vim.o.cursorlineopt  = 'screenline,number' -- Show cursor line per screen line
 
@@ -103,9 +102,7 @@ Config.new_autocmd('FileType', nil, f, "Proper 'formatoptions'")
 
 -- Diagnostics ================================================================
 
--- Neovim has built-in support for showing diagnostic messages. This configures
--- a more conservative display while still being useful.
--- See `:h vim.diagnostic` and `:h vim.diagnostic.config()`.
+
 local diagnostic_opts = {
   -- Show signs on top of any other sign, but only for warnings and errors
   signs = { priority = 9999, severity = { min = 'WARN', max = 'ERROR' } },

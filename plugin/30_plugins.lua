@@ -181,7 +181,7 @@ now_if_args(function()
   --   cmd = "lazygit -p " .. require("utils").currentFileRootPath(),
   -- })
   vim.keymap.set('n', '<Leader>gi', ":lua lazygit()<CR>")
-  vim.keymap.set('t', '<Leader>gi', ":lua lazygit()<CR>")
+  -- vim.keymap.set('t', '<Leader>gi', ":lua lazygit()<CR>")
 end)
 
 later(function()
@@ -294,7 +294,7 @@ later(function()
       --     force_version = "v1.10.2",
       -- },
     },
-    -- snippets = { preset = "luasnip" },
+    snippets = { preset = "luasnip" },
     sources = {
       default = {
         -- "emoji",

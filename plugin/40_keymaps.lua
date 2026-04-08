@@ -67,12 +67,12 @@ end, { desc = "Copy File Path to clipboard" })
 vim.keymap.set("n", "<leader>-", "<C-w>s", { noremap = true, silent = true, desc = "Split window horizontal" })
 vim.keymap.set("n", "<leader>|", "<C-w>v<C-w>l", { noremap = true, silent = true, desc = "Split window vertical" })
 vim.keymap.set("v", "/", '"fy/\\V<C-R>f<CR>', { noremap = true, silent = true, desc = "Search current tag" })
--- vim.keymap.set(
---   "n",
---   "<leader>cd",
---   ":cd %:p:h<CR>",
---   { noremap = true, silent = true, desc = "Change dir to current opened file" }
--- )
+vim.keymap.set(
+  "n",
+  "<leader>cd",
+  ":cd %:p:h<CR>",
+  { noremap = true, silent = true, desc = "Change dir to current opened file" }
+)
 vim.keymap.set("n", "<leader>sm", function()
   vim.cmd("!sublime_merge " .. require("utils").currentFileRootPath() .. "&")
 end, { desc = "Buka Sublime Merge" })
@@ -85,7 +85,7 @@ local new_scratch_buffer = function()
   vim.api.nvim_win_set_buf(0, vim.api.nvim_create_buf(true, true))
 end
 
-nmap('<C-t>', '<Cmd>enew', 'New Buffer')
+nmap('<C-t>', '<Cmd>enew<CR>', 'New Buffer')
 nmap_leader('ba', '<Cmd>b#<CR>', 'Alternate')
 nmap_leader('bd', '<Cmd>lua MiniBufremove.delete()<CR>', 'Delete')
 nmap_leader('bD', '<Cmd>lua MiniBufremove.delete(0, true)<CR>', 'Delete!')
