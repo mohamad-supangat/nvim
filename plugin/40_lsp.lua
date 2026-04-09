@@ -2,10 +2,7 @@ local add, later, now = MiniDeps.add, MiniDeps.later, MiniDeps.now
 local now_if_args = Config.now_if_args
 
 
-now_if_args(function()
-  -- add('neovim/nvim-lspconfig')
-
-
+now(function()
   vim.lsp.enable({
     -- "vtsls",
     -- "vue_ls",

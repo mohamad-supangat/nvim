@@ -87,29 +87,4 @@ function M.is_huawei_host()
   return hostname == "huawei"
 end
 
-function M.insert_package_json(root_files, field, fname)
-  return M.root_markers_with_field(root_files, { 'package.json', 'package.json5' }, field, fname)
-end
-
-function M.root_pattern(...)
-  local patterns = M.tbl_flatten { ... }
-  return function(startpath)
-    startpath = M.strip_archive_subpath(startpath)
-    for _, pattern in ipairs(patterns) do
-      local match = M.search_ancestors(startpath, function(path)
-        for _, p in ipairs(vim.fn.glob(table.concat({ escape_wildcards(path), pattern }, '/'), true, true)) do
-          if vim.uv.fs_stat(p) then
-            return path
-          end
-        end
-      end)
-
-      if match ~= nil then
-        local real = vim.uv.fs_realpath(match)
-        return real or match -- fallback to original if realpath fails
-      end
-    end
-  end
-end
-
 return M
