@@ -57,6 +57,7 @@ local xmap_leader = function(suffix, rhs, desc)
   vim.keymap.set('x', '<Leader>' .. suffix, rhs, { desc = desc })
 end
 
+nmap_leader("uu", "<Cmd>DepsUpdate<CR>", 'Update Plugins')
 nmap_leader("q", ":q<CR>", 'Exit neovim')
 nmap_leader("qa", ":quitall!<CR>", "Force Exit")
 vim.keymap.set("n", "<leader>cf", function()
