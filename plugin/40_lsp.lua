@@ -4,15 +4,16 @@ local now_if_args = Config.now_if_args
 
 now(function()
   vim.lsp.enable({
-    -- "vtsls",
-    -- "vue_ls",
+    "vtsls",
+    "vue_ls",
     'ts_ls',
     'lua_ls',
-    -- 'kulala_ls',
+    'kulala_ls',
     'phpantom',
     'intelephense',
     'emmet_language_server',
     'tailwindcss',
+    'marksman',
   })
 end)
 
