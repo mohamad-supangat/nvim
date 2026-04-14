@@ -16,6 +16,13 @@ now_if_args(function()
 end)
 
 
+now_if_args(function()
+  add('hedyhli/outline.nvim')
+  require('outline').setup()
+end)
+
+
+
 -- Floating terminla
 now_if_args(function()
   add("ingur/floatty.nvim")

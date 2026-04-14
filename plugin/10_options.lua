@@ -57,7 +57,6 @@ vim.o.wrap           = true                -- Don't visually wrap lines (toggle 
 vim.o.cursorlineopt  = 'screenline,number' -- Show cursor line per screen line
 vim.o.laststatus     = 3                   -- global statusline
 vim.o.cmdheight      = 0                   -- disbale cmd height
-
 -- Special UI symbols. More is set via 'mini.basics' later.
 vim.o.fillchars      = 'eob: ,fold:╌'
 vim.o.listchars      = 'extends:…,nbsp:␣,precedes:…,tab:> '
@@ -125,4 +124,8 @@ local diagnostic_opts = {
 
 -- Use `later()` to avoid sourcing `vim.diagnostic` on startup
 MiniDeps.later(function() vim.diagnostic.config(diagnostic_opts) end)
+
+if vim.fn.has("nvim-0.12.0") == 1 then
+  require("vim._core.ui2").enable({})
+end
 -- stylua: ignore end
