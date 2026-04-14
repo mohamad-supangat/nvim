@@ -18,6 +18,7 @@ now_if_args(function()
       "prisma",
       "markdown",
       "html",
+      "blade",
       "vim",
       "json",
       "css",
