@@ -56,7 +56,8 @@ vim.o.wrap           = true                -- Don't visually wrap lines (toggle 
 
 vim.o.cursorlineopt  = 'screenline,number' -- Show cursor line per screen line
 vim.o.laststatus     = 3                   -- global statusline
-vim.o.cmdheight      = 0                   -- disbale cmd height
+vim.o.cmdheight      = 1
+vim.o.updatetime     = 100
 -- Special UI symbols. More is set via 'mini.basics' later.
 vim.o.fillchars      = 'eob: ,fold:╌'
 vim.o.listchars      = 'extends:…,nbsp:␣,precedes:…,tab:> '

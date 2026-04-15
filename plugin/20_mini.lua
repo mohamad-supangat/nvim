@@ -261,7 +261,15 @@ end)
 
 -- later(function() require('mini.cmdline').setup() end)
 
-later(function() require('mini.comment').setup() end)
+later(function()
+  require('mini.comment').setup({
+    options = {
+      custom_commentstring = function()
+        return require('ts_context_commentstring').calculate_commentstring() or vim.bo.commentstring
+      end,
+    },
+  })
+end)
 later(function() require('mini.diff').setup() end)
 later(function() require('mini.git').setup() end)
 later(function()

@@ -4,8 +4,9 @@ local now_if_args = Config.now_if_args
 now_if_args(function()
   add('romus204/tree-sitter-manager.nvim')
   add('windwp/nvim-ts-autotag')
-  add("folke/ts-comments.nvim")
+  -- add("folke/ts-comments.nvim")
   add("nvim-treesitter/nvim-treesitter-context")
+  add("JoosepAlviste/nvim-ts-context-commentstring")
 
   require("tree-sitter-manager").setup({
     ensure_installed = {
@@ -38,12 +39,16 @@ now_if_args(function()
     highlight = true,
   })
 
-
-  require("ts-comments").setup({
-    lang = {
-      blade = "{{-- %s --}}",
-    },
+  require('ts_context_commentstring').setup({
+    enable_autocmd = false,
   })
+
+
+  -- require("ts-comments").setup({
+  --   lang = {
+  --     blade = "{{-- %s --}}",
+  --   },
+  -- })
 
   require('treesitter-context').setup({
     enable = true,            -- enable this plugin (can be enabled/disabled later via commands)
