@@ -2,14 +2,13 @@ local add = MiniDeps.add
 local now_if_args = Config.now_if_args
 
 now_if_args(function()
+  add('neovim-treesitter/treesitter-parser-registry')
+
   add({
     source = 'neovim-treesitter/nvim-treesitter',
     hooks = { post_checkout = function() vim.cmd('TSUpdate') end },
     build = ':TSUpdate',
   })
-  add('neovim-treesitter/treesitter-parser-registry')
-
-
 
   add('windwp/nvim-ts-autotag')
   add("nvim-treesitter/nvim-treesitter-context")
