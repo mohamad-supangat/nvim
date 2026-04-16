@@ -72,3 +72,16 @@ now(function()
   add("mrjones2014/smart-splits.nvim")
   require('smart-splits').setup({})
 end)
+
+later(function()
+  add('MeanderingProgrammer/render-markdown.nvim')
+  require('render-markdown').setup({
+    completions = { lsp = { enabled = true } },
+    heading = { position = 'inline' },
+    checkbox = {
+      unchecked = { icon = '✘ ' },
+      checked = { icon = '✔ ' },
+      custom = { todo = { rendered = '◯ ' } },
+    },
+  })
+end)
