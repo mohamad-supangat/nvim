@@ -154,14 +154,14 @@ nmap_leader('fs', pick_workspace_symbols_live, 'Symbols workspace (live)')
 nmap_leader('fS', '<Cmd>Pick lsp scope="document_symbol"<CR>', 'Symbols document')
 nmap_leader('fv', '<Cmd>Pick visit_paths cwd=""<CR>', 'Visit paths (all)')
 nmap_leader('fV', '<Cmd>Pick visit_paths<CR>', 'Visit paths (cwd)')
-nmap_leader('nk', function()
-  MiniPick.builtin.files({}, {
-    source = {
-      name = 'Obsidian Notes',
-      cwd = vim.fn.expand('~/Documents/Obsidian/'),
-    },
-  })
-end)
+-- nmap_leader('nk', function()
+--   MiniPick.builtin.files({}, {
+--     source = {
+--       name = 'Obsidian Notes',
+--       cwd = vim.fn.expand('~/Documents/Obsidian/'),
+--     },
+--   })
+-- end)
 nmap("<C-p>", function()
     require('mini.pick').builtin.cli({
       command = {
@@ -320,5 +320,13 @@ vim.keymap.set('n', '<leader><leader>l', require('smart-splits').swap_buf_right)
 
 vim.keymap.set("n", "<F7>", "<cmd>Outline<CR>",
   { desc = "Toggle Outline" })
+
+
+
+vim.keymap.set('n', '<leader>ob', ':Obsidian<CR>', { noremap = true, silent = true })
+-- vim.keymap.set('n', '<leader>p', ':Obsidian paste_img<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>no', ':Obsidian<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>nw', ':Obsidian workspace<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>nk', ':Obsidian quick_switch<CR>', { noremap = true, silent = true })
 
 -- stylua: ignore end
