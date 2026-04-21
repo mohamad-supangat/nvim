@@ -154,14 +154,14 @@ nmap_leader('fs', pick_workspace_symbols_live, 'Symbols workspace (live)')
 nmap_leader('fS', '<Cmd>Pick lsp scope="document_symbol"<CR>', 'Symbols document')
 nmap_leader('fv', '<Cmd>Pick visit_paths cwd=""<CR>', 'Visit paths (all)')
 nmap_leader('fV', '<Cmd>Pick visit_paths<CR>', 'Visit paths (cwd)')
--- nmap_leader('nk', function()
---   MiniPick.builtin.files({}, {
---     source = {
---       name = 'Obsidian Notes',
---       cwd = vim.fn.expand('~/Documents/Obsidian/'),
---     },
---   })
--- end)
+nmap_leader('nk', function()
+  MiniPick.builtin.files({}, {
+    source = {
+      name = 'Obsidian Notes',
+      cwd = vim.fn.expand('~/Documents/Obsidian/'),
+    },
+  })
+end)
 nmap("<C-p>", function()
     require('mini.pick').builtin.cli({
       command = {
@@ -323,10 +323,20 @@ vim.keymap.set("n", "<F7>", "<cmd>Outline<CR>",
 
 
 
-vim.keymap.set('n', '<leader>ob', ':Obsidian<CR>', { noremap = true, silent = true })
+-- vim.keymap.set('n', '<leader>ob', ':Obsidian<CR>', { noremap = true, silent = true })
 -- vim.keymap.set('n', '<leader>p', ':Obsidian paste_img<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>no', ':Obsidian<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>nw', ':Obsidian workspace<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>nk', ':Obsidian quick_switch<CR>', { noremap = true, silent = true })
+-- vim.keymap.set('n', '<leader>nw', ':Obsidian workspace<CR>', { noremap = true, silent = true })
+-- vim.keymap.set('n', '<leader>nk', ':Obsidian quick_switch<CR>', { noremap = true, silent = true })
 
+
+-- code runner
+-- vim.keymap.set("n", "<leader>re", "<Plug>RestNvim", { noremap = true, silent = false })
+vim.keymap.set("n", "<leader>rr", ":RunCode<CR>", { noremap = true, silent = false })
+vim.keymap.set("n", "<leader>rf", ":RunFile<CR>", { noremap = true, silent = false })
+vim.keymap.set("n", "<leader>rft", ":RunFile tab<CR>", { noremap = true, silent = false })
+vim.keymap.set("n", "<leader>rp", ":RunProject<CR>", { noremap = true, silent = false })
+vim.keymap.set("n", "<leader>rc", ":RunClose<CR>", { noremap = true, silent = false })
+vim.keymap.set("n", "<leader>crf", ":CRFiletype<CR>", { noremap = true, silent = false })
+vim.keymap.set("n", "<leader>crp", ":CRProjects<CR>", { noremap = true, silent = false })
 -- stylua: ignore end
