@@ -14,6 +14,7 @@ now(function()
     'emmet_language_server',
     'tailwindcss',
     'marksman',
+    'pyright',
   })
 end)
 
