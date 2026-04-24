@@ -209,8 +209,12 @@ nmap('gl', '<Cmd>lua vim.diagnostic.open_float()<CR>', 'Diagnostic popup')
 -- nmap_leader('lf', '<Cmd>lua require("conform").format()<CR>',   'Format')
 -- xmap_leader('lf', '<Cmd>lua require("conform").format()<CR>', 'Format selection')
 --
-nmap_leader('fm', '<Cmd>lua vim.lsp.buf.format({async = true})<CR>', 'Format')
-xmap_leader('fm', '<Cmd>lua vim.lsp.buf.format({async = true})<CR>', 'Format selection')
+-- nmap_leader('fm', '<Cmd>lua vim.lsp.buf.format({async = true})<CR>', 'Format')
+-- xmap_leader('fm', '<Cmd>lua vim.lsp.buf.format({async = true})<CR>', 'Format selection')
+
+nmap_leader('fm', '<Cmd>Format<CR>', 'Format')
+xmap_leader('fm', '<Cmd>Format<CR>', 'Format selection')
+
 
 
 -- nmap('gi', '<Cmd>lua vim.lsp.buf.implementation()<CR>', 'Implementation')
