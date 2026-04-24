@@ -9,7 +9,7 @@ now(function()
     'ts_ls',
     'lua_ls',
     'kulala_ls',
-    'phpantom',
+    'phpantom_lsp',
     'intelephense',
     'emmet_language_server',
     'tailwindcss',
