@@ -18,6 +18,7 @@ later(function()
       -- typescript = "deno run -A",
       -- typescript = "node --env-file=.env  --experimental-strip-types --experimental-transform-types",
       typescript = "bun",
+      typescriptreact = "bun",
       php = "php",
       javascript = "node",
       rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt",

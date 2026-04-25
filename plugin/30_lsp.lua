@@ -15,6 +15,7 @@ now(function()
     'tailwindcss',
     'marksman',
     'pyright',
+    'ty'
   })
 end)
 
