@@ -64,6 +64,9 @@ now_if_args(function()
 
   require('ts_context_commentstring').setup({
     enable_autocmd = false,
+    languages = {
+      blade = "{{-- %s --}}",
+    }
   })
 
 

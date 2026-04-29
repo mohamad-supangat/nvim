@@ -5,9 +5,16 @@ local add, later = MiniDeps.add, MiniDeps.later
 later(function()
   add('rafamadriz/friendly-snippets')
   add('L3MON4D3/LuaSnip')
+  add("chrisgrieser/nvim-scissors")
 
+  local customSnippetPath = vim.fn.stdpath("config") .. '/after/snippets';
   require("luasnip.loaders.from_vscode").lazy_load()
-  require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fn.stdpath("config") .. '/after/snippets' } })
+  require("luasnip.loaders.from_vscode").lazy_load({ paths = { customSnippetPath } })
+
+
+  require("scissors").setup({
+    snippetDir = customSnippetPath,
+  })
 end)
 
 
@@ -141,7 +148,7 @@ later(function()
           --   end,
           -- },
           columns = { { "label", "label_description", gap = 1 }, { "kind", gap = 1 } },
-          -- treesitter = { 'lsp' }
+          treesitter = { 'lsp' }
         },
       },
       documentation = {
