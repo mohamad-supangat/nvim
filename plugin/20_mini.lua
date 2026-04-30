@@ -10,9 +10,31 @@ local now_if_args = Config.now_if_args
 
 -- now(function() vim.cmd('colorscheme minispring') end)
 -- now(function() vim.cmd('colorscheme minisummer') end)
-now(function() vim.cmd('colorscheme miniautumn') end)
+-- now(function() vim.cmd('colorscheme miniautumn') end)
 -- now(function() vim.cmd('colorscheme randomhue') end)
 
+now(function()
+  local wal_colors = dofile(vim.fn.expand("~/.cache/wal/colors-nvim.lua"))
+
+  -- require('mini.base16').setup({
+  --   palette = require('mini.base16').mini_palette(wal_colors.background, wal_colors.foreground, 10),
+  --   -- palette = require('mini.base16').mini_palette('#112641', '#e2e98f', 75),
+  --   use_cterm = true,
+  --   plugins = {
+  --     default = true,
+  --   },
+  -- })
+
+  require('mini.hues').setup({
+    background = wal_colors.background,
+    foreground = wal_colors.foreground,
+    -- n_hues = 8,
+    -- saturation = 'low',
+    plugins = {
+      default = true,
+    },
+  })
+end)
 now(function()
   require('mini.basics').setup({
     options = { basic = false },
