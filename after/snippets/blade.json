@@ -569,6 +569,19 @@
     "description": "switch",
     "prefix": "b:switch"
   },
+  "try catch db:beginTransaction()": {
+    "body": [
+      "DB::beginTransaction();",
+      "try {",
+      "    ${1:}",
+      "    DB::commit();",
+      "} catch (\\Exception \\$e) {",
+      "    Log::error($e);",
+      "    DB::rollBack();",
+      "}"
+    ],
+    "prefix": "try catch db:beginTransaction()"
+  },
   "use": {
     "body": "@use('${1:App\\Models\\Flight}')",
     "description": "The @use directive may be used to import a class (Laravel 10.x)",
