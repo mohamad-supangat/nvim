@@ -132,8 +132,9 @@ now(function()
 
         return MiniStatusline.combine_groups({
           { hl = mode_hl,                     strings = { mode } },
-          { hl = 'MiniStatuslineDevinfo',     strings = { git, diag } },
           { hl = 'MiniStatuslineModeReplace', strings = { macro } },
+
+          { hl = 'MiniStatuslineDevinfo',     strings = { git, diag } },
           '%<',
           { hl = 'MiniStatuslineFilename', strings = { filename } },
           '%=',
@@ -179,7 +180,7 @@ now_if_args(function()
       filter = function(fs_entry)
         return true
       end,
-      -- prefix = function() end, -- disable icon in mini.files,
+      prefix = function() end, -- disable icon in mini.files,
     },
     width_focus = 30,
     width_nofocus = 20,

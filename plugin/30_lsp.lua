@@ -48,6 +48,7 @@ later(function()
       scss = { "prettier" },
       sass = { "prettier" },
       bash = { "shfmt" },
+      fish = { "fish_indent" },
       sh = { "shfmt" },
       nginx = { "nginxfmt" },
       http = { "kulala" },

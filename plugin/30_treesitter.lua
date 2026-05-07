@@ -13,6 +13,7 @@ now_if_args(function()
   add('windwp/nvim-ts-autotag')
   add("nvim-treesitter/nvim-treesitter-context")
   add("JoosepAlviste/nvim-ts-context-commentstring")
+  add("danymat/neogen")
 
 
   local languages = {
@@ -100,4 +101,7 @@ now_if_args(function()
       ["html.handlebars"] = "html",
     },
   })
+
+
+  require('neogen').setup {}
 end)
