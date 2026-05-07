@@ -72,7 +72,7 @@ now(function()
   later(MiniIcons.tweak_lsp_kind)
 end)
 
--- now(function() require('mini.notify').setup() end)
+now(function() require('mini.notify').setup() end)
 now(function() require('mini.sessions').setup() end)
 now(function()
   local starter = require("mini.starter")

@@ -65,15 +65,23 @@ later(function()
     })
   end
 
-
   if ai_completion == 'windsurf' then
+    add("Exafunction/codeium.nvim")
+
+    require("codeium").setup({
+    })
+
+    table.insert(blink_sources, "codeium")
+  end
+
+  if ai_completion == 'neocideium' then
     add("monkoose/neocodeium")
 
 
     local neocodeium = require("neocodeium")
-    neocodeium.setup({
-      manual = true,
-    })
+    -- neocodeium.setup({
+    --   manual = true,
+    -- })
     vim.api.nvim_create_autocmd('User', {
       pattern = 'BlinkCmpMenuOpen',
       callback = function()
@@ -83,7 +91,7 @@ later(function()
 
     neocodeium.setup({
       filter = function()
-        return not blink.is_visible()
+        return not require('blink.cmp').is_visible()
       end,
     })
   end
@@ -116,6 +124,7 @@ later(function()
     sources = {
       default = blink_sources,
       providers = {
+        codeium = { name = 'Codeium', module = 'codeium.blink', async = true },
         supermaven = {
           name = "supermaven",
           module = "blink.compat.source",
@@ -181,8 +190,8 @@ later(function()
       menu = {
         -- auto_show = true,
         auto_show = function(ctx)
-          return ctx.mode ~= 'default'
-          -- return true
+          -- return ctx.mode ~= 'default'
+          return true
           -- return ctx.mode ~= 'cmdline' and
           -- not vim.tbl_contains({ '/', '?' }, vim.fn.getcmdtype()) and
           -- return not vim.tbl_contains(require("variables").exclude, vim.bo.filetype)
