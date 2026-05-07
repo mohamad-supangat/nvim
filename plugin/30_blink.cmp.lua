@@ -1,5 +1,6 @@
 local add, later = MiniDeps.add, MiniDeps.later
 
+local ai_completion = 'windsurf'
 
 -- Snippets
 later(function()
@@ -24,11 +25,68 @@ later(function()
     source = "saghen/blink.cmp",
     checkout = "v1.10.2",
   })
+
+  local blink_sources = {
+    "snippets",
+    "lsp",
+    "path",
+    "buffer",
+    "codecompanion",
+  }
+
   add({
     source = "saghen/blink.compat",
     checkout = "v2.5.0",
   })
-  add("supermaven-inc/supermaven-nvim")
+
+  if ai_completion == 'supermaven' then
+    add("supermaven-inc/supermaven-nvim")
+
+
+    table.insert(blink_sources, "supermaven")
+
+    require("supermaven-nvim").setup({
+      keymaps = {
+        accept_suggestion = "<C-y>",
+        clear_suggestion = "<C-]>",
+        accept_word = "<C-j>",
+      },
+      ignore_filetypes = { cpp = true }, -- or { "cpp", }
+      -- color = {
+      --   suggestion_color = "#ffffff",
+      --   cterm = 244,
+      -- },
+      log_level = "info",
+      disable_inline_completion = 1,
+      disable_keymaps = 1,
+      condition = function()
+        return false
+      end,
+    })
+  end
+
+
+  if ai_completion == 'windsurf' then
+    add("monkoose/neocodeium")
+
+
+    local neocodeium = require("neocodeium")
+    neocodeium.setup({
+      manual = true,
+    })
+    vim.api.nvim_create_autocmd('User', {
+      pattern = 'BlinkCmpMenuOpen',
+      callback = function()
+        neocodeium.clear()
+      end,
+    })
+
+    neocodeium.setup({
+      filter = function()
+        return not blink.is_visible()
+      end,
+    })
+  end
 
   require('blink.compat').setup({
     enable_events = true,
@@ -47,26 +105,16 @@ later(function()
       sorts = {
         "score",
       },
-      -- implementation = "lua",
-      implementation = "rust",
+      implementation = "lua",
+      -- implementation = "rust",
       --
       prebuilt_binaries = {
-        force_version = "v1.10.2",
+        -- force_version = "v1.10.2",
       },
     },
     snippets = { preset = "luasnip" },
     sources = {
-      default = {
-        -- "emoji",
-        -- "lazydev",
-        -- "avante",
-        "supermaven",
-        "snippets",
-        "lsp",
-        "path",
-        "buffer",
-        "codecompanion",
-      },
+      default = blink_sources,
       providers = {
         supermaven = {
           name = "supermaven",
@@ -133,7 +181,8 @@ later(function()
       menu = {
         -- auto_show = true,
         auto_show = function(ctx)
-          return true
+          return ctx.mode ~= 'default'
+          -- return true
           -- return ctx.mode ~= 'cmdline' and
           -- not vim.tbl_contains({ '/', '?' }, vim.fn.getcmdtype()) and
           -- return not vim.tbl_contains(require("variables").exclude, vim.bo.filetype)
@@ -169,25 +218,5 @@ later(function()
       use_nvim_cmp_as_default = true,
       -- nerd_font_variant = 'mono'
     },
-  })
-
-
-  require("supermaven-nvim").setup({
-    keymaps = {
-      accept_suggestion = "<C-y>",
-      clear_suggestion = "<C-]>",
-      accept_word = "<C-j>",
-    },
-    ignore_filetypes = { cpp = true }, -- or { "cpp", }
-    -- color = {
-    --   suggestion_color = "#ffffff",
-    --   cterm = 244,
-    -- },
-    log_level = "info",
-    disable_inline_completion = 1,
-    disable_keymaps = 1,
-    condition = function()
-      return false
-    end,
   })
 end)
