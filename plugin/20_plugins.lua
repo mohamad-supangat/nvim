@@ -30,6 +30,28 @@ now_if_args(function()
   vim.keymap.set('n', '<A-i>', function() term.toggle() end)
   vim.keymap.set('t', '<A-i>', function() term.toggle() end)
 
+  local term1 = require("floatty").setup({
+    window = {
+      width = 0.4,
+      h_align = "left",
+      v_align = "bottom",
+    }
+  })
+  vim.keymap.set('n', '<f1>', function() term1.toggle() end)
+  vim.keymap.set('t', '<f1>', function() term1.toggle() end)
+
+
+  local term2 = require("floatty").setup({
+    window = {
+      width = 0.4,
+      h_align = "right",
+      v_align = "bottom",
+    }
+  })
+  vim.keymap.set('n', '<f2>', function() term2.toggle() end)
+  vim.keymap.set('t', '<f2>', function() term2.toggle() end)
+
+
   function _G.lazygit()
     local lazygit = require("floatty").setup({
       cmd = "lazygit -p " .. require("utils").currentFileRootPath(),
