@@ -1,6 +1,6 @@
 local add, later = MiniDeps.add, MiniDeps.later
 
-local ai_completion = 'windsurf'
+local ai_completion = 'supermaven'
 
 -- Snippets
 later(function()
@@ -102,13 +102,12 @@ later(function()
 
 
   require('blink.cmp').setup({
-    enabled = function()
-      return vim.b.completion ~= false
-      -- return not vim.tbl_contains(require("variables").exclude, vim.bo.filetype)
-      --     and vim.bo.buftype ~= "prompt"
-      --     and vim.b.completion ~= false
-    end,
-    signature = { enabled = true },
+    accept = {
+      create_undo_point = false,
+      auto_brackets = {
+        enabled = false,
+      },
+    },
     fuzzy = {
       sorts = {
         "score",
@@ -130,15 +129,6 @@ later(function()
           module = "blink.compat.source",
           async = true,
           score_offset = 1000,
-          transform_items = function(_, items)
-            local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
-            local kind_idx = #CompletionItemKind + 1
-            CompletionItemKind[kind_idx] = "Supermaven"
-            for _, item in ipairs(items) do
-              item.kind = kind_idx
-            end
-            return items
-          end,
         },
       },
     },
@@ -188,31 +178,31 @@ later(function()
       accept = { auto_brackets = { enabled = false } },
       list = { selection = { preselect = true, auto_insert = false } },
       menu = {
-        -- auto_show = true,
-        auto_show = function(ctx)
-          -- return ctx.mode ~= 'default'
-          return true
-          -- return ctx.mode ~= 'cmdline' and
-          -- not vim.tbl_contains({ '/', '?' }, vim.fn.getcmdtype()) and
-          -- return not vim.tbl_contains(require("variables").exclude, vim.bo.filetype)
-        end,
+        border = "none",
+        auto_show = true,
         draw = {
           gap = 2,
-          padding = { 1, 1 }, -- padding only on right side
-          components = {},
-          -- kind_icon = {
-          --   text = function(ctx)
-          --     return " " .. ctx.kind_icon .. ctx.icon_gap .. " "
-          --   end,
-          -- },
-          columns = { { "label", "label_description", gap = 1 }, { "kind", gap = 1 } },
+          padding = { 2, 2 }, -- padding only on right side
+          columns = {
+            { "kind_icon",   gap = 1 },
+            { "label",       "label_description", gap = 1 },
+            { "source_name", gap = 1 },
+          },
+          components = {
+            source_name = {
+              highlight = "BlinkCmpKind",
+            },
+          },
           treesitter = { 'lsp' }
         },
       },
       documentation = {
         auto_show = true,
-        -- auto_show_delay_ms = 200,
-        window = {},
+        auto_show_delay_ms = 200,
+        window = {
+          border = "none",
+
+        },
       },
       trigger = {
         prefetch_on_insert = false,
@@ -222,9 +212,9 @@ later(function()
       },
       ghost_text = { enabled = false },
     },
-    -- signature = { window = { border = 'single' } },
+    signature = { enabled = true, window = { border = 'none' } },
     appearance = {
-      use_nvim_cmp_as_default = true,
+      -- use_nvim_cmp_as_default = true,
       -- nerd_font_variant = 'mono'
     },
   })
