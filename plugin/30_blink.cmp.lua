@@ -13,6 +13,8 @@ later(function()
   require("luasnip.loaders.from_vscode").lazy_load({ paths = { customSnippetPath } })
 
 
+  require('luasnip').config.setup({})
+
   require("scissors").setup({
     snippetDir = customSnippetPath,
   })
@@ -102,21 +104,15 @@ later(function()
 
 
   require('blink.cmp').setup({
-    accept = {
-      create_undo_point = false,
-      auto_brackets = {
-        enabled = false,
-      },
-    },
     fuzzy = {
       sorts = {
         "score",
       },
-      implementation = "lua",
-      -- implementation = "rust",
+      -- implementation = "lua",
+      implementation = "rust",
       --
       prebuilt_binaries = {
-        -- force_version = "v1.10.2",
+        force_version = "v1.10.2",
       },
     },
     snippets = { preset = "luasnip" },

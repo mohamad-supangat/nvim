@@ -154,14 +154,7 @@ nmap_leader('fs', pick_workspace_symbols_live, 'Symbols workspace (live)')
 nmap_leader('fS', '<Cmd>Pick lsp scope="document_symbol"<CR>', 'Symbols document')
 nmap_leader('fv', '<Cmd>Pick visit_paths cwd=""<CR>', 'Visit paths (all)')
 nmap_leader('fV', '<Cmd>Pick visit_paths<CR>', 'Visit paths (cwd)')
-nmap_leader('nk', function()
-  MiniPick.builtin.files({}, {
-    source = {
-      name = 'Obsidian Notes',
-      cwd = vim.fn.expand('~/Documents/Obsidian/'),
-    },
-  })
-end)
+
 nmap("<C-p>", function()
     require('mini.pick').builtin.cli({
       command = {
@@ -327,12 +320,20 @@ vim.keymap.set("n", "<F7>", "<cmd>Outline<CR>",
 
 
 
+-- obsidian keymaps
 -- vim.keymap.set('n', '<leader>ob', ':Obsidian<CR>', { noremap = true, silent = true })
 -- vim.keymap.set('n', '<leader>p', ':Obsidian paste_img<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>no', ':Obsidian<CR>', { noremap = true, silent = true })
 -- vim.keymap.set('n', '<leader>nw', ':Obsidian workspace<CR>', { noremap = true, silent = true })
 -- vim.keymap.set('n', '<leader>nk', ':Obsidian quick_switch<CR>', { noremap = true, silent = true })
-
+nmap_leader('nk', function()
+  MiniPick.builtin.files({}, {
+    source = {
+      name = 'Obsidian Notes',
+      cwd = vim.fn.expand('~/Documents/Obsidian/'),
+    },
+  })
+end)
 
 -- code runner
 -- vim.keymap.set("n", "<leader>re", "<Plug>RestNvim", { noremap = true, silent = false })
@@ -346,11 +347,11 @@ vim.keymap.set("n", "<leader>crp", ":CRProjects<CR>", { noremap = true, silent =
 
 vim.keymap.set("n", "<leader>gc", require('utils').GitAutoCommit, { desc = "Git: Auto commit dan push" })
 
+-- nvim scissors
 -- Edit Snippet (Normal Mode)
 vim.keymap.set("n", "<leader>sne", function()
   require("scissors").editSnippet()
 end, { noremap = true, silent = true })
-
 -- Add New Snippet (Normal & Visual Mode)
 vim.keymap.set({ "n", "x" }, "<leader>sna", function()
   require("scissors").addNewSnippet()
@@ -358,5 +359,29 @@ end, { noremap = true, silent = true })
 
 
 
+-- neogen keymap
 vim.api.nvim_set_keymap("n", "<Leader>nf", ":lua require('neogen').generate()<CR>", { noremap = true, silent = true })
+
+
+-- luasnip kemaps
+
+vim.keymap.set({ "i" }, "<C-K>", function()
+  require('luasnip').expand()
+end, { silent = true })
+vim.keymap.set({ "i" }, "<C-A-Space>", function()
+  require('luasnip').expand_or_jumpable()
+end, { silent = true })
+vim.keymap.set({ "i", "s" }, "<C-L>", function()
+  require('luasnip').jump(1)
+end, { silent = true })
+vim.keymap.set({ "i", "s" }, "<C-H>", function()
+  require('luasnip').jump(-1)
+end, { silent = true })
+
+vim.keymap.set({ "i", "s" }, "<C-E>", function()
+  if require('luasnip').choice_active() then
+    require('luasnip').change_choice(1)
+  end
+end, { silent = true })
+
 -- stylua: ignore end

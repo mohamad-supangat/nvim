@@ -1,4 +1,8 @@
 {
+  "DashboardCard": {
+    "body": "import DashboardCard from '@/views/components/dashboard-card.vue';",
+    "prefix": "DashboardCard"
+  },
   "Import Inertiajs vue3": {
     "body": [
       "import { router} from \"@inertiajs/vue3\";"
