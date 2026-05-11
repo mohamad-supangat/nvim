@@ -25,6 +25,9 @@ now(function()
   --   },
   -- })
 
+  local augroup = vim.api.nvim_create_augroup
+  local autocmd = vim.api.nvim_create_autocmd
+
   require('mini.hues').setup({
     background = wal_colors.background,
     foreground = wal_colors.foreground,
@@ -34,6 +37,12 @@ now(function()
       default = true,
     },
   })
+
+  -- add transparent background
+  vim.cmd('hi Normal guibg=NONE ctermbg=NONE')
+  vim.cmd('hi NonText guibg=NONE ctermbg=NONE')
+  vim.cmd('hi NormalFloat guibg=NONE ctermbg=NONE')
+  vim.cmd('hi SignColumn guibg=NONE ctermbg=NONE')
 end)
 now(function()
   require('mini.basics').setup({

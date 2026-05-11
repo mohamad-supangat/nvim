@@ -63,11 +63,19 @@ now_if_args(function()
     lazygit.toggle()
   end
 
-  -- local lazygit = require("floatty").setup({
-  --   cmd = "lazygit -p " .. require("utils").currentFileRootPath(),
-  -- })
+  function _G.lazydocker()
+    local lazygit = require("floatty").setup({
+      cmd = "lazydocker",
+      window = {
+        width = 1,
+        height = 1,
+      }
+    })
+    lazygit.toggle()
+  end
+
   vim.keymap.set('n', '<Leader>gi', ":lua lazygit()<CR>")
-  -- vim.keymap.set('t', '<Leader>gi', ":lua lazygit()<CR>")
+  vim.keymap.set('n', '<Leader>do', ":lua lazydocker()<CR>")
 end)
 
 
