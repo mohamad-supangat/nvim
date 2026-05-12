@@ -39,10 +39,10 @@ now(function()
   })
 
   -- add transparent background
-  vim.cmd('hi Normal guibg=NONE ctermbg=NONE')
-  vim.cmd('hi NonText guibg=NONE ctermbg=NONE')
-  vim.cmd('hi NormalFloat guibg=NONE ctermbg=NONE')
-  vim.cmd('hi SignColumn guibg=NONE ctermbg=NONE')
+  -- vim.cmd('hi Normal guibg=NONE ctermbg=NONE')
+  -- vim.cmd('hi NonText guibg=NONE ctermbg=NONE')
+  -- vim.cmd('hi NormalFloat guibg=NONE ctermbg=NONE')
+  -- vim.cmd('hi SignColumn guibg=NONE ctermbg=NONE')
 end)
 now(function()
   require('mini.basics').setup({
