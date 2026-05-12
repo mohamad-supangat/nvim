@@ -426,6 +426,20 @@
     ],
     "prefix": "datatable::sphelper with query builder"
   },
+  "defineGates": {
+    "body": [
+      "public function defineGates(): array",
+      "{",
+      "    return [",
+      "        '${1:}.index' => __('Melihat daftar data ${2:}'),",
+      "        '${1:}.create' => __('Menambah data ${2:}'),",
+      "        '${1:}.update' => __('Update data ${2:}'),",
+      "        '${1:}.delete' => __('Hapus data ${2:}'),",
+      "    ];",
+      "}"
+    ],
+    "prefix": "defineGates"
+  },
   "double:table-column": {
     "body": "\\$table->double('${1}' . 20, 2)->default(0);",
     "prefix": "double:table-column"

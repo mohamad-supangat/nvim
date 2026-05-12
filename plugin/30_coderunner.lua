@@ -19,6 +19,7 @@ later(function()
       -- typescript = "node --env-file=.env  --experimental-strip-types --experimental-transform-types",
       typescript = "bun",
       typescriptreact = "bun",
+      javascriptreact = "bun",
       php = "php",
       javascript = "node",
       rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt",
