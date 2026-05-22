@@ -33,5 +33,10 @@ later(function()
     frontmatter = {
       enabled = false,
     },
+    checkbox = {
+      enabled = true,
+      create_new = true,
+      order = { " ", "x", "~", "!", ">" },
+    }
   })
 end)

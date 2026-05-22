@@ -14,7 +14,7 @@
       "  return UnauthorizedPage();",
       "}"
     ],
-    "prefix": "can:nextPage"
+    "prefix": "can"
   },
   "echo __": {
     "body": "{__('${1:}')}",
