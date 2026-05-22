@@ -3,6 +3,11 @@ local now_if_args = Config.now_if_args
 
 
 now(function()
+  local capabilities = require("lsp.capabilities")
+  vim.lsp.config("*", {
+    capabilities = capabilities,
+  })
+
   vim.lsp.enable({
     "vtsls",
     "vue_ls",
