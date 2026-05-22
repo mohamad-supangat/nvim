@@ -8,6 +8,14 @@
     ],
     "prefix": "bs:form-group"
   },
+  "can:nextPage": {
+    "body": [
+      "if (!can([\"${1:}\"])) {",
+      "  return UnauthorizedPage();",
+      "}"
+    ],
+    "prefix": "can:nextPage"
+  },
   "echo __": {
     "body": "{__('${1:}')}",
     "prefix": "echo __"

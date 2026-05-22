@@ -14,19 +14,19 @@ later(function()
         path = "~/Documents/Obsidian/AuraKomputer",
       },
     },
-    -- notes_subdir = "notes",
-    -- daily_notes = {
-    --   folder = "notes/dailies",
-    --   date_format = "%Y-%m-%d",
-    --   alias_format = "%B %-d, %Y",
-    --   default_tags = { "daily-notes" },
-    --   template = nil,
-    -- },
-    -- templates = {
-    --   folder = "templates",
-    --   date_format = "%Y-%m-%d",
-    --   time_format = "%H:%M",
-    -- },
+    notes_subdir = "notes",
+    daily_notes = {
+      folder = "notes/dailies",
+      date_format = "%Y-%m-%d",
+      alias_format = "%B %-d, %Y",
+      default_tags = { "daily-notes" },
+      template = nil,
+    },
+    templates = {
+      folder = "templates",
+      date_format = "%Y-%m-%d",
+      time_format = "%H:%M",
+    },
     completion = {
       blink = vim.g.completion == "blink",
     },
