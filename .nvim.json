@@ -1,0 +1,8 @@
+{
+  "plugins": {
+    "codecompanion": false,
+    "code_runner": false,
+    "render_markdown": false,
+    "symbol_outline": false
+  }
+}
