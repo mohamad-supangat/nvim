@@ -24,9 +24,6 @@ later(function()
 
   local util = require("conform.util")
   require('conform').setup({
-    default_format_opts = {
-      lsp_format = 'fallback',
-    },
     formatters_by_ft = {
       ["*"] = { "trim_whitespace", "trim_newlines" },
       -- lua = { "stylua" },
@@ -73,8 +70,8 @@ later(function()
   })
 
   vim.api.nvim_create_user_command("Format", function()
-    vim.lsp.buf.format({ async = false })
-    require("conform").format({ lsp_fallback = false })
+    vim.lsp.buf.format({ async = false, timeout_ms = 1000, })
+    require("conform").format({ lsp_fallback = false, async = false, })
   end, {
     desc = "Format using lsp then conform",
   })

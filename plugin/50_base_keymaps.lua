@@ -189,7 +189,7 @@ vim.keymap.set("n", "<C-p>", function()
       "!/public/build",
       "-g",
       "!*.{jpg,jpeg,png,gif,bmp,tiff,mov,mp4,avi,mpeg,webm,pdf,doc,docx,mp3,cache,gitkeep,gitignore}",
-    },
+   },
   })
 end, { noremap = true, silent = true, desc = "Pick Files" })
 
@@ -212,9 +212,11 @@ vim.keymap.set("n", "<Leader>gs", "<Cmd>lua MiniGit.show_at_cursor()<CR>",
 vim.keymap.set("x", "<Leader>gs", "<Cmd>lua MiniGit.show_at_cursor()<CR>",
   { noremap = true, silent = true, desc = "Show at selection" })
 
+
 -- LSP mappings
-vim.keymap.set("<Cmd>lua vim.lsp.buf.code_action()<CR>", "n", "ca",
+vim.keymap.set("n", "ca", "<Cmd>lua vim.lsp.buf.code_action()<CR>",
   { noremap = true, silent = true, desc = "Actions" })
+
 
 vim.keymap.set("n", "gl", "<Cmd>lua vim.diagnostic.open_float()<CR>",
   { noremap = true, silent = true, desc = "Diagnostic popup" })

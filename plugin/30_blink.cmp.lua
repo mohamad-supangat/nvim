@@ -1,6 +1,7 @@
 local add, later = MiniDeps.add, MiniDeps.later
 
 local ai_completion = 'supermaven'
+local config = require("config_reader").read_config()
 
 -- Snippets
 later(function()
@@ -33,8 +34,11 @@ later(function()
     "lsp",
     "path",
     "buffer",
-    "codecompanion",
   }
+
+  if config.plugins.codecompanion then
+        table.insert(blink_sources, "codecompanion")
+  end
 
   add({
     source = "saghen/blink.compat",
