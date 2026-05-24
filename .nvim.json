@@ -1,11 +1,18 @@
 {
-  "plugins": {
-    "blink_cmp": false,
-    "mini_cmp": true,
-    "mini_snippet": true,
+  "ai": {
+    "supermaven": true,
+    "codecompanion": false
+  },
+  "completion": {
+    "blink": false,
+    "mini": true
+  },
+  "snippets": {
     "luasnip": false,
-    "ai_supermaven": true,
-    "codecompanion": false,
+    "mini": true
+  },
+  "plugins": {
+    "treesitter": true,
     "code_runner": false,
     "render_markdown": false,
     "symbol_outline": false

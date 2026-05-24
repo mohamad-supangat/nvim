@@ -3,7 +3,7 @@ local add, later = MiniDeps.add, MiniDeps.later
 local config = require("config_reader").read_config()
 
 -- blink.cmp
-if config.blink_cmp then
+if config.completion.blink then
   later(function()
     add({
       source = "saghen/blink.cmp",
@@ -17,7 +17,7 @@ if config.blink_cmp then
       "buffer",
     }
 
-    if config.plugins.codecompanion then
+    if config.ai.codecompanion then
       table.insert(blink_sources, "codecompanion")
     end
 
@@ -26,7 +26,7 @@ if config.blink_cmp then
       checkout = "v2.5.0",
     })
 
-    if config.ai_supermaven then
+    if config.ai.supermaven then
       table.insert(blink_sources, "supermaven")
     end
 

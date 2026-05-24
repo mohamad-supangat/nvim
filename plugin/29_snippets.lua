@@ -11,7 +11,7 @@ later(function()
   })
 end)
 
-if config.mini_snippet then
+if config.snippets.mini then
   -- setup cmdline juga
   require('mini.cmdline').setup()
 
@@ -91,7 +91,7 @@ end
 -- }}} end mini.completion
 
 -- {{{ mini snippets
-if config.mini_snippet then
+if config.snippets.mini then
   local gen_loader = require("mini.snippets").gen_loader
 
   require("mini.snippets").setup({
@@ -161,7 +161,7 @@ if config.mini_snippet then
 end
 
 -- Snippets
-if config.luasnip then
+if config.snippets.luasnip then
   later(function()
     add('L3MON4D3/LuaSnip')
 

@@ -4,6 +4,8 @@
 --
 local now, later = MiniDeps.now, MiniDeps.later
 local now_if_args = Config.now_if_args
+local config = require("config_reader").read_config()
+
 
 -- Step one ===================================================================
 -- now(function() vim.cmd('colorscheme miniwinter') end)
@@ -189,7 +191,7 @@ now_if_args(function()
       filter = function(fs_entry)
         return true
       end,
-      prefix = function() end, -- disable icon in mini.files,
+      -- prefix = function() end, -- disable icon in mini.files,
     },
     width_focus = 30,
     width_nofocus = 20,
@@ -297,7 +299,10 @@ later(function()
   require('mini.comment').setup({
     options = {
       custom_commentstring = function()
-        return require('ts_context_commentstring').calculate_commentstring() or vim.bo.commentstring
+        if config.plugins.treesitter then
+          return require('ts_context_commentstring').calculate_commentstring() or vim.bo.commentstring
+        end
+        return vim.bo.commentstring
       end,
     },
   })

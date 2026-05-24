@@ -3,15 +3,15 @@ local later = MiniDeps.later
 -- {{{ mini.completion
 local config = require("config_reader").read_config()
 
-if config.mini_mp then
+if config.completion.mini then
   later(function()
     -- setup cmdline juga
     require('mini.cmdline').setup()
 
     require("mini.completion").setup({
       window = {
-        info = { height = 30, width = 80, border = "double" },
-        signature = { height = 30, width = 80, border = "double" },
+        info = { height = 30, width = 80, border = "rounded" },
+        signature = { height = 30, width = 80, border = "rounded" },
       },
       lsp_completion = {
         auto_setup = true,

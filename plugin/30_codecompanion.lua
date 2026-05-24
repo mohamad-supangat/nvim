@@ -1,7 +1,7 @@
 local add, later = MiniDeps.add, MiniDeps.later
 local config = require("config_reader").read_config()
 
-if config.plugins.codecompanion then
+if config.ai.codecompanion then
   later(function()
     add("olimorris/codecompanion.nvim")
     add("ravitemer/codecompanion-history.nvim")

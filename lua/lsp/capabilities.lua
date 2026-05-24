@@ -2,6 +2,7 @@
 -- Ref: https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#completionClientCapabilities
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+local config = require("config_reader").read_config()
 
 local custom = {
   textDocument = {
@@ -28,4 +29,11 @@ local custom = {
   },
 }
 
-return vim.tbl_deep_extend("force", capabilities, custom)
+capabilities = vim.tbl_deep_extend("force", capabilities, custom)
+
+
+if config.completion.mini then
+  capabilities = vim.tbl_deep_extend("force", capabilities, MiniCompletion.get_lsp_capabilities())
+end
+
+return capabilities

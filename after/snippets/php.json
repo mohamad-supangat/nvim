@@ -448,6 +448,15 @@
     "body": "__('${1}'${2})",
     "prefix": "echo::translate"
   },
+  "getRedirectUrl": {
+    "body": [
+      "protected function getRedirectUrl(): string",
+      "{",
+      "    return \\$this->getResource()::getUrl('index');",
+      "}"
+    ],
+    "prefix": "getRedirectUrl"
+  },
   "hexa:access-resource": {
     "body": [
       "public static function canAccess(): bool",
