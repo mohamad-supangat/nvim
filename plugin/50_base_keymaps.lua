@@ -189,7 +189,7 @@ vim.keymap.set("n", "<C-p>", function()
       "!/public/build",
       "-g",
       "!*.{jpg,jpeg,png,gif,bmp,tiff,mov,mp4,avi,mpeg,webm,pdf,doc,docx,mp3,cache,gitkeep,gitignore}",
-   },
+    },
   })
 end, { noremap = true, silent = true, desc = "Pick Files" })
 
@@ -404,26 +404,3 @@ end, { noremap = true, silent = true, desc = "Add new snippet" })
 vim.keymap.set("n", "<Leader>nf", function()
   require('neogen').generate()
 end, { noremap = true, silent = true, desc = "Generate documentation" })
-
--- Luasnip keymaps
-vim.keymap.set("i", "<C-K>", function()
-  require('luasnip').expand()
-end, { noremap = true, silent = true, desc = "Expand snippet" })
-
-vim.keymap.set("i", "<C-A-Space>", function()
-  require('luasnip').expand_or_jumpable()
-end, { noremap = true, silent = true, desc = "Expand or jump" })
-
-vim.keymap.set({ "i", "s" }, "<C-L>", function()
-  require('luasnip').jump(1)
-end, { noremap = true, silent = true, desc = "Jump forward" })
-
-vim.keymap.set({ "i", "s" }, "<C-H>", function()
-  require('luasnip').jump(-1)
-end, { noremap = true, silent = true, desc = "Jump backward" })
-
-vim.keymap.set({ "i", "s" }, "<C-E>", function()
-  if require('luasnip').choice_active() then
-    require('luasnip').change_choice(1)
-  end
-end, { noremap = true, silent = true, desc = "Change choice" })

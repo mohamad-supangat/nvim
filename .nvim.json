@@ -1,5 +1,10 @@
 {
   "plugins": {
+    "blink_cmp": false,
+    "mini_cmp": true,
+    "mini_snippet": true,
+    "luasnip": false,
+    "ai_supermaven": true,
     "codecompanion": false,
     "code_runner": false,
     "render_markdown": false,
