@@ -27,9 +27,6 @@ later(function()
       date_format = "%Y-%m-%d",
       time_format = "%H:%M",
     },
-    completion = {
-      blink = vim.g.completion == "blink",
-    },
     frontmatter = {
       enabled = false,
     },
