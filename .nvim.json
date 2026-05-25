@@ -1,4 +1,8 @@
 {
+  "format": {
+    "conform": false,
+    "none_ls": true
+  },
   "ai": {
     "supermaven": true,
     "codecompanion": false

@@ -222,11 +222,6 @@ vim.keymap.set('i', '<C-k>', vim.lsp.buf.signature_help, { desc = 'LSP signature
 vim.keymap.set("n", "gl", "<Cmd>lua vim.diagnostic.open_float()<CR>",
   { noremap = true, silent = true, desc = "Diagnostic popup" })
 
-vim.keymap.set("n", "<Leader>fm", "<Cmd>Format<CR>",
-  { noremap = true, silent = true, desc = "Format" })
-
-vim.keymap.set("x", "<Leader>fm", "<Cmd>Format<CR>",
-  { noremap = true, silent = true, desc = "Format selection" })
 
 vim.keymap.set("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>",
   { noremap = true, silent = true, desc = "Hover" })
