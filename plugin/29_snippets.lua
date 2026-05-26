@@ -9,6 +9,16 @@ later(function()
   require("scissors").setup({
     snippetDir = customSnippetPath,
   })
+
+
+  -- Nvim scissors mappings
+  vim.keymap.set("n", "<leader>sne", function()
+    require("scissors").editSnippet()
+  end, { noremap = true, silent = true, desc = "Edit snippet" })
+
+  vim.keymap.set({ "n", "x" }, "<leader>sna", function()
+    require("scissors").addNewSnippet()
+  end, { noremap = true, silent = true, desc = "Add new snippet" })
 end)
 
 if config.snippets.mini then

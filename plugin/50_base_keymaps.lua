@@ -310,24 +310,6 @@ vim.keymap.set("n", "<Leader>vl", "<Cmd>lua MiniVisits.add_label()<CR>",
 vim.keymap.set("n", "<Leader>vL", "<Cmd>lua MiniVisits.remove_label()<CR>",
   { noremap = true, silent = true, desc = "Remove label" })
 
--- Find and replace (Spectre/grug-far)
-vim.keymap.set("n", "<leader>S", function()
-  require("grug-far").open({ transient = true })
-end, { noremap = true, silent = true, desc = "Toggle Spectre" })
-
-vim.keymap.set({ "n", "v" }, "<leader>sw", function()
-  require("grug-far").open({ prefills = { search = vim.fn.expand("<cword>") } })
-end, { noremap = true, silent = true, desc = "Search current word" })
-
-vim.keymap.set("n", "<leader>sp", function()
-  require("grug-far").open({ prefills = { paths = vim.fn.expand("%") } })
-end, { noremap = true, silent = true, desc = "Search on current file" })
-
-vim.keymap.set("n", "<leader>sf", function()
-  local currentFilePath = vim.api.nvim_buf_get_name(0)
-  local currentFileDirectory = currentFilePath:match("(.*/)") or ""
-  require("grug-far").open({ prefills = { paths = currentFileDirectory } })
-end, { noremap = true, silent = true, desc = "Toggle Spectre Current Folder" })
 
 -- Smart splits mappings
 vim.keymap.set("n", "<A-h>", require('smart-splits').resize_left,
@@ -369,33 +351,12 @@ vim.keymap.set("n", "<leader><leader>k", require('smart-splits').swap_buf_up,
 vim.keymap.set("n", "<leader><leader>l", require('smart-splits').swap_buf_right,
   { noremap = true, silent = true, desc = "Swap buffer right" })
 
--- Obsidian keymaps
-vim.keymap.set("n", "<leader>no", ":Obsidian<CR>",
-  { noremap = true, silent = true, desc = "Obsidian" })
-
-vim.keymap.set("n", "<Leader>nk", function()
-  MiniPick.builtin.files({}, {
-    source = {
-      name = 'Obsidian Notes',
-      cwd = vim.fn.expand('~/Documents/Obsidian/'),
-    },
-  })
-end, { noremap = true, silent = true, desc = "Obsidian notes picker" })
-
 -- Git auto commit
 vim.keymap.set("n", "<leader>gc", require('utils').GitAutoCommit,
   { noremap = true, silent = true, desc = "Git: Auto commit dan push" })
 
--- Nvim scissors mappings
-vim.keymap.set("n", "<leader>sne", function()
-  require("scissors").editSnippet()
-end, { noremap = true, silent = true, desc = "Edit snippet" })
 
-vim.keymap.set({ "n", "x" }, "<leader>sna", function()
-  require("scissors").addNewSnippet()
-end, { noremap = true, silent = true, desc = "Add new snippet" })
-
--- Neogen keymap
-vim.keymap.set("n", "<Leader>nf", function()
-  require('neogen').generate()
-end, { noremap = true, silent = true, desc = "Generate documentation" })
+-- open neovim config
+vim.keymap.set('n', '<leader>ec', function()
+  vim.cmd('e ' .. vim.fn.stdpath('config'))
+end, { desc = 'Open Neovim config dir' })

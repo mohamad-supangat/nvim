@@ -36,4 +36,18 @@ later(function()
       order = { " ", "x", "~", "!", ">" },
     }
   })
+
+
+  -- Obsidian keymaps
+  vim.keymap.set("n", "<leader>no", ":Obsidian<CR>",
+    { noremap = true, silent = true, desc = "Obsidian" })
+
+  vim.keymap.set("n", "<Leader>nk", function()
+    MiniPick.builtin.files({}, {
+      source = {
+        name = 'Obsidian Notes',
+        cwd = vim.fn.expand('~/Documents/Obsidian/'),
+      },
+    })
+  end, { noremap = true, silent = true, desc = "Obsidian notes picker" })
 end)

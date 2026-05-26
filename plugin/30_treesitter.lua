@@ -106,6 +106,13 @@ if config.plugins.treesitter then
 
 
     require('neogen').setup {}
+
+
+
+    -- Neogen keymap
+    vim.keymap.set("n", "<Leader>nf", function()
+      require('neogen').generate()
+    end, { noremap = true, silent = true, desc = "Generate documentation" })
   end)
 end
 
