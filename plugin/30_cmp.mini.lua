@@ -5,8 +5,15 @@ local config = require("config_reader").read_config()
 
 if config.completion.mini then
   later(function()
+    vim.o.pumblend = 5
+
     -- setup cmdline juga
     require('mini.cmdline').setup()
+
+    -- local process_items_opts = { kind_priority = { Text = -1, Snippet = -2 } }
+    -- local process_items = function(items, base)
+    --   return MiniCompletion.default_process_items(items, base, process_items_opts)
+    -- end
 
     require("mini.completion").setup({
       window = {
@@ -14,25 +21,36 @@ if config.completion.mini then
         signature = { height = 30, width = 80, border = "rounded" },
       },
       lsp_completion = {
+        source_func = 'omnifunc',
         auto_setup = true,
+        -- process_items = process_items,
+
       },
     })
 
-    local function check_last_char()
-      local line = vim.api.nvim_get_current_line()
-      local cursor_col = vim.api.nvim_win_get_cursor(0)[2]
-      local last_char = string.sub(line, cursor_col, cursor_col)
-      if last_char == "{" then
-        vim.b.minicompletion_disable = true
-      else
-        vim.b.minicompletion_disable = false
-      end
+    local on_attach = function(ev)
+      vim.bo[ev.buf].omnifunc = 'v:lua.MiniCompletion.completefunc_lsp'
     end
+    Config.new_autocmd('LspAttach', nil, on_attach, "Set 'omnifunc'")
+
+    vim.lsp.config('*', { capabilities = MiniCompletion.get_lsp_capabilities() })
+
+
+    -- local function check_last_char()
+    --   local line = vim.api.nvim_get_current_line()
+    --   local cursor_col = vim.api.nvim_win_get_cursor(0)[2]
+    --   local last_char = string.sub(line, cursor_col, cursor_col)
+    --   if last_char == "{" then
+    --     vim.b.minicompletion_disable = true
+    --   else
+    --     vim.b.minicompletion_disable = false
+    --   end
+    -- end
     vim.api.nvim_create_augroup("InsertBraceGroup", { clear = true })
-    vim.api.nvim_create_autocmd("TextChangedI", {
-      group = "InsertBraceGroup",
-      callback = check_last_char,
-    })
+    -- vim.api.nvim_create_autocmd("TextChangedI", {
+    --   group = "InsertBraceGroup",
+    --   callback = check_last_char,
+    -- })
 
 
     require("mini.icons").tweak_lsp_kind()

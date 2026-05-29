@@ -116,7 +116,7 @@ if config.format.none_ls then
           end
         }),
         nuls.builtins.formatting.prettier.with({
-          extra_filetypes = { "toml", "css", "json5", "vue" },
+          extra_filetypes = { "toml", "css", "json5", "vue", "jsonc" },
           condition = function(utils)
             return utils.root_has_file({ ".prettierrc" })
           end,

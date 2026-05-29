@@ -5,7 +5,8 @@
   },
   "ai": {
     "supermaven": true,
-    "codecompanion": false
+    "codecompanion": false,
+    "neocodeium": false
   },
   "completion": {
     "blink": false,
