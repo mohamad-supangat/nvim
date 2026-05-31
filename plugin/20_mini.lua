@@ -80,7 +80,7 @@ now(function()
   later(MiniIcons.mock_nvim_web_devicons)
 
   -- Add LSP kind icons. Useful for 'mini.completion'.
-  later(MiniIcons.tweak_lsp_kind)
+  -- later(MiniIcons.tweak_lsp_kind)
 end)
 
 now(function() require('mini.notify').setup() end)
@@ -199,6 +199,27 @@ now_if_args(function()
     MiniFiles.set_bookmark('w', vim.fn.getcwd, { desc = 'Working directory' })
   end
   Config.new_autocmd('User', 'MiniFilesExplorerOpen', add_marks, 'Add bookmarks')
+
+
+  vim.api.nvim_create_autocmd("User", {
+    pattern = "MiniFilesBufferCreate",
+    callback = function(args)
+      local buf_id = args.data.buf_id
+      local open_in_window_picker = function()
+        local fs_entry = MiniFiles.get_fs_entry()
+        if fs_entry ~= nil and fs_entry.fs_type == "file" then
+          local picked_window_id = require('winpick').select()
+          if picked_window_id ~= nil then
+            MiniFiles.set_target_window(picked_window_id)
+          end
+        end
+        MiniFiles.go_in({
+          close_on_file = true,
+        })
+      end
+      vim.keymap.set("n", "l", open_in_window_picker, { buffer = buf_id, desc = "Open in target window" })
+    end,
+  })
 end)
 
 
