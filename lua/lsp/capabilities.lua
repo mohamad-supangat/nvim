@@ -33,7 +33,7 @@ capabilities = vim.tbl_deep_extend("force", capabilities, custom)
 
 
 if config.completion.mini then
-  capabilities = vim.tbl_deep_extend("force", capabilities, MiniCompletion.get_lsp_capabilities())
+  capabilities = vim.tbl_deep_extend("force", capabilities, require('mini.completion').get_lsp_capabilities())
 end
 
 return capabilities

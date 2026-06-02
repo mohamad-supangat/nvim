@@ -33,8 +33,6 @@ if config.completion.mini then
     end
     Config.new_autocmd('LspAttach', nil, on_attach, "Set 'omnifunc'")
 
-    vim.lsp.config('*', { capabilities = MiniCompletion.get_lsp_capabilities() })
-
 
     -- local function check_last_char()
     --   local line = vim.api.nvim_get_current_line()
@@ -52,8 +50,6 @@ if config.completion.mini then
     --   callback = check_last_char,
     -- })
 
-
-    require("mini.icons").tweak_lsp_kind()
 
     local keycode = vim.keycode
         or function(x)
