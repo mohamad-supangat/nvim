@@ -116,6 +116,10 @@ if config.ai.codecompanion then
       })
     end
 
+    local completion = 'default'
+    if config.completion.blink then
+      completion = 'blink'
+    end
     require(
       'codecompanion'
     ).setup({
@@ -134,7 +138,7 @@ if config.ai.codecompanion then
             model = 'gemini-3-flash-preview',
           },
           opts = {
-            completion_provider = 'blink',
+            completion_provider = completion,
           },
           keymaps = {
           },
