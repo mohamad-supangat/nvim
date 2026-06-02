@@ -11,7 +11,7 @@
   "can:nextPage": {
     "body": [
       "if (!can([\"${1:}\"])) {",
-      "  return UnauthorizedPage();",
+      "  return <UnauthorizedPage />;",
       "}"
     ],
     "prefix": "can"
