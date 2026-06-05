@@ -1,11 +1,11 @@
 {
   "format": {
-    "conform": false,
-    "none_ls": true
+    "conform": true,
+    "none_ls": false
   },
   "ai": {
     "supermaven": true,
-    "codecompanion": false,
+    "codecompanion": true,
     "neocodeium": false
   },
   "completion": {

@@ -120,9 +120,8 @@ if config.ai.codecompanion then
     if config.completion.blink then
       completion = 'blink'
     end
-    require(
-      'codecompanion'
-    ).setup({
+
+    require('codecompanion').setup({
       extensions = {
         history = {
           enabled = true, -- defaults to true
@@ -132,6 +131,22 @@ if config.ai.codecompanion then
         }
       },
       interactions = {
+        background = {
+          chat = {
+            callbacks = {
+              ["on_ready"] = {
+                actions = {
+                  "interactions.background.builtin.chat_make_title",
+                },
+                enabled = true,
+              },
+            },
+            opts = {
+              enabled = true,
+            },
+          },
+        },
+
         chat = {
           adapter = {
             name = 'gemini',
@@ -142,6 +157,13 @@ if config.ai.codecompanion then
           },
           keymaps = {
           },
+          slash_commands = {
+            opts = {
+              acp = {
+                trigger = "<C-Space>",
+              }
+            },
+          }
         },
         inline = {
           adapter = {
