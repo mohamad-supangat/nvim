@@ -222,6 +222,10 @@ vim.keymap.set('i', '<C-k>', vim.lsp.buf.signature_help, { desc = 'LSP signature
 vim.keymap.set("n", "gl", "<Cmd>lua vim.diagnostic.open_float()<CR>",
   { noremap = true, silent = true, desc = "Diagnostic popup" })
 
+vim.keymap.set("n", "<space>xx", "<Cmd>lua vim.diagnostic.setqflist()<CR>",
+  { noremap = true, silent = true, desc = "Diagnostic All" })
+
+
 
 vim.keymap.set("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>",
   { noremap = true, silent = true, desc = "Hover" })
