@@ -10,6 +10,7 @@ now(function()
   })
 
   vim.lsp.enable({
+    "tombi",
     "vtsls",
     "vue_ls",
     'ts_ls',
@@ -57,6 +58,7 @@ if config.format.conform then
         sh = { "shfmt" },
         nginx = { "nginxfmt" },
         http = { "kulala" },
+        sql = { 'sqruff' }
       },
 
       formatters = {
