@@ -58,7 +58,8 @@ if config.format.conform then
         sh = { "shfmt" },
         nginx = { "nginxfmt" },
         http = { "kulala" },
-        sql = { 'sqruff' }
+        sql = { 'sqruff' },
+        jinja = { 'djlint' }
       },
 
       formatters = {
