@@ -4,13 +4,9 @@ local config = require("config_reader").read_config()
 
 if config.plugins.treesitter then
   now_if_args(function()
-    add('neovim-treesitter/treesitter-parser-registry')
+    add('https://github.com/romus204/tree-sitter-manager.nvim')
+    add("https://github.com/NMAC427/guess-indent.nvim")
 
-    add({
-      source = 'neovim-treesitter/nvim-treesitter',
-      hooks = { post_checkout = function() vim.cmd('TSUpdate') end },
-      build = ':TSUpdate',
-    })
 
     add('windwp/nvim-ts-autotag')
     add("nvim-treesitter/nvim-treesitter-context")
@@ -46,24 +42,8 @@ if config.plugins.treesitter then
       "yaml",
 
     }
-    local isnt_installed = function(lang)
-      return #vim.api.nvim_get_runtime_file('parser/' .. lang .. '.*', false) == 0
-    end
-    local to_install = vim.tbl_filter(isnt_installed, languages)
-    if #to_install > 0 then require('nvim-treesitter').install(to_install) end
-
-    -- Enable tree-sitter after opening a file for a target language
-    local filetypes = {}
-    for _, lang in ipairs(languages) do
-      for _, ft in ipairs(vim.treesitter.language.get_filetypes(lang)) do
-        table.insert(filetypes, ft)
-      end
-    end
-    local ts_start = function(ev)
-      vim.treesitter.start(ev.buf)
-      vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-    end
-    Config.new_autocmd('FileType', filetypes, ts_start, 'Start tree-sitter')
+    require("tree-sitter-manager").setup()
+    require('guess-indent').setup {}
 
     require('ts_context_commentstring').setup({
       enable_autocmd = false,
@@ -119,7 +99,16 @@ end
 
 
 if config.plugins.treesitter == false then
-  now_if_args(function()
-    add("sheerun/vim-polyglot")
-  end)
+  vim.g.vue_pre_processors = 'detect_on_enter'
+  vim.g.context_enabled = 1
+
+  --   vim.g.doge_filetype_aliases = {
+  -- "javascript"= {'vue'}
+  -- }
+  vim.doge_mapping = '<Leader>nf'
+
+
+  add("sheerun/vim-polyglot")
+  add("alvan/vim-closetag")
+  add("wellle/context.vim")
 end
