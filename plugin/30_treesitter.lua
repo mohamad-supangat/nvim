@@ -3,16 +3,14 @@ local now_if_args = Config.now_if_args
 local config = require("config_reader").read_config()
 
 if config.plugins.treesitter then
-  now_if_args(function()
+  now_if_args(function ()
     add('https://github.com/romus204/tree-sitter-manager.nvim')
-    add("https://github.com/NMAC427/guess-indent.nvim")
-
+    add("https://github.com/Darazaki/indent-o-matic")
 
     add('windwp/nvim-ts-autotag')
     add("nvim-treesitter/nvim-treesitter-context")
     add("JoosepAlviste/nvim-ts-context-commentstring")
     add("danymat/neogen")
-
 
     local languages = {
       'lua',
@@ -23,8 +21,8 @@ if config.plugins.treesitter then
       "vue",
       "pug",
       "python",
-      "php",
-      "phpdoc",
+      -- "php",
+      -- "phpdoc",
       "prisma",
       "markdown",
       "html",
@@ -39,19 +37,31 @@ if config.plugins.treesitter then
       "scss",
       "http",
       "xml",
-      "yaml",
-
+      "yaml"
     }
-    require("tree-sitter-manager").setup()
-    require('guess-indent').setup {}
+    require("tree-sitter-manager").setup({
+      ensure_installed = languages
+    })
+    require('indent-o-matic').setup {
+      -- The values indicated here are the defaults
+
+      -- Number of lines without indentation before giving up (use -1 for infinite)
+      max_lines = 2048,
+
+      -- Space indentations that should be detected
+      standard_widths = { 2, 4, 8 },
+
+      -- Skip multi-line comments and strings (more accurate detection but less performant)
+      skip_multiline = true
+    }
+    -- require('guess-indent').setup {}
 
     require('ts_context_commentstring').setup({
       enable_autocmd = false,
       languages = {
-        blade = "{{-- %s --}}",
+        blade = "{{-- %s --}}"
       }
     })
-
 
     -- require("ts-comments").setup({
     --   lang = {
@@ -68,35 +78,30 @@ if config.plugins.treesitter then
       trim_scope = "outer",     -- which context lines to discard if `max_lines` is exceeded. choices: 'inner', 'outer'
       mode = "cursor",          -- line used to calculate context. choices: 'cursor', 'topline'
       separator = "_",
-      zindex = 20,              -- the z-index of the context window
-    });
-
+      zindex = 20               -- the z-index of the context window
+    })
 
     require("nvim-ts-autotag").setup({
       opts = {
         enable_close = true,
         enable_rename = true,
-        enable_close_on_slash = false,
+        enable_close_on_slash = false
       },
       aliases = {
         ["blade"] = "html",
-        ["html.handlebars"] = "html",
-      },
+        ["html.handlebars"] = "html"
+      }
     })
-
 
     require('neogen').setup {}
 
-
-
     -- Neogen keymap
-    vim.keymap.set("n", "<Leader>nf", function()
+    vim.keymap.set("n", "<Leader>nf", function ()
       require('neogen').generate()
-    end, { noremap = true, silent = true, desc = "Generate documentation" })
+    end, { noremap = true, silent = true, desc = "Generate documentation" }
+    )
   end)
 end
-
-
 
 if config.plugins.treesitter == false then
   vim.g.vue_pre_processors = 'detect_on_enter'
@@ -107,8 +112,7 @@ if config.plugins.treesitter == false then
   -- }
   vim.doge_mapping = '<Leader>nf'
 
-
-  add("sheerun/vim-polyglot")
+  -- add("sheerun/vim-polyglot")
   add("alvan/vim-closetag")
-  add("wellle/context.vim")
+  -- add("wellle/context.vim")
 end

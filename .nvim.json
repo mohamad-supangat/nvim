@@ -18,7 +18,7 @@
     "mini": true
   },
   "plugins": {
-    "treesitter": false,
+    "treesitter": true,
     "code_runner": false,
     "render_markdown": false,
     "symbol_outline": false
