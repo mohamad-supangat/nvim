@@ -4,6 +4,8 @@ local config = require("config_reader").read_config()
 
 
 now(function()
+  add('https://github.com/neovim/nvim-lspconfig')
+
   local capabilities = require("lsp.capabilities")
   vim.lsp.config("*", {
     capabilities = capabilities,
@@ -24,7 +26,8 @@ now(function()
     'tailwindcss',
     'marksman',
     'pyright',
-    'ty'
+    'ty',
+    'mpls'
   })
 end)
 
