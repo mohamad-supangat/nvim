@@ -9,13 +9,12 @@ if not vim.loop.fs_stat(mini_path) then
   vim.cmd('echo "Installed `mini.nvim`" | redraw')
 end
 
-
 require('mini.deps').setup()
 
 _G.Config = {}
 
 local gr = vim.api.nvim_create_augroup('custom-config', {})
-Config.new_autocmd = function(event, pattern, callback, desc)
+Config.new_autocmd = function (event, pattern, callback, desc)
   local opts = { group = gr, pattern = pattern, callback = callback, desc = desc }
   vim.api.nvim_create_autocmd(event, opts)
 end
