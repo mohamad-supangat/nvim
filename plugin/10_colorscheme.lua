@@ -33,6 +33,10 @@ elseif config.colorscheme == 'kanagawa' then
   vim.cmd [[colorscheme kanagawa]]
 else
   vim.cmd('colorscheme ' .. config.colorscheme)
+  Config.new_autocmd("Signal", "SIGUSR1", function ()
+    vim.cmd('colorscheme ' .. config.colorscheme)
+  end, 'Auto reload wal colorscheme'
+  )
 end
 
 -- Step one ===================================================================
