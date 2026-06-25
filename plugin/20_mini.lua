@@ -289,9 +289,8 @@ later(function()
 end)
 
 
-later(function() require('mini.jump').setup() end)
-
-later(function() require('mini.jump2d').setup() end)
+-- later(function() require('mini.jump').setup() end)
+-- later(function() require('mini.jump2d').setup() end)
 later(function()
   require('mini.keymap').setup()
   -- Navigate 'mini.completion' menu with `<Tab>` /  `<S-Tab>`

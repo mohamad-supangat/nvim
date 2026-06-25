@@ -20,7 +20,7 @@
   "plugins": {
     "treesitter": true,
     "code_runner": false,
-    "render_markdown": false,
+    "render_markdown": true,
     "symbol_outline": false
   }
 }

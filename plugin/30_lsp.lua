@@ -40,7 +40,7 @@ if config.format.conform then
     require('conform').setup({
       formatters_by_ft = {
         ["*"] = { "trim_whitespace", "trim_newlines" },
-        -- lua = { "stylua" },
+        lua = { "stylua" },
         python = { "blue", "ruff_fix", "ruff_format" },
         php = { "php_cs_fixer", "lsp" },
         blade = { "blade-formatter" },
@@ -86,7 +86,7 @@ if config.format.conform then
     })
 
     vim.api.nvim_create_user_command("Format", function()
-      vim.lsp.buf.format({ async = false, timeout_ms = 1000, })
+      -- vim.lsp.buf.format({ async = false, timeout_ms = 1000, })
       require("conform").format({ lsp_fallback = false, async = false, })
     end, {
       desc = "Format using lsp then conform",
