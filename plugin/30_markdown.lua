@@ -6,10 +6,12 @@ later(function()
 		later(function()
 			add("MeanderingProgrammer/render-markdown.nvim")
 			require("render-markdown").setup({
+				render_modes = true,
+				anti_conceal = { enabled = true },
 				completions = { lsp = { enabled = true } },
 				heading = { position = "inline" },
 				checkbox = {
-					-- render_modes = true,
+					render_modes = true,
 					bullet = false,
 					-- left_pad = 0,
 					-- right_pad = 1,

@@ -6,7 +6,7 @@
   },
   "ai": {
     "supermaven": true,
-    "codecompanion": true,
+    "codecompanion": false,
     "neocodeium": false
   },
   "completion": {
