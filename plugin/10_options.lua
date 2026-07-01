@@ -61,6 +61,7 @@ vim.o.updatetime     = 100
 -- Special UI symbols. More is set via 'mini.basics' later.
 vim.o.fillchars      = 'eob: ,fold:╌'
 vim.o.listchars      = 'extends:…,nbsp:␣,precedes:…,tab:> '
+vim.opt.winbar = "%= %#PmenuSel# %t "
 
 -- Folds (see `:h fold-commands`, `:h zM`, `:h zR`, `:h zA`, `:h zj`)
 vim.o.foldlevel      = 10       -- Fold nothing by default; set to 0 or 1 to fold
