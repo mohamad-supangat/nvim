@@ -11,10 +11,6 @@ now_if_args(function()
 	add("nvim-lua/plenary.nvim")
 end)
 
-now_if_args(function()
-	add("mason-org/mason.nvim")
-	require("mason").setup()
-end)
 
 if config.plugins.symbol_outline then
 	now_if_args(function()
