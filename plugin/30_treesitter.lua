@@ -18,7 +18,7 @@ now_if_args(function()
 
 	add("alvan/vim-closetag") -- vim verson auto close tag
 	-- add("windwp/nvim-ts-autotag") -- treesitter version auto close tag
-	add("nvim-treesitter/nvim-treesitter-context")
+	-- add("nvim-treesitter/nvim-treesitter-context")
 	add("JoosepAlviste/nvim-ts-context-commentstring")
 	add("danymat/neogen")
 
