@@ -68,10 +68,13 @@ local function toggle_checkbox_or_enter()
 		vim.api.nvim_buf_set_lines(0, lnum - 1, lnum, false, { new_line })
 	else
 		-- JIKA TIDAK ADA: Tambahkan - [ ] di depan baris tersebut
-		-- Mengambil spasi indentasi di awal baris (jika ada) agar posisi list rapi
 		local indent = string.match(line, "^%s*") or ""
-		-- Menghapus spasi di awal dari teks asli agar tidak double indentasi
 		local stripped_line = string.gsub(line, "^%s*", "")
+
+		-- PERBAIKAN: Hapus bullet/list marker yang sudah ada (seperti -, *, +, atau angka 1.)
+		-- agar tidak terjadi duplikasi seperti "- [ ] - Import Barang Masuk"
+		stripped_line = string.gsub(stripped_line, "^[%-%*%+]%s+", "") -- Hapus -, *, atau +
+		stripped_line = string.gsub(stripped_line, "^%d+%.%s+", "") -- Hapus list bernomor (1., 2., dst)
 
 		-- Susun baris baru dengan format checkbox
 		local new_line = indent .. "- [ ] " .. stripped_line

@@ -42,8 +42,14 @@ vim.keymap.set("n", "<Leader>qa", ":quitall!<CR>", { noremap = true, silent = tr
 vim.keymap.set("n", "<leader>cf", function()
 	local filepath = vim.fn.expand("%")
 	vim.fn.setreg("+", filepath)
-	vim.notify("Copied filepath to clipboard")
+	vim.notify("Copied full path: " .. filepath, vim.log.levels.INFO, { title = "Clipboard" })
 end, { noremap = true, silent = true, desc = "Copy File Path to clipboard" })
+
+vim.keymap.set("n", "<leader>cF", function()
+	local filepath = vim.fn.expand("%:p")
+	vim.fn.setreg("+", filepath)
+	vim.notify("Copied full path: " .. filepath, vim.log.levels.INFO, { title = "Clipboard" })
+end, { noremap = true, silent = true, desc = "Copy Full File Path to clipboard" })
 
 vim.keymap.set("n", "<leader>-", "<C-w>s", { noremap = true, silent = true, desc = "Split window horizontal" })
 
