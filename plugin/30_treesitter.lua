@@ -59,12 +59,12 @@ now_if_args(function()
 		skip_multiline = true,
 	})
 
-	-- require("ts_context_commentstring").setup({
-	-- 	enable_autocmd = false,
-	-- 	languages = {
-	-- 		blade = "{{-- %s --}}",
-	-- 	},
-	-- })
+	require("ts_context_commentstring").setup({
+		enable_autocmd = false,
+		languages = {
+			blade = "{{-- %s --}}",
+		},
+	})
 
 	-- require("ts-comments").setup({
 	--   lang = {
