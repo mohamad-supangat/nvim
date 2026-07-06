@@ -98,12 +98,25 @@ if config.format.conform then
 		})
 
 		vim.keymap.set("n", "<Leader>fm", "<Cmd>Format<CR>", { noremap = true, silent = true, desc = "Format" })
+		vim.keymap.set(
+			"n",
+			"<Leader>lfm",
+			"<Cmd>lua vim.lsp.buf.format({ async = false, timeout_ms = 1000, })<CR>",
+			{ noremap = true, silent = true, desc = "Format" }
+		)
 
 		vim.keymap.set(
 			"x",
 			"<Leader>fm",
 			"<Cmd>Format<CR>",
 			{ noremap = true, silent = true, desc = "Format selection" }
+		)
+
+		vim.keymap.set(
+			"x",
+			"<Leader>lfm",
+			"<Cmd>lua vim.lsp.buf.format({ async = false, timeout_ms = 1000, })<CR>",
+			{ noremap = true, silent = true, desc = "Format" }
 		)
 	end)
 end
