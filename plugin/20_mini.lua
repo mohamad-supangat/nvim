@@ -99,7 +99,7 @@ now(function()
 				local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
 				local git = MiniStatusline.section_git({ trunc_width = 75 })
 				local diag = MiniStatusline.section_diagnostics({ trunc_width = 75 })
-				local filename = MiniStatusline.section_filename({ trunc_width = 140 })
+				local filename = MiniStatusline.section_filename({ trunc_width = 50 })
 				local fileinfo = MiniStatusline.section_fileinfo({ trunc_width = 120 })
 				local location = MiniStatusline.section_location({ trunc_width = 75 })
 				local macro = get_macro_status()
@@ -108,12 +108,18 @@ now(function()
 					{ hl = mode_hl, strings = { mode } },
 					{ hl = "MiniStatuslineModeReplace", strings = { macro } },
 
-					{ hl = "MiniStatuslineDevinfo", strings = { git, diag } },
+					{
+						hl = "MiniStatuslineDevinfo",
+						strings = {
+							-- git,
+							diag,
+						},
+					},
 					"%<",
 					{ hl = "MiniStatuslineFilename", strings = { filename } },
 					"%=",
-					{ hl = "MiniStatuslineFileinfo", strings = { fileinfo } },
-					{ hl = mode_hl, strings = { location } },
+					-- { hl = "MiniStatuslineFileinfo", strings = { fileinfo } },
+					-- { hl = mode_hl, strings = { location } },
 				})
 			end,
 		},
