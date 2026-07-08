@@ -92,7 +92,7 @@ if config.format.conform then
 
 		vim.api.nvim_create_user_command("Format", function()
 			-- vim.lsp.buf.format({ async = false, timeout_ms = 1000, })
-			require("conform").format({ lsp_fallback = false, async = false })
+			require("conform").format({ lsp_fallback = true, async = false })
 		end, {
 			desc = "Format using lsp then conform",
 		})
@@ -100,7 +100,7 @@ if config.format.conform then
 		vim.keymap.set("n", "<Leader>fm", "<Cmd>Format<CR>", { noremap = true, silent = true, desc = "Format" })
 		vim.keymap.set(
 			"n",
-			"<Leader>lfm",
+			"<Leader>fM",
 			"<Cmd>lua vim.lsp.buf.format({ async = false, timeout_ms = 1000, })<CR>",
 			{ noremap = true, silent = true, desc = "Format" }
 		)
@@ -114,7 +114,7 @@ if config.format.conform then
 
 		vim.keymap.set(
 			"x",
-			"<Leader>lfm",
+			"<Leader>fM",
 			"<Cmd>lua vim.lsp.buf.format({ async = false, timeout_ms = 1000, })<CR>",
 			{ noremap = true, silent = true, desc = "Format" }
 		)
