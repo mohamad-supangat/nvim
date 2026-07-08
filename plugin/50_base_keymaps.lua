@@ -559,3 +559,21 @@ vim.keymap.set("n", "<Leader>ep", function()
 		},
 	})
 end, { noremap = true, silent = true, desc = "Select Neovim config file" })
+
+-- convert to camel Case
+vim.keymap.set("v", "<leader>cc", function()
+	-- Copy visual selection to register 'a'
+	vim.cmd('normal! "ay')
+	local text = vim.fn.getreg("a")
+
+	-- Convert snake_case, kebab-case, or spaces to camelCase
+	local camel = text:gsub("[_ %-]+([%a%d])", function(c)
+		return c:upper()
+	end)
+	-- Ensure the very first letter is lowercase
+	camel = camel:gsub("^%a", string.lower)
+
+	-- Replace the selection with the new text
+	vim.fn.setreg("a", camel)
+	vim.cmd('normal! gv"ap')
+end, { desc = "Convert selection to camelCase" })
