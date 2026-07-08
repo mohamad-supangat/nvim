@@ -1,9 +1,9 @@
 -- ┌─────────────────┐
 -- │ Custom mappings │
 -- └─────────────────┘
+local config = require("config_reader").read_config()
 
 -- General mappings ===========================================================
-
 -- Multi-mode mappings
 vim.keymap.set({ "i", "t", "v", "c" }, "<A-BS>", "<C-W>", { noremap = true, silent = true, desc = "delete word" })
 
@@ -130,12 +130,14 @@ vim.keymap.set("n", "<Leader>ef", explore_at_file, { noremap = true, silent = tr
 
 vim.keymap.set("n", "<Leader>ei", "<Cmd>edit $MYVIMRC<CR>", { noremap = true, silent = true, desc = "init.lua" })
 
-vim.keymap.set(
-	"n",
-	"<Leader>en",
-	"<Cmd>lua MiniNotify.show_history()<CR>",
-	{ noremap = true, silent = true, desc = "Notifications" }
-)
+if config.snacks == false then
+	vim.keymap.set(
+		"n",
+		"<Leader>nn",
+		"<Cmd>lua MiniNotify.show_history()<CR>",
+		{ noremap = true, silent = true, desc = "Notifications" }
+	)
+end
 
 vim.keymap.set("n", "<Leader>eq", explore_quickfix, { noremap = true, silent = true, desc = "Quickfix list" })
 
@@ -161,12 +163,14 @@ vim.keymap.set(
 	{ noremap = true, silent = true, desc = "Commits (buf)" }
 )
 
-vim.keymap.set(
-	"n",
-	"<Leader>fd",
-	'<Cmd>Pick diagnostic scope="all"<CR>',
-	{ noremap = true, silent = true, desc = "Diagnostic workspace" }
-)
+if config.snacks == false then
+	vim.keymap.set(
+		"n",
+		"<Leader>fd",
+		'<Cmd>Pick diagnostic scope="all"<CR>',
+		{ noremap = true, silent = true, desc = "Diagnostic workspace" }
+	)
+end
 
 vim.keymap.set(
 	"n",
@@ -304,19 +308,21 @@ vim.keymap.set(
 	{ noremap = true, silent = true, desc = "References" }
 )
 
-vim.keymap.set(
-	"n",
-	"gd",
-	"<Cmd>lua vim.lsp.buf.definition()<CR>",
-	{ noremap = true, silent = true, desc = "Source definition" }
-)
+if config.snacks == false then
+	vim.keymap.set(
+		"n",
+		"gd",
+		"<Cmd>lua vim.lsp.buf.definition()<CR>",
+		{ noremap = true, silent = true, desc = "Source definition" }
+	)
 
-vim.keymap.set(
-	"n",
-	"go",
-	"<Cmd>lua vim.lsp.buf.type_definition()<CR>",
-	{ noremap = true, silent = true, desc = "Type definition" }
-)
+	vim.keymap.set(
+		"n",
+		"gy",
+		"<Cmd>lua vim.lsp.buf.type_definition()<CR>",
+		{ noremap = true, silent = true, desc = "Type definition" }
+	)
+end
 
 -- Mini.map mappings
 vim.keymap.set(
@@ -352,12 +358,14 @@ vim.keymap.set(
 	{ noremap = true, silent = true, desc = "Trim trailspace" }
 )
 
-vim.keymap.set(
-	"n",
-	"<c-z>",
-	"<Cmd>lua MiniMisc.zoom()<CR>",
-	{ noremap = true, silent = true, desc = "Zoom toggle / Zen Mode" }
-)
+if config.snacks == false then
+	vim.keymap.set(
+		"n",
+		"<c-z>",
+		"<Cmd>lua MiniMisc.zoom()<CR>",
+		{ noremap = true, silent = true, desc = "Zoom toggle / Zen Mode" }
+	)
+end
 
 -- Session mappings
 local session_new = 'MiniSessions.write(vim.fn.input("Session name: "))'
@@ -577,3 +585,5 @@ vim.keymap.set("v", "<leader>cc", function()
 	vim.fn.setreg("a", camel)
 	vim.cmd('normal! gv"ap')
 end, { desc = "Convert selection to camelCase" })
+
+vim.keymap.set("n", "<leader>rs", "<cmd>restart<cr>", { noremap = true, silent = true, desc = "Restart Neovim" })

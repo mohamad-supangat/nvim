@@ -43,9 +43,11 @@ now(function()
 	-- later(MiniIcons.tweak_lsp_kind)
 end)
 
-now(function()
-	require("mini.notify").setup()
-end)
+if config.snacks == false then
+	now(function()
+		require("mini.notify").setup()
+	end)
+end
 now(function()
 	require("mini.sessions").setup()
 end)
@@ -290,19 +292,21 @@ later(function()
 	})
 end)
 
-later(function()
-	-- - `[i` / `]i` - navigate to scope's top / bottom
-	require("mini.indentscope").setup({
-		symbol = "▏",
-		options = {
-			try_as_border = true,
-		},
-		-- draw = {
-		--   delay = 0,
-		--   animation = require("mini.indentscope").gen_animation.none(),
-		-- },
-	})
-end)
+if config.snacks == false then
+	later(function()
+		-- - `[i` / `]i` - navigate to scope's top / bottom
+		require("mini.indentscope").setup({
+			symbol = "▏",
+			options = {
+				try_as_border = true,
+			},
+			-- draw = {
+			--   delay = 0,
+			--   animation = require("mini.indentscope").gen_animation.none(),
+			-- },
+		})
+	end)
+end
 
 -- later(function() require('mini.jump').setup() end)
 -- later(function() require('mini.jump2d').setup() end)

@@ -9,15 +9,15 @@ vim.g.context_enabled = 1
 -- }
 vim.doge_mapping = "<Leader>nf"
 
-add("sheerun/vim-polyglot")
+-- add("sheerun/vim-polyglot")
 -- add("wellle/context.vim")
 --
 now_if_args(function()
 	add("https://github.com/romus204/tree-sitter-manager.nvim")
 	add("https://github.com/Darazaki/indent-o-matic")
 
-	add("alvan/vim-closetag") -- vim verson auto close tag
-	-- add("windwp/nvim-ts-autotag") -- treesitter version auto close tag
+	-- add("alvan/vim-closetag") -- vim verson auto close tag
+	add("windwp/nvim-ts-autotag") -- treesitter version auto close tag
 	-- add("nvim-treesitter/nvim-treesitter-context")
 	add("JoosepAlviste/nvim-ts-context-commentstring")
 	add("danymat/neogen")
@@ -84,17 +84,17 @@ now_if_args(function()
 	-- 	zindex = 20, -- the z-index of the context window
 	-- })
 
-	-- require("nvim-ts-autotag").setup({
-	-- 	opts = {
-	-- 		enable_close = true,
-	-- 		enable_rename = true,
-	-- 		enable_close_on_slash = false,
-	-- 	},
-	-- 	aliases = {
-	-- 		["blade"] = "html",
-	-- 		["html.handlebars"] = "html",
-	-- 	},
-	-- })
+	require("nvim-ts-autotag").setup({
+		opts = {
+			enable_close = true,
+			enable_rename = true,
+			enable_close_on_slash = false,
+		},
+		aliases = {
+			["blade"] = "html",
+			["html.handlebars"] = "html",
+		},
+	})
 
 	require("neogen").setup({})
 
