@@ -31,8 +31,8 @@ now_if_args(function()
 		"vue",
 		"pug",
 		"python",
-		-- "php",
-		-- "phpdoc",
+		"php",
+		"phpdoc",
 		"prisma",
 		"markdown",
 		"html",
@@ -49,6 +49,7 @@ now_if_args(function()
 		"xml",
 		"yaml",
 	}
+
 	require("tree-sitter-manager").setup({
 		ensure_installed = languages,
 	})
@@ -102,4 +103,18 @@ now_if_args(function()
 	vim.keymap.set("n", "<Leader>nf", function()
 		require("neogen").generate()
 	end, { noremap = true, silent = true, desc = "Generate documentation" })
+
+	-- Enable tree-sitter after opening a file for a target language
+	local filetypes = {}
+	for _, lang in ipairs(languages) do
+		for _, ft in ipairs(vim.treesitter.language.get_filetypes(lang)) do
+			table.insert(filetypes, ft)
+		end
+	end
+	local ts_start = function(ev)
+		vim.treesitter.start(ev.buf)
+		vim.bo.indentexpr = ""
+		vim.bo.autoindent = true
+	end
+	Config.new_autocmd("FileType", filetypes, ts_start, "Start tree-sitter")
 end)
