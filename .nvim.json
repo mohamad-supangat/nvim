@@ -1,5 +1,6 @@
 {
   "colorscheme": "randomhue",
+  "snacks": true,
   "format": {
     "conform": true,
     "none_ls": false
