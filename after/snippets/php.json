@@ -1,8 +1,6 @@
 {
   "Json Response": {
-    "body": [
-      "response()->json(${1});"
-    ],
+    "body": ["response()->json(${1});"],
     "description": "Json Response",
     "prefix": "json-response"
   },
@@ -376,20 +374,12 @@
     "prefix": "Model::v"
   },
   "Route::post action name": {
-    "body": [
-      "Route::post('action', [${1}, 'action'\\])->name('action');",
-      ""
-    ],
+    "body": ["Route::post('action', [${1}, 'action'\\])->name('action');", ""],
     "description": "Route::post action name",
     "prefix": "route-post-action"
   },
   "akun:si-pmn": {
-    "body": [
-      "[",
-      "    'akun'   => '${1:}',",
-      "    'number' => 10,",
-      "],"
-    ],
+    "body": ["[", "    'akun'   => '${1:}',", "    'number' => 10,", "],"],
     "prefix": "akun:si-pmn"
   },
   "column": {

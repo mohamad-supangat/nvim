@@ -9,11 +9,7 @@
     "prefix": "bs:form-group"
   },
   "can:nextPage": {
-    "body": [
-      "if (!can([\"${1:}\"])) {",
-      "  return <UnauthorizedPage />;",
-      "}"
-    ],
+    "body": ["if (!can([\"${1:}\"])) {", "  return <UnauthorizedPage />;", "}"],
     "prefix": "can"
   },
   "echo __": {
