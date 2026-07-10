@@ -45,6 +45,7 @@ if config.format.conform then
 		require("conform").setup({
 			formatters_by_ft = {
 				["*"] = { "trim_whitespace", "trim_newlines" },
+				dart = { "dart_format" },
 				lua = { "stylua" },
 				python = { "blue", "ruff_fix", "ruff_format" },
 				php = { "php_cs_fixer", "lsp" },
@@ -120,3 +121,8 @@ if config.format.conform then
 		)
 	end)
 end
+
+now_if_args(function()
+	add("https://github.com/nvim-flutter/flutter-tools.nvim")
+	require("flutter-tools").setup({})
+end)
