@@ -378,28 +378,7 @@ later(function()
 		},
 	})
 end)
-if false then
-	later(function()
-		local latex_patterns = { "latex/**/*.json", "**/latex.json" }
-		local lang_patterns = {
-			tex = latex_patterns,
-			plaintex = latex_patterns,
-			-- Recognize special injected language of markdown tree-sitter parser
-			markdown_inline = { "markdown.json" },
-		}
 
-		local snippets = require("mini.snippets")
-		local config_path = vim.fn.stdpath("config")
-		snippets.setup({
-			snippets = {
-				-- Always load 'snippets/global.json' from config directory
-				snippets.gen_loader.from_file(config_path .. "/snippets/global.json"),
-				-- Load from 'snippets/' directory of plugins, like 'friendly-snippets'
-				snippets.gen_loader.from_lang({ lang_patterns = lang_patterns }),
-			},
-		})
-	end)
-end
 later(function()
 	require("mini.splitjoin").setup()
 end)

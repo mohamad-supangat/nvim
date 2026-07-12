@@ -33,6 +33,7 @@ if config.snippets.mini then
 		snippets = {
 			{ prefix = "cdate", body = "$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE" },
 			{ prefix = "today", body = "$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE" },
+			gen_loader.from_file(vim.fn.stdpath("config") .. "/snippets/global.json"),
 			gen_loader.from_lang(),
 		},
 		mappings = {
@@ -69,13 +70,8 @@ if config.snippets.mini then
 		},
 	})
 
-	vim.api.nvim_create_autocmd({ "LspAttach" }, {
-		callback = function()
-			require("mini.snippets").start_lsp_server({
-				match = false,
-			})
-		end,
-		desc = "Start snippets as LSP Server",
+	require("mini.snippets").start_lsp_server({
+		match = false,
 	})
 
 	-- disbale underline in current cursor
