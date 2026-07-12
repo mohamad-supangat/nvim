@@ -554,6 +554,12 @@ vim.keymap.set(
 	{ noremap = true, silent = true, desc = "Git: Auto commit dan push" }
 )
 
+vim.keymap.set("n", "<leader>gp", function()
+	vim.notify("Pulling git repo...", vim.log.levels.INFO, { title = "Git" })
+	vim.cmd("Git pull")
+	vim.notify("Pulling done.", vim.log.levels.INFO, { title = "Git" })
+end, { noremap = true, silent = true, desc = "Git: Pull" })
+
 -- open neovim config
 vim.keymap.set("n", "<leader>ec", function()
 	vim.cmd("e " .. vim.fn.stdpath("config"))
