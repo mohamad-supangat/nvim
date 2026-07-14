@@ -1,8 +1,12 @@
 {
   "colorscheme": "randomhue",
-  "snacks": true,
+  "snacks": false,
+  "lsp": {
+    "native": false,
+    "coc": true
+  },
   "format": {
-    "conform": true,
+    "conform": false,
     "none_ls": false
   },
   "ai": {
@@ -12,11 +16,11 @@
   },
   "completion": {
     "blink": false,
-    "mini": true
+    "mini": false
   },
   "snippets": {
     "luasnip": false,
-    "mini": true
+    "mini": false
   },
   "plugins": {
     "code_runner": false,

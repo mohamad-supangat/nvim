@@ -14,7 +14,6 @@ vim.doge_mapping = "<Leader>nf"
 --
 now_if_args(function()
 	add("https://github.com/romus204/tree-sitter-manager.nvim")
-	add("https://github.com/Darazaki/indent-o-matic")
 
 	-- add("alvan/vim-closetag") -- vim verson auto close tag
 	add("windwp/nvim-ts-autotag") -- treesitter version auto close tag
@@ -52,12 +51,6 @@ now_if_args(function()
 
 	require("tree-sitter-manager").setup({
 		ensure_installed = languages,
-	})
-
-	require("indent-o-matic").setup({
-		max_lines = 2048,
-		standard_widths = { 2, 4, 8 },
-		skip_multiline = true,
 	})
 
 	require("ts_context_commentstring").setup({

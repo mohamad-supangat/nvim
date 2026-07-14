@@ -108,6 +108,10 @@
     "description": "import ref from vue",
     "prefix": "import-vue"
   },
+  "import:MapPicker": {
+    "body": "import MapPicker from '@/views/components/map-picker.vue';",
+    "prefix": "import:MapPicker"
+  },
   "importQuasar": {
     "body": [
       "import { Dialog } from \"quasar\";"

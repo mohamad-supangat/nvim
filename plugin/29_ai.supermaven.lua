@@ -10,7 +10,7 @@ if config.ai.supermaven then
       keymaps = {
         accept_suggestion = "<C-y>",
         clear_suggestion = "<C-backspace>",
-        accept_word = "<C-j>",
+        accept_word = "<leader>y",
       },
       -- ignore_filetypes = { cpp = true }, -- or { "cpp", }
       -- color = {

@@ -281,7 +281,7 @@ vim.keymap.set(
 -- LSP mappings
 vim.keymap.set("n", "ca", "<Cmd>lua vim.lsp.buf.code_action()<CR>", { noremap = true, silent = true, desc = "Actions" })
 
-vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, { desc = "LSP signature help" })
+-- vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, { desc = "LSP signature help" })
 
 vim.keymap.set(
 	"n",
