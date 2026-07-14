@@ -1,25 +1,3 @@
--- ┌──────────────────────────┐
--- │ Built-in Neovim behavior │
--- └──────────────────────────┘
---
--- This file defines Neovim's built-in behavior. The goal is to improve overall
--- usability in a way that works best with MINI.
---
--- Here `vim.o.xxx = value` sets default value of option `xxx` to `value`.
--- See `:h 'xxx'` (replace `xxx` with actual option name).
---
--- Option values can be customized on a per buffer or window basis.
--- See 'after/ftplugin/' for common example.
---
--- Notes:
--- - Some options (like `:h 'exrc'`) need to be set before this file is sourced.
---   Set them directly at the bottom of the 'init.lua' file.
-
--- stylua: ignore start
--- The next part (until `-- stylua: ignore end`) is aligned manually for easier
--- reading. Consider preserving this or remove `-- stylua` lines to autoformat.
-
--- General ====================================================================
 vim.g.mapleader   = ' '                              -- Use `<Space>` as <Leader> key
 vim.o.clipboard   = "unnamedplus"
 vim.o.mouse       = 'a'                              -- Enable mouse
@@ -38,7 +16,7 @@ if vim.fn.exists('syntax_on') ~= 1 then vim.cmd('syntax enable') end
 -- UI =========================================================================
 vim.o.breakindent    = true                -- Indent wrapped lines to match line start
 vim.o.breakindentopt = 'list:-1'           -- Add padding for lists (if 'wrap' is set)
-vim.o.colorcolumn    = '120'                -- Draw column on the right of maximum width
+vim.o.colorcolumn    = '120'               -- Draw column on the right of maximum width
 vim.o.cursorline     = true                -- Enable current line highlighting
 vim.o.linebreak      = true                -- Wrap lines at 'breakat' (if 'wrap' is set)
 vim.o.list           = true                -- Show helpful text indicators
@@ -51,7 +29,7 @@ vim.o.signcolumn     = 'yes'               -- Always show signcolumn (less flick
 vim.o.splitbelow     = true                -- Horizontal splits will be below
 vim.o.splitkeep      = 'screen'            -- Reduce scroll during window split
 vim.o.splitright     = true                -- Vertical splits will be to the right
-vim.o.winborder      = 'rounded'            -- Use border in floating windows
+vim.o.winborder      = 'rounded'           -- Use border in floating windows
 vim.o.wrap           = true                -- Don't visually wrap lines (toggle with \w)
 
 vim.o.cursorlineopt  = 'screenline,number' -- Show cursor line per screen line
@@ -61,7 +39,7 @@ vim.o.updatetime     = 100
 -- Special UI symbols. More is set via 'mini.basics' later.
 vim.o.fillchars      = 'eob: ,fold:╌'
 vim.o.listchars      = 'extends:…,nbsp:␣,precedes:…,tab:> '
-vim.opt.winbar = "%= %#PmenuSel# %t "
+vim.opt.winbar       = "%= %#PmenuSel# %t "
 
 -- Folds (see `:h fold-commands`, `:h zM`, `:h zR`, `:h zA`, `:h zj`)
 vim.o.foldlevel      = 10       -- Fold nothing by default; set to 0 or 1 to fold
@@ -86,49 +64,6 @@ vim.o.tabstop       = 2                     -- Show tab as this number of spaces
 vim.o.virtualedit   = 'block'               -- Allow going past end of line in blockwise mode
 
 vim.o.iskeyword     = '@,48-57,_,192-255,-' -- Treat dash as `word` textobject part
-
--- Pattern for a start of numbered list (used in `gw`). This reads as
--- "Start of list item is: at least one special character (digit, -, +, *)
--- possibly followed by punctuation (. or `)`) followed by at least one space".
-vim.o.formatlistpat = [[^\s*[0-9\-\+\*]\+[\.\)]*\s\+]]
-
--- Built-in completion
-vim.o.complete      = '.,w,b,kspell'                  -- Use less sources
-vim.o.completeopt   = 'menuone,noselect,fuzzy,nosort' -- Use custom behavior
-
--- Autocommands ===============================================================
-
--- Don't auto-wrap comments and don't insert comment leader after hitting 'o'.
--- Do on `FileType` to always override these changes from filetype plugins.
-local f             = function() vim.cmd('setlocal formatoptions-=c formatoptions-=o') end
-Config.new_autocmd('FileType', nil, f, "Proper 'formatoptions'")
-
--- There are other autocommands created by 'mini.basics'. See 'plugin/30_mini.lua'.
-
--- Diagnostics ================================================================
-
-
-local diagnostic_opts = {
-  -- Show signs on top of any other sign, but only for warnings and errors
-  signs = { priority = 9999, severity = { min = 'WARN', max = 'ERROR' } },
-
-  -- Show all diagnostics as underline (for their messages type `<Leader>ld`)
-  underline = { severity = { min = 'HINT', max = 'ERROR' } },
-
-  -- Show more details immediately for errors on the current line
-  virtual_lines = false,
-  virtual_text = {
-    current_line = true,
-    severity = { min = 'ERROR', max = 'ERROR' },
-  },
-
-  -- Don't update diagnostics when typing
-  update_in_insert = true,
-}
-
--- Use `later()` to avoid sourcing `vim.diagnostic` on startup
-MiniDeps.later(function() vim.diagnostic.config(diagnostic_opts) end)
-
 if vim.fn.has("nvim-0.12.0") == 1 then
   require("vim._core.ui2").enable({})
 end
