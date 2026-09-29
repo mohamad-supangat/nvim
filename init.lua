@@ -27,8 +27,6 @@ local plugins = {
   { src = 'https://github.com/mason-org/mason-lspconfig.nvim' },
   { src = 'https://github.com/stevearc/conform.nvim' },
 
-  { src = 'https://github.com/hasansujon786/super-kanban.nvim' },
-
   -- ai chats
   { src = 'https://github.com/olimorris/codecompanion.nvim' },
   { src = 'https://github.com/ravitemer/codecompanion-history.nvim' },
