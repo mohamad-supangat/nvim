@@ -162,6 +162,19 @@
     ],
     "prefix": "function:deleteData(row)"
   },
+  "function:optionDatePicker": {
+    "body": [
+      "function optionArrivalConfirmationDatePicker(date) {",
+      "    if (!filter.value.kegiatan) {",
+      "        return (date = null);",
+      "    }",
+      "    let tanggalMulai = moment(filter.value.kegiatan.tanggal_mulai).format('YYYY/MM/DD');",
+      "    let tanggalSelesai = moment(filter.value.kegiatan.tanggal_selesai).format('YYYY/MM/DD');",
+      "    return date >= tanggalMulai && date <= tanggalSelesai;",
+      "}"
+    ],
+    "prefix": "function:optionDatePicker"
+  },
   "functon:edit": {
     "body": [
       "function editData(row) {",
