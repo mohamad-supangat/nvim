@@ -24,7 +24,7 @@ keymap('n', '<leader>cF', function()
   vim.notify('Copied full path: ' .. filepath, vim.log.levels.INFO, { title = 'Clipboard' })
 end, { desc = 'Copy Full File Path to clipboard' })
 
-keymap('n', '<Leader>uu', '<Cmd>Pack<CR>', { desc = 'Update Plugins' })
+keymap('n', '<Leader>uu', '<Cmd>packupdate<CR>', { desc = 'Update Plugins' })
 
 keymap('n', '<Leader>q', ':q<CR>', { desc = 'Exit neovim' })
 
@@ -77,3 +77,12 @@ keymap('v', '<Tab>', '>gv', { noremap = true, silent = true, desc = 'Indent >' }
 keymap('v', '<S-Tab>', '<gv', { noremap = true, silent = true, desc = 'Indent <' })
 keymap('v', '>', '>gv', { noremap = true, silent = true, desc = 'Indent >' })
 keymap('v', '<', '<gv', { noremap = true, silent = true, desc = 'Indent <' })
+
+keymap('n', '<leader>sew', function()
+  vim.ui.input({ prompt = 'Nama Session: ' }, function(input)
+    if input and input ~= '' then
+      require('mini.sessions').write(input)
+      vim.notify("Session '" .. input .. "' berhasil disimpan")
+    end
+  end)
+end, { desc = 'Simpan session mini.sessions' })

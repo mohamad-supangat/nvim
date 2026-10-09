@@ -16,7 +16,7 @@ require('snacks').setup({
   scope = { enabled = true },
   statuscolumn = { enabled = true },
   image = {
-    enabled = true,
+    enabled = false,
     inline = false,
     doc = {
       inline = false,
