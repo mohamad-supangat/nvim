@@ -1,16 +1,24 @@
-local function load_wal_colors()
-  local wal_colors = dofile(vim.fn.expand('~/.cache/wal/colors-nvim.lua'))
-  require('mini.hues').setup({
-    background = wal_colors.background,
-    foreground = wal_colors.foreground,
-    plugins = {
-      default = true,
-    },
-  })
+local function load_colors()
+  local wal_file = vim.fn.expand('~/.cache/wal/colors-nvim.lua')
+
+  if vim.uv.fs_stat(wal_file) then
+    local wal_colors = dofile(wal_file)
+
+    require('mini.hues').setup({
+      background = wal_colors.background,
+      foreground = wal_colors.foreground,
+      plugins = {
+        default = true,
+      },
+    })
+  else
+    vim.cmd.colorscheme('catppuccin')
+  end
 end
 
-load_wal_colors()
-Config.new_autocmd('Signal', 'SIGUSR1', load_wal_colors, 'Auto reload wal colorscheme')
+load_colors()
+
+Config.new_autocmd('Signal', 'SIGUSR1', load_colors(), 'Auto reload colorscheme on SIGUSR1')
 
 -- Define a function to clear backgrounds
 local function make_transparent()
