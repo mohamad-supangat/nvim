@@ -18,7 +18,7 @@ end
 
 load_colors()
 
-Config.new_autocmd('Signal', 'SIGUSR1', load_colors(), 'Auto reload colorscheme on SIGUSR1')
+Config.new_autocmd('Signal', 'SIGUSR1', load_colors, 'Auto reload colorscheme on SIGUSR1')
 
 -- Define a function to clear backgrounds
 local function make_transparent()
