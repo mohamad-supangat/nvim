@@ -39,6 +39,9 @@ keymap('n', 'gi', vim.lsp.buf.implementation, { desc = 'LSP: Go to Implementatio
 keymap('n', 'go', vim.lsp.buf.type_definition, { desc = 'LSP: Go to Type Definition' })
 keymap('n', 'gr', vim.lsp.buf.references, { desc = 'LSP: Find References' })
 keymap('n', 'gl', vim.diagnostic.open_float, { desc = 'LSP: Show Diagnostics' })
+keymap('n', '<leader>xx', vim.diagnostic.setqflist, { desc = 'LSP: Show All Diagnostics' })
+keymap('n', '<leader>xX', vim.diagnostic.setloclist, { desc = 'LSP: Show Diagnostics Current Buffer' })
+
 keymap('n', 'gs', vim.lsp.buf.signature_help, { desc = 'LSP: Signature Help' })
 keymap('n', 'rn', vim.lsp.buf.rename, { desc = 'LSP: Rename Symbol' })
 keymap('n', 'ca', vim.lsp.buf.code_action, { desc = 'LSP: Code Action' })
