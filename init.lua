@@ -9,7 +9,8 @@ local plugins = {
   { src = 'https://github.com/chrisgrieser/nvim-scissors' },
 
   { src = 'https://github.com/MagicDuck/grug-far.nvim' },
-  { src = 'https://github.com/mrjones2014/smart-splits.nvim' },
+  { src = 'https://github.com/smart-splits-nvim/backend-tmux' },
+  { src = 'https://github.com/smart-splits-nvim/smart-splits.nvim' },
   { src = 'https://github.com/backdround/improved-search.nvim' },
   { src = 'https://github.com/ingur/floatty.nvim' },
 
