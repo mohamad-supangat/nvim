@@ -466,7 +466,7 @@
     "body": [
       "<template lang=\"pug\">",
       "q-form(@submit=\"submit\")",
-      "    q-dialog(ref=\"dialogRef\", @hide=\"onDialogHide\")",
+      "    q-dialog(ref=\"dialogRef\", @hide=\"onDialogHide\" persistent)",
       "        q-card.q-dialog-plugin",
       "            q-toolbar",
       "                .text-h5 {{ __('') }}",
