@@ -19,7 +19,7 @@ local plugins = {
   { src = 'https://github.com/saghen/blink.cmp' },
 
   -- ai helpers
-  { src = 'https://github.com/supermaven-inc/supermaven-nvim' },
+  { src = 'https://github.com/monkoose/neocodeium' },
 
   { src = 'https://github.com/vim-polyglot/vim-polyglot' },
 

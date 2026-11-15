@@ -483,7 +483,7 @@
       "            q-toolbar",
       "                .text-h5 {{ __('') }}",
       "            q-separator",
-      "            q-card-section",
+      "            q-card-section.scroll(max-h=\"70vh\")",
       "            q-separator",
       "            q-card-actions(align=\"right\")",
       "                q-btn(:label=\"__('Batal')\", @click=\"onDialogCancel\", flat)",
