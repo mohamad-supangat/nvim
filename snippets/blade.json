@@ -569,6 +569,16 @@
     "description": "switch",
     "prefix": "b:switch"
   },
+  "table:info-row": {
+    "body": [
+      "<tr>",
+      "        <td>${1:}</td>",
+      "        <td>:</td>",
+      "        <td>{{ data_get(${2:},'${3:}' , '-') }}</td>",
+      "</tr>"
+    ],
+    "prefix": "table:info-row"
+  },
   "try catch db:beginTransaction()": {
     "body": [
       "DB::beginTransaction();",
