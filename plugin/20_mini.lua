@@ -30,7 +30,7 @@ require('mini.files').setup({
     filter = function(fs_entry)
       return true
     end,
-    -- prefix = function() end, -- disable icon in mini.files,
+    prefix = function() end, -- disable icon in mini.files,
   },
   width_focus = 30,
   width_nofocus = 20,
