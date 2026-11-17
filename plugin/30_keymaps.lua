@@ -1,7 +1,9 @@
 local keymap = vim.keymap.set
 
 keymap({ 'i', 't', 'v', 'c' }, '<A-BS>', '<C-W>', { desc = 'delete word' })
-vim.keymap.set('n', '<Esc><Esc>', ':nohl<CR>', { noremap = true, silent = true, desc = 'Remove Search highlighting' })
+
+keymap('n', '<Esc><Esc>', ':nohl<CR>', { noremap = true, silent = true, desc = 'Remove Search highlighting' })
+keymap('t', '<Esc><Esc>', [[<C-\><C-n>]], { desc = 'Exit terminal mode' })
 
 keymap('v', '<BS>', '"_d', { desc = 'Delete without cut /copy to buffer clipboard' })
 
@@ -10,7 +12,7 @@ keymap('n', '<leader>-', '<C-w>s', { desc = 'Split window horizontal' })
 keymap('n', '<leader>|', '<C-w>v<C-w>l', { desc = 'Split window vertical' })
 
 -- keymap('v', '/', '"fy/\\V<C-R>f<CR>', { desc = 'Search current tag' })
--- vim.keymap.set('v', '/', [[y/\V<C-R>"<CR>]], { desc = 'Search for visually selected text' })
+-- keymap('v', '/', [[y/\V<C-R>"<CR>]], { desc = 'Search for visually selected text' })
 
 keymap('n', '<leader>cf', function()
   local filepath = vim.fn.expand('%')
