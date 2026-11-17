@@ -79,8 +79,8 @@ function _G.kanban()
   })
   lazygit.toggle()
 end
-
-keymap('n', '<Leader>gi', ':lua lazygit()<CR>')
+--
+-- keymap('n', '<Leader>gi', ':lua lazygit()<CR>')
 keymap('n', '<Leader>do', ':lua lazydocker()<CR>')
 keymap('n', '<Leader>db', ':lua database()<CR>')
 keymap('n', '<Leader>kb', ':lua kanban()<CR>')
