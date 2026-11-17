@@ -12,7 +12,7 @@ local function load_colors()
       },
     })
   else
-    vim.cmd.colorscheme('catppuccin')
+    vim.cmd.colorscheme('randomhue')
   end
 end
 
