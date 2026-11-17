@@ -34,6 +34,7 @@ local plugins = {
   -- { src = 'https://github.com/azorng/goose.nvim' },
   --
   { src = 'https://github.com/noisesfromspace/touchup.nvim' },
+  { src = 'https://github.com/NeogitOrg/neogit' },
 }
 
 vim.pack.add(plugins)
