@@ -527,5 +527,13 @@
       "}"
     ],
     "prefix": "try-finally"
+  },
+  "usePage::inertia": {
+    "body": [
+      "import { usePage } from '@inertiajs/vue3';",
+      "",
+      "const ${1:} = computed(() => usePage().props.${1:});"
+    ],
+    "prefix": "usePage::inertia"
   }
 }
