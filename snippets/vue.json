@@ -242,6 +242,18 @@
     ],
     "prefix": "q-btn:edit"
   },
+  "q-btn:tambah-push-array": {
+    "body": [
+      "q-btn(",
+      "  @click=\"form.student_growth_categories.push({ name: '', score: 0 })\",",
+      "  :label=\"__('Tambah')\",",
+      "  size=\"sm\",",
+      "  icon=\"mdi-plus\",",
+      "  color=\"primary\"",
+      ")"
+    ],
+    "prefix": "q-btn:tambah-push-array"
+  },
   "q-card-actions-with-buttons": {
     "body": [
       "q-card-actions(align='right')",
@@ -466,7 +478,7 @@
     "body": [
       "<template lang=\"pug\">",
       "q-form(@submit=\"submit\")",
-      "    q-dialog(ref=\"dialogRef\", @hide=\"onDialogHide\" persistance)",
+      "    q-dialog(ref=\"dialogRef\", @hide=\"onDialogHide\" persistent)",
       "        q-card.q-dialog-plugin",
       "            q-toolbar",
       "                .text-h5 {{ __('') }}",
