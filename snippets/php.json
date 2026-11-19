@@ -720,6 +720,10 @@
     ],
     "prefix": "sekolahku:controller-excel-function"
   },
+  "tb:s": {
+    "body": "\\$table->string('${1:}');",
+    "prefix": "tb:s"
+  },
   "tcan": {
     "body": [
       "<?php if (tcan('${1:}')) { ?>",

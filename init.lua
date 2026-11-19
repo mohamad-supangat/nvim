@@ -19,7 +19,7 @@ local plugins = {
   { src = 'https://github.com/saghen/blink.cmp' },
 
   -- ai helpers
-  { src = 'https://github.com/monkoose/neocodeium' },
+  { src = 'https://github.com/milanglacier/minuet-ai.nvim' },
 
   { src = 'https://github.com/vim-polyglot/vim-polyglot' },
 
@@ -34,7 +34,8 @@ local plugins = {
   -- { src = 'https://github.com/azorng/goose.nvim' },
   --
   { src = 'https://github.com/noisesfromspace/touchup.nvim' },
-  { src = 'https://github.com/NeogitOrg/neogit' },
+  { src = 'https://github.com/NeogitOrg/neogit' }, -- magit / git ui alternative to lazygit,
+  { src = 'https://github.com/hedyhli/outline.nvim' },
 }
 
 vim.pack.add(plugins)

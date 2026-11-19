@@ -73,6 +73,12 @@
           "dart"
         ],
         "path": "./dart.json"
+      },
+      {
+        "language": [
+          "codecompanion"
+        ],
+        "path": "./codecompanion.json"
       }
     ]
   },
