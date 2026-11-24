@@ -65,19 +65,22 @@ keymap('v', '<S-Tab>', '<gv', { noremap = true, silent = true, desc = 'Indent <'
 keymap('v', '>', '>gv', { noremap = true, silent = true, desc = 'Indent >' })
 keymap('v', '<', '<gv', { noremap = true, silent = true, desc = 'Indent <' })
 
+keymap('n', '<leader>sep', function()
+  require('mini.sessions').select()
+end, { desc = 'Pick MiniSession' })
 keymap('n', '<leader>sew', function()
   vim.ui.input({ prompt = 'Nama Session: ' }, function(input)
     if input and input ~= '' then
       require('mini.sessions').write(input)
-      vim.notify("Session '" .. input .. "' berhasil disimpan")
+      vim.notify("Session '" .. input .. "' Created")
     end
   end)
-end, { desc = 'Simpan session mini.sessions' })
+end, { desc = 'Create MiniSession' })
 
 -- opening externeal apps
 keymap('n', '<leader>sm', function()
   vim.cmd('!sublime_merge ' .. require('utils').currentFileRootPath() .. '&')
-end, { desc = 'Buka Sublime Merge' })
+end, { desc = 'Open Sublime Merge' })
 keymap('n', '<leader>na', function()
   vim.cmd('!nautilus ' .. require('utils').currentFileRootPath() .. '&')
-end, { desc = 'Buka File Manager nautilus' })
+end, { desc = 'Open File Manager nautilus' })
