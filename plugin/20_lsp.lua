@@ -28,7 +28,7 @@ vim.diagnostic.config({
 require('mason').setup()
 require('mason-lspconfig').setup({
   automatic_enable = true,
-  ensure_installed = { 'lua_ls', 'tsc', 'phpantom_lsp', 'markdown_oxide' },
+  ensure_installed = { 'lua_ls', 'vtsls', 'phpantom_lsp', 'markdown_oxide' },
 })
 
 local keymap = vim.keymap.set
