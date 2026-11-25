@@ -36,6 +36,7 @@ local plugins = {
   { src = 'https://github.com/noisesfromspace/touchup.nvim' },
   { src = 'https://github.com/NeogitOrg/neogit' }, -- magit / git ui alternative to lazygit,
   { src = 'https://github.com/hedyhli/outline.nvim' },
+  { src = 'https://github.com/Bekaboo/dropbar.nvim' },
 }
 
 vim.pack.add(plugins)
